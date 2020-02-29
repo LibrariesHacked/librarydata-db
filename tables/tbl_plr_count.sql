@@ -1,8 +1,8 @@
 create table plr_count (
 	id serial,
 	isbn_id integer,
-	stock_count integer,
-	loans_count integer,
+	stock integer,
+	loans integer,
 	contributor_id integer,
 	item_type_id integer,
 	constraint pk_plrcount_id primary key (id),
