@@ -15,4 +15,4 @@ create unique index idx_plrcount_id on plr_count (id);
 create index idx_plrcount_isbnid on plr_count (isbn_id);
 create index idx_plrcount_contributorid on plr_count (contributor_id);
 create index idx_plrcount_itemtypeid on plr_count (item_type_id);
-cluster stop using idx_stop_id;
+cluster plr_count using idx_plrcount_id;
