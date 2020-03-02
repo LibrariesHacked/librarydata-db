@@ -11,14 +11,14 @@ COUNTS_OUTPUT = '..\\data\\[year]_counts.csv'
 def run():
 
     auth_codes = {}
-    counts = []
 
-    years = [f.path for f in os.scandir(PATH) if f.is_dir()]
+    years = [(f.path, f.name) for f in os.scandir(PATH) if f.is_dir()]
 
     for year in years:
         sample_auths = [(f.path, f.name)
-                        for f in os.scandir(year) if f.is_dir()]
+                        for f in os.scandir(year[0]) if f.is_dir()]
 
+        counts = []
         for sample in sample_auths:
 
             code = sample[1][0:2]
@@ -40,7 +40,6 @@ def run():
                     encoding = prediction['encoding']
 
                 rows = []
-                counts = []
                 with open(submission, 'r', encoding=encoding) as csvfile:
 
                     try:
@@ -58,17 +57,13 @@ def run():
                     if idx == 0 and len(row) > 2:
                         period_start = row[1]
                         period_end = row[2]
-                    elif (idx == (len(rows) - 1) and len(row) > 0):
-                        # Do validation
-                        if len(row) > 0 and int(row[0]) != len(counts):
-                            print("Validation error")
                     else:
                         if len(row) == 5:
                             # Authority, Start, End, ISBN, contributor, item type, stock, loans
                             counts.append(
-                                [code, period_start, period_end, row[0], row[3], row[4], row[2], row[1]])
+                                [code, period_start, period_end, row[0].strip(), row[3].strip(), row[4].strip(), row[2].strip(), row[1].strip()])
 
-        with open(COUNTS_OUTPUT.replace('[year]', year), 'w', encoding='utf8', newline='') as out_csv:
+        with open(COUNTS_OUTPUT.replace('[year]', year[1]), 'w', encoding='utf8', newline='') as out_csv:
             writer = csv.writer(out_csv, delimiter=',',
                                 quotechar='"', quoting=csv.QUOTE_MINIMAL)
             writer.writerow(['authority_code', 'period_start', 'period_end',
@@ -82,8 +77,6 @@ def run():
         writer.writerow(['code', 'name'])
         for attr in auth_codes:
             writer.writerow([attr, auth_codes[attr]])
-
-
 
 
 run()
