@@ -1,6 +1,6 @@
 create table schema_local_authority (
   id serial,
-  name character varying (50),
+  name character varying (100),
   constraint pk_schemalocalauthority_id primary key (id)
 );
 

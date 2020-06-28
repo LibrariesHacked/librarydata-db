@@ -14,6 +14,13 @@ set client_encoding = 'UTF8';
 \i 'tables/tbl_plr_item_type.sql'
 \i 'tables/tbl_plr_reporting_period.sql'
 \i 'tables/tbl_plr_count.sql';
+\i 'tables/tbl_plr_staging_authorities.sql';
+\i 'tables/tbl_plr_staging_counts.sql';
+
+\i 'tables/tbl_schemas_local_authority.sql';
+\i 'tables/tbl_schemas_library_type.sql';
+\i 'tables/tbl_schemas_libraries.sql';
+\i 'tables/tbl_schemas_staging_libraries.sql';
 
 -- create views
 
