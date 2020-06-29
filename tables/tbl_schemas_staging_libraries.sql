@@ -1,14 +1,15 @@
-create table schema_staging_libraries (
-  local_authority character varying (100),
-  name character varying (250),
+create table schemas_staging_libraries (
+  local_authority text,
+  name text,
   address_1 character varying (250),
   address_2 character varying (250),
   address_3 character varying (250),
   postcode character varying (9),
-  statutory bit not null,
+  unique_property_reference_number text,
+  statutory text,
   library_type character varying (50),
-  year_opened numeric (4),
-  year_closed numeric (4),
+  year_opened text,
+  year_closed text,
   monday_staffed_hours character varying (100),
   tuesday_staffed_hours character varying (100),
   wednesday_staffed_hours character varying (100),
@@ -24,8 +25,9 @@ create table schema_staging_libraries (
   saturday_unstaffed_hours character varying (100),
   sunday_unstaffed_hours character varying (100),
   special_hours text,
-  colocated bit not null,
+  colocated text,
   colocated_with character varying (250),
   notes text,
   url text,
+  email_address text
 );

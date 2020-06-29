@@ -1,8 +1,3 @@
--- First load PLR data
+-- Libraries dataset
 
-
-
--- Then load Open Library Data
-
-
--- Load out libraries dataset
+\copy schemas_staging_libraries from 'data/libraries.csv' csv header force null address_1,address_2,address_3,postcode,unique_property_reference_number,year_opened,year_closed,monday_staffed_hours,tuesday_staffed_hours,wednesday_staffed_hours,thursday_staffed_hours,friday_staffed_hours,saturday_staffed_hours,sunday_staffed_hours,monday_unstaffed_hours,tuesday_unstaffed_hours,wednesday_unstaffed_hours,thursday_unstaffed_hours,friday_unstaffed_hours,saturday_unstaffed_hours,sunday_unstaffed_hours,special_hours,colocated,colocated_with,notes,url,email_address;
