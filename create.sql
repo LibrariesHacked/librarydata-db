@@ -7,7 +7,9 @@
 -- set client encoding
 set client_encoding = 'UTF8';
 
--- create tables
+\i 'tables/tbl_geo_uprn.sql';
+\i 'tables/tbl_geo_postcode_lookup.sql';
+
 \i 'tables/tbl_plr_authority.sql';
 \i 'tables/tbl_plr_contributor.sql';
 \i 'tables/tbl_plr_isbn.sql'
@@ -28,3 +30,5 @@ set client_encoding = 'UTF8';
 
 -- load in data
 \i 'load.sql';
+
+vacuum analyze;

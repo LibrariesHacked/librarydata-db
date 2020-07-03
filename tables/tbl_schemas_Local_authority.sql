@@ -1,8 +1,8 @@
-create table schema_local_authority (
-  id serial,
+create table schemas_local_authority (
+  code character (9),
   name character varying (100),
-  constraint pk_schemalocalauthority_id primary key (id)
+  constraint pk_schemaslocalauthority_code primary key (code)
 );
 
-create unique index idx_schemalocalauthority_id on schema_local_authority (id);
-cluster schema_local_authority using idx_schemalocalauthority_id;
+create unique index idx_schemaslocalauthority_code on schemas_local_authority (code);
+cluster schemas_local_authority using idx_schemaslocalauthority_code;

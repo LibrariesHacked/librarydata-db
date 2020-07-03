@@ -1,6 +1,6 @@
-create table schema_libraries (
+create table schemas_libraries (
   id serial not null,
-  local_authority_id integer,
+  local_authority_code character (9),
   name character varying (250),
   address_1 character varying (250),
   address_2 character varying (250),
@@ -29,12 +29,13 @@ create table schema_libraries (
   colocated_with character varying (250),
   notes text,
   url text,
-  constraint pk_schemalibraries_authority_name primary key (local_authority_id, name),
-  constraint fk_schemalibraries_localauthorityid foreign key (local_authority_id) references schema_local_authority (id),
-  constraint fk_schemalibraries_librarytypeid foreign key (library_type_id) references schema_library_type (id)
+  email_address text,
+  constraint pk_schemaslibraries_authority_name primary key (local_authority_code, name),
+  constraint fk_schemaslibraries_localauthoritycode foreign key (local_authority_code) references schemas_local_authority (code),
+  constraint fk_schemaslibraries_librarytypeid foreign key (library_type_id) references schemas_library_type (id)
 );
 
-create unique index idx_schemalibraries_id on schema_libraries (id);
-cluster schema_libraries using idx_schemalibraries_id;
+create unique index idx_schemaslibraries_id on schemas_libraries (id);
+cluster schemas_libraries using idx_schemaslibraries_id;
 
-create index idx_schemalibraries_local_authority_id on schema_libraries (local_authority_id);
+create index idx_schemaslibraries_local_authority_code on schemas_libraries (local_authority_code);
