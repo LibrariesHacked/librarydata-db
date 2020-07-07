@@ -42,9 +42,9 @@ create table geo_postcode_lookup (
     sustainability_transformation_partnership character (9)
 );
 
-create unique index idx_geopostcodelookup_postcode_lsoa_district_county_country on geo_postcode_lookup (postcode, lsoa, district, county, country);
+create unique index idx_geopostcodelookup_postcode on geo_postcode_lookup (postcode);
 create index idx_geopostcodelookup_lsoa on geo_postcode_lookup (lsoa);
 create index idx_geopostcodelookup_district on geo_postcode_lookup (district);
 create index idx_geopostcodelookup_county on geo_postcode_lookup (county);
 create index idx_geopostcodelookup_country on geo_postcode_lookup (country);
-cluster geo_postcode_lookup using idx_geopostcodelookup_postcode_lsoa_district_county_country;
+cluster geo_postcode_lookup using idx_geopostcodelookup_postcode;

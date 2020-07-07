@@ -4,6 +4,8 @@
 -- switch to using the database
 \c librarydata;
 
+create extension postgis;
+
 -- set client encoding
 set client_encoding = 'UTF8';
 
