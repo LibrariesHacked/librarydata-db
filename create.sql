@@ -27,8 +27,11 @@ set client_encoding = 'UTF8';
 \i 'tables/tbl_schemas_staging_libraries.sql';
 
 -- create views
+\i 'views/vw_schemas_libraries.sql';
+\i 'views/vw_schemas_libraries_extended.sql';
 
 -- create functions
+\i 'functions/fn_libraries_mvt.sql';
 
 -- load in data
 \i 'load.sql';
