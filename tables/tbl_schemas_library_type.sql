@@ -1,6 +1,7 @@
 create table schemas_library_type (
   id serial,
   name character varying (50),
+  description character varying (500)
   constraint pk_schemaslibrarytype_id primary key (id)
 );
 

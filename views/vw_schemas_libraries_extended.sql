@@ -1,10 +1,15 @@
-create view vw_schemas_libraries as
+create view vw_schemas_libraries_extended as
 select
   a.name as "Local authority",
+  a.code as "Local authority code",
   l.name as "Library name",
   l.address_1 as "Address 1",
   l.postcode as "Postcode",
+  p.longitude as "Postcode longitude",
+  p.latitude as "Postcode latitude",
   l.unique_property_reference_number as "Unique property reference number",
+  u.longitude as "Unique property reference number longitude",
+  u.latitude as "Unique property reference number latitude",
   case when l.statutory then 'Yes' else 'No' end as "Statutory",
   t.name as "Library type",
   l.year_opened as "Year opened",
@@ -30,4 +35,6 @@ select
   l.email_address as "Email address"
 from schemas_libraries l
 join schemas_local_authority a on a.code = l.local_authority_code
-join schemas_library_type t on t.id = l.library_type_id;
+join schemas_library_type t on t.id = l.library_type_id
+left join geo_uprn u on u.uprn = l.unique_property_reference_number
+left join geo_postcode_lookup p on p.postcode = l.postcode;
