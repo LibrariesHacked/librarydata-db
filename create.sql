@@ -31,6 +31,7 @@ set client_encoding = 'UTF8';
 \i 'views/vw_schemas_libraries_extended.sql';
 
 -- create functions
+\i 'functions/fn_bbox.sql';
 \i 'functions/fn_libraries_mvt.sql';
 
 -- load in data

@@ -4,6 +4,8 @@ select
   a.code as "Local authority code",
   l.name as "Library name",
   l.address_1 as "Address 1",
+  l.address_2 as "Address 2",
+  l.address_3 as "Address 3",
   l.postcode as "Postcode",
   p.longitude as "Postcode longitude",
   p.latitude as "Postcode latitude",
@@ -33,6 +35,14 @@ select
   l.notes as "Notes",
   l.url as "URL",
   l.email_address as "Email address",
+  case 
+    when l.unique_property_reference_number is not null then u.longitude
+    else p.longitude
+  end as "Longitude",
+  case 
+    when l.unique_property_reference_number is not null then u.latitude
+    else p.latitude
+  end as "Latitude",
   case 
     when l.unique_property_reference_number is not null then st_setsrid(st_makepoint(u.longitude, u.latitude), 4326)
     else st_setsrid(st_makepoint(p.longitude, p.latitude), 4326)

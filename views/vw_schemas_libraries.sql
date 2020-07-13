@@ -3,6 +3,8 @@ select
   a.name as "Local authority",
   l.name as "Library name",
   l.address_1 as "Address 1",
+  l.address_2 as "Address 2",
+  l.address_3 as "Address 3",
   l.postcode as "Postcode",
   l.unique_property_reference_number as "Unique property reference number",
   case when l.statutory then 'Yes' else 'No' end as "Statutory",
