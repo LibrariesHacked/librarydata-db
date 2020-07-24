@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 # HTML obtained using: curl "https://web.archive.org/web/20200425101045/https://scottishlibraries.org/find-a-library/" > raw/scotland.html
 HTML = '../raw/scotland.html'
-DATA_OUTPUT = '..//data//scotland.csv'
+DATA_OUTPUT = '..//data//libraries_scotland.csv'
 
 
 def run():
@@ -43,24 +43,30 @@ def run():
             address_1 = ''
             if len(address_lines) > 0:
               address_1 = address_lines[0]
+            address_2 = ''
+            if len(address_lines) > 1:
+              address_2 = address_lines[1]
+            address_3 = ''
+            if len(address_lines) > 2:
+              address_3 = address_lines[2]
 
             website = public_library.find('div', {'class': 'mapOverlayLink'})
 
-            if (website is not None):
+            if (website is not None and name != ''):
               url = website['url']
 
               libraries.append(
-                  [name, address_1, postcode, url]
+                  [name, address_1, address_2, address_3, postcode, url]
               )
 
     with open(DATA_OUTPUT, 'w', encoding='utf8', newline='') as out_csv:
       libraries = sorted(libraries, key=lambda row: (row[0]))
       lib_writer = csv.writer(out_csv, delimiter=',',
                               quotechar='"', quoting=csv.QUOTE_MINIMAL)
-      lib_writer.writerow(['Library name', 'Address 1', 'Postcode', 'URL'])
+      lib_writer.writerow(['Library name', 'Address 1', 'Address 2', 'Address 3', 'Postcode', 'URL'])
 
       for lib in libraries:
-        lib_writer.writerow([lib[0], lib[1], lib[2], lib[3]])
+        lib_writer.writerow([lib[0], lib[1], lib[2], lib[3], lib[4], lib[5]])
 
 
 run()

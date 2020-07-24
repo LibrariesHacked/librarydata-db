@@ -36,5 +36,6 @@ set client_encoding = 'UTF8';
 
 -- load in data
 \i 'load.sql';
+\i 'scotland_load.sql';
 
 vacuum analyze;
