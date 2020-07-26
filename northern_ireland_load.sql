@@ -19,7 +19,7 @@ where replace(p.postcode, ' ', '') =  replace(lu.postcode, ' ', '');
 -- Load the real libraries table
 insert into schemas_libraries (local_authority_code, name, address_1, address_2, address_3, postcode, statutory, colocated, library_type_id, url)
 select
-  (select district from geo_postcode_lookup where postcode = st.postcode),
+  'N92000002',
   st.name,
   st.address_1,
   st.address_2,
