@@ -9,6 +9,7 @@ create extension postgis;
 -- set client encoding
 set client_encoding = 'UTF8';
 
+\i 'tables/tbl_geo_building.sql';
 \i 'tables/tbl_geo_uprn.sql';
 \i 'tables/tbl_geo_postcode_lookup.sql';
 
@@ -26,6 +27,8 @@ set client_encoding = 'UTF8';
 \i 'tables/tbl_schemas_libraries.sql';
 \i 'tables/tbl_schemas_staging_libraries.sql';
 
+\i 'tables/tbl_geo_building_library.sql';
+
 -- create views
 \i 'views/vw_schemas_libraries.sql';
 \i 'views/vw_schemas_libraries_extended.sql';
@@ -33,10 +36,12 @@ set client_encoding = 'UTF8';
 -- create functions
 \i 'functions/fn_bbox.sql';
 \i 'functions/fn_libraries_mvt.sql';
+\i 'functions/fn_libraries_buildings_mvt.sql';
 
 -- load in data
 \i 'load.sql';
-\i 'scotland_load.sql';
-\i 'northern_ireland_load.sql';
+\i 'load_buildings.sql';
+\i 'load_scotland.sql';
+\i 'load_northern_ireland.sql';
 
 vacuum analyze;
