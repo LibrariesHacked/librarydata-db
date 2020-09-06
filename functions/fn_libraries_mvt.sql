@@ -6,7 +6,7 @@ declare
 begin
 select st_asmvt(l, 'libraries', 4096, 'mvt_geom') into tile
 from (
-    select "Local authority code", "Library name", "Library type", "Year closed", "Co-located with", st_asmvtgeom(st_transform(geom, 3857), bbox, 4096, 256, true) as mvt_geom
+    select id, "Local authority code", "Library name", "Library type", "Year closed", "Co-located with", st_asmvtgeom(st_transform(geom, 3857), bbox, 4096, 256, true) as mvt_geom
     from vw_schemas_libraries_extended
     where st_intersects(st_transform(geom, 3857), bbox)
 ) as l;

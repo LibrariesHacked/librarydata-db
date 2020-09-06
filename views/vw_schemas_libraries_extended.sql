@@ -46,7 +46,8 @@ select
   case 
     when l.unique_property_reference_number is not null then st_setsrid(st_makepoint(u.longitude, u.latitude), 4326)
     else st_setsrid(st_makepoint(p.longitude, p.latitude), 4326)
-  end as geom
+  end as geom,
+  l.id
 from schemas_libraries l
 join schemas_local_authority a on a.code = l.local_authority_code
 join schemas_library_type t on t.id = l.library_type_id
