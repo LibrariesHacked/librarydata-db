@@ -7,46 +7,46 @@ import re
 
 """ Wikidata query: download as CSV
   SELECT ?wikidataLabel ?layer ?postcode ?address ?websiteLabel ?emailAddressLabel ?opened ?closed WHERE {  
-    
-        ?wikidata wdt:P31/wdt:P279* wd:Q28564 ;
-            wdt:P17 wd:Q145 ;
-            wdt:P625 ?coor ;
-            wdt:P137 ?operator ;
-            OPTIONAL {?wikidata wdt:P18 ?image .}
-            OPTIONAL {?wikidata wdt:P856 ?website .}
-            OPTIONAL {?wikidata wdt:P281 ?postcode .}
-            OPTIONAL {?wikidata wdt:P6375 ?address .}
-            OPTIONAL {?wikidata wdt:P968 ?emailAddress .}
-            OPTIONAL {?wikidata wdt:P1619 ?opened .}
-            OPTIONAL {?wikidata wdt:P3999 ?closed .}
-    
+
+    ?wikidata wdt:P31/wdt:P279* wd:Q28564 ;
+              wdt:P17 wd:Q145 ;
+              wdt:P625 ?coor ;
+              wdt:P137 ?operator ;
+              OPTIONAL {?wikidata wdt:P18 ?image .}
+    OPTIONAL {?wikidata wdt:P856 ?website .}
+    OPTIONAL {?wikidata wdt:P281 ?postcode .}
+    OPTIONAL {?wikidata wdt:P6375 ?address .}
+    OPTIONAL {?wikidata wdt:P968 ?emailAddress .}
+    OPTIONAL {?wikidata wdt:P1619 ?opened .}
+    OPTIONAL {?wikidata wdt:P3999 ?closed .}
+
     VALUES ?operator { wd:Q4923796 wd:Q4966533 wd:Q5016926 wd:Q5038400 wd:Q5043224 wd:Q5064127 wd:Q5166758 wd:Q5256629 wd:Q16837157
-                    wd:Q5623821 wd:Q6083890 wd:Q16997658 wd:Q6901162 wd:Q6984500 wd:Q16998902 wd:Q7161994 wd:Q7236943 wd:Q7321391 
-                                  wd:Q5123523 wd:Q7825688 wd:Q7909538 wd:Q8038115 }
-  BIND ( 
-        IF(?operator = wd:Q4923796, "Blaenau Gwent", 
-        IF(?operator = wd:Q4966533, "Pen-y-bont ar Ogwr", 
-        IF(?operator = wd:Q5016926, "Caerffili",  
-        IF(?operator = wd:Q5038400, "Caerdydd",   
-        IF(?operator = wd:Q5043224, "Sir Gaerfyrddin", 
-        IF(?operator = wd:Q5064127, "Ceredigion",   
-        IF(?operator = wd:Q5166758, "Conwy",
-        IF(?operator = wd:Q5256629, "Sir Ddinbych",
-        IF(?operator = wd:Q16837157, "Sir y Fflint", 
-        IF(?operator = wd:Q5623821, "Gwynedd",   
-        IF(?operator = wd:Q6083890, "Ynys Môn",
-        IF(?operator = wd:Q16997658, "Merthyr Tudful",
-        IF(?operator = wd:Q6901162, "Sir Fynwy",
-        IF(?operator = wd:Q6984500, "Castell-nedd Port Talbot",   
-        IF(?operator = wd:Q16998902, "Casnewydd",
-        IF(?operator = wd:Q7161994, "Sir Benfro", 
-        IF(?operator = wd:Q7236943, "Powys",   
-        IF(?operator = wd:Q7321391, "Rhondda Cynon Taf",
-        IF(?operator = wd:Q5123523, "Abertawe",
-        IF(?operator = wd:Q7825688, "Torfaen",   
-        IF(?operator = wd:Q7909538, "Bro Morgannw", 
-        IF(?operator = wd:Q8038115, "Wrecsam",
-                    "")))))))))))))))))))))) AS ?layer).  
+                                   wd:Q5623821 wd:Q6083890 wd:Q16997658 wd:Q6901162 wd:Q6984500 wd:Q16998902 wd:Q7161994 wd:Q7236943 wd:Q7321391 
+                                   wd:Q5123523 wd:Q7825688 wd:Q7909538 wd:Q8038115 }
+    BIND ( 
+      IF(?operator = wd:Q4923796, "W06000019", 
+         IF(?operator = wd:Q4966533, "W06000013", 
+            IF(?operator = wd:Q5016926, "W06000018",  
+               IF(?operator = wd:Q5038400, "W06000015",   
+                  IF(?operator = wd:Q5043224, "W06000010", 
+                     IF(?operator = wd:Q5064127, "W06000008",   
+                        IF(?operator = wd:Q5166758, "W06000003",
+                           IF(?operator = wd:Q5256629, "W06000004",
+                              IF(?operator = wd:Q16837157, "W06000005", 
+                                 IF(?operator = wd:Q5623821, "W06000002",   
+                                    IF(?operator = wd:Q6083890, "W06000001",
+                                       IF(?operator = wd:Q16997658, "W06000024",
+                                          IF(?operator = wd:Q6901162, "W06000021",
+                                             IF(?operator = wd:Q6984500, "W06000012",   
+                                                IF(?operator = wd:Q16998902, "W06000022",
+                                                   IF(?operator = wd:Q7161994, "W06000009", 
+                                                      IF(?operator = wd:Q7236943, "W06000023",   
+                                                         IF(?operator = wd:Q7321391, "W06000016",
+                                                            IF(?operator = wd:Q5123523, "W06000011",
+                                                               IF(?operator = wd:Q7825688, "W06000020",   
+                                                                  IF(?operator = wd:Q7909538, "W06000014", 
+                                                                     IF(?operator = wd:Q8038115, "W06000006",
+                                                                        "")))))))))))))))))))))) AS ?layer).  
     SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
   }
   ORDER BY ?layer ?wikidataLabel
