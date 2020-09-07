@@ -2,7 +2,7 @@
 \i 'database/db_librarydata.sql';
 
 -- switch to using the database
-\c librarydata;
+\c librarydata_temp;
 
 create extension postgis;
 
@@ -43,5 +43,6 @@ set client_encoding = 'UTF8';
 \i 'load_buildings.sql';
 \i 'load_scotland.sql';
 \i 'load_northern_ireland.sql';
+\i 'load_wales.sql';
 
 vacuum analyze;

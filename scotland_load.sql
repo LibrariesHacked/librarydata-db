@@ -38,7 +38,8 @@ set unique_property_reference_number = u.uprn
 from geo_postcode_lookup p
 join geo_uprn u on u.x_coordinate = p.easting and u.y_coordinate = p.northing
 where p.postcode = lu.postcode
-and p.user_type = 1;
+and p.user_type = 1
+and lu.local_authority_code like 'S%';
 
 drop table schemas_staging_scotland;
 

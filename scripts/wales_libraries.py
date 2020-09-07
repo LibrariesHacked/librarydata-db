@@ -61,39 +61,21 @@ POSTCODE_RE = '(([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-h
 def run():
 
   libraries = []
-  with open(WIKIDATA, 'r') as csvfile:
+  with open(WIKIDATA, 'r', encoding='utf-8') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     next(reader)
     for row in reader:
       library = {
-          'Local authority': row[1].strip(),
+          'Local authority code': row[1].strip(),
           'Library name': row[0].strip(),
           'Address 1': '',
           'Address 2': '',
           'Address 3': '',
           'Postcode': row[2].strip(),
-          'Unique property reference number': '',
           'Type of library': 'LAL',
+          'Statutory': True,
           'Year opened': '',
           'Year closed': '',
-          'Monday staffed hours': '',
-          'Tuesday staffed hours': '',
-          'Wednesday staffed hours': '',
-          'Thursday staffed hours': '',
-          'Friday staffed hours': '',
-          'Saturday staffed hours': '',
-          'Sunday staffed hours': '',
-          'Monday unstaffed hours': '',
-          'Tuesday unstaffed hours': '',
-          'Wednesday unstaffed hours': '',
-          'Thursday unstaffed hours': '',
-          'Friday unstaffed hours': '',
-          'Saturday unstaffed hours': '',
-          'Sunday unstaffed hours': '',
-          'Special hours': '',
-          'Co-located': '',
-          'Co-located with': '',
-          'Notes': '',
           'URL': row[4].strip(),
           'Email address': row[5].strip()
       }
@@ -101,49 +83,91 @@ def run():
       address = row[3].strip()
       postcode_match = re.compile(POSTCODE_RE).search(address)
       postcode = row[2].strip()
-      if postcode_match and postcode != '':
+      if postcode_match and postcode == '':
         postcode = postcode_match.group(1)
-        address = address.replace(postcode, '')
+
       library['Postcode'] = postcode
+
+      address = address.replace(postcode, '')
+
+      address_fields = address.split(',')
+      if (len(address_fields) > 1):
+         library['Address 1'] = address_fields[1].strip()
+      if (len(address_fields) > 2):
+         library['Address 2'] = address_fields[2].strip()
+      if (len(address_fields) > 3):
+         library['Address 3'] = address_fields[3].strip()
+
+      if (row[1].strip() == 'W06000019'):#Blaunau Gwent
+         library['Type of library'] = 'CL'
+      if (row[1].strip() == 'W06000013'):#Pen-y-bont ar Ogwr
+         library['Type of library'] = 'CL'
+      if (row[1].strip() == 'W06000018'):#Caerffili"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000015'):#Caerdydd"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000010'):#Sir Gaerfyrddin"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000008'):#Ceredigion"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000003'):#Conwy"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000004'):#Sir Ddinbych"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000005'):#Sir y Fflint"
+         library['Type of library'] = 'CL'
+      if (row[1].strip() == 'W06000002'):#Gwynedd"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000001'):#Ynys Môn"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000024'):#Merthyr Tudful"
+         library['Type of library'] = 'CL'
+      if (row[1].strip() == 'W06000021'):#Sir Fynwy"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000012'):#Castell-nedd Port Talbot"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000022'):#Casnewydd"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000009'):#Sir Benfro"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000023'):#Powys"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000016'):#Rhondda Cynon Taf"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000011'):#Abertawe"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000020'):#Torfaen"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000014'):#Bro Morgannwg"
+         library['Type of library'] = 'LAL'
+      if (row[1].strip() == 'W06000006'):#Wrecsam"
+         library['Type of library'] = 'LAL'
+
+      if (row[6].strip() != ''):
+         library['Year opened'] = row[6].strip()[:4]
+      if (row[7].strip() != ''):
+         library['Year closed'] = row[7].strip()[:4]
+         library['Statutory'] = False
 
       libraries.append(library)
 
-
-  with open(DATA_OUTPUT, 'w', encoding='utf8', newline='') as out_csv:
+  with open(DATA_OUTPUT, 'w', encoding='utf-8', newline='') as out_csv:
     writer = csv.writer(out_csv, delimiter=',',
                         quotechar='"', quoting=csv.QUOTE_MINIMAL)
     writer.writerow(libraries[0].keys())
     for library in libraries:
       writer.writerow(
           [
-              library['Local authority'],
+              library['Local authority code'],
               library['Library name'],
               library['Address 1'],
               library['Address 2'],
               library['Address 3'],
               library['Postcode'],
-              library['Unique property reference number'],
               library['Type of library'],
+              library['Statutory'],
               library['Year opened'],
               library['Year closed'],
-              library['Monday staffed hours'],
-              library['Tuesday staffed hours'],
-              library['Wednesday staffed hours'],
-              library['Thursday staffed hours'],
-              library['Friday staffed hours'],
-              library['Saturday staffed hours'],
-              library['Sunday staffed hours'],
-              library['Monday unstaffed hours'],
-              library['Tuesday unstaffed hours'],
-              library['Wednesday unstaffed hours'],
-              library['Thursday unstaffed hours'],
-              library['Friday unstaffed hours'],
-              library['Saturday unstaffed hours'],
-              library['Sunday unstaffed hours'],
-              library['Special hours'],
-              library['Co-located'],
-              library['Co-located with'],
-              library['Notes'],
               library['URL'],
               library['Email address']
           ]
