@@ -24,7 +24,7 @@ where replace(p.postcode, ' ', '') =  replace(lu.postcode, ' ', '');
 
 -- Load the real libraries table
 insert into schemas_libraries (local_authority_code, name, address_1, address_2, address_3, postcode, statutory, year_opened, year_closed, colocated, library_type_id, url, email_address)
-select
+select distinct
   st.code,
   st.name,
   st.address_1,
@@ -36,7 +36,8 @@ select
   closed as year_closed,
   False as colocated,
   (select id from schemas_library_type where name = st.type) as library_type_id,
-  st.url
+  st.url,
+  st.email
 from schemas_staging_wales st
 order by name;
 
@@ -50,4 +51,3 @@ and p.user_type = 1
 and lu.local_authority_code like 'W%';
 
 drop table schemas_staging_wales;
-

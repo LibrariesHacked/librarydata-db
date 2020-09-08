@@ -40,9 +40,11 @@ set client_encoding = 'UTF8';
 
 -- load in data
 \i 'load.sql';
-\i 'load_buildings.sql';
 \i 'load_scotland.sql';
 \i 'load_northern_ireland.sql';
 \i 'load_wales.sql';
+
+-- load buildings 
+\i 'load_buildings.sql';
 
 vacuum analyze;

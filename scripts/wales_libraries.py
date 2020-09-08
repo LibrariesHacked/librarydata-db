@@ -149,6 +149,12 @@ def run():
          library['Year closed'] = row[7].strip()[:4]
          library['Statutory'] = False
 
+      if (library['Postcode'] == 'SA15 8LR'):
+         library['Postcode'] = 'SA15 3BD'
+
+      if (library['Postcode'] == 'SA15 5SC'):
+         library['Postcode'] = 'SA15 5TX'
+
       libraries.append(library)
 
   with open(DATA_OUTPUT, 'w', encoding='utf-8', newline='') as out_csv:
