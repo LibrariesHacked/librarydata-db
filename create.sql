@@ -40,6 +40,7 @@ set client_encoding = 'UTF8';
 
 -- load in data
 \i 'load.sql';
+\i 'load_england.sql';
 \i 'load_scotland.sql';
 \i 'load_northern_ireland.sql';
 \i 'load_wales.sql';
