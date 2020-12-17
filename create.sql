@@ -32,6 +32,7 @@ set client_encoding = 'UTF8';
 -- create views
 \i 'views/vw_schemas_libraries.sql';
 \i 'views/vw_schemas_libraries_extended.sql';
+\i 'views/vw_libraries_geo.sql';
 
 -- create functions
 \i 'functions/fn_bbox.sql';

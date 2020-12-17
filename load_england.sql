@@ -29,6 +29,17 @@ from
 where pc.postcode = lu.postcode
 and lu.unique_property_reference_number is not null;
 
+-- Remove UPRNs that do not exist
+update schemas_staging_libraries lu
+set unique_property_reference_number = null
+from
+	(select l.postcode
+  from schemas_staging_libraries l
+  left join geo_uprn u on l.unique_property_reference_number = u.uprn
+  where l.unique_property_reference_number is not null and u.uprn is null) pc
+where pc.postcode = lu.postcode
+and lu.unique_property_reference_number is not null;
+
 -- Fill in UPRNs that are large user postcodes
 update schemas_staging_libraries lu
 set unique_property_reference_number = u.uprn
