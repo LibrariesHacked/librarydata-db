@@ -11,6 +11,10 @@ select
   l.year_closed as "year_closed",
   l.unique_property_reference_number as "unique_property_reference_number",
   case when l.colocated then 'Yes' else 'No' end as "colocated",
+  l.colocated_with as "colocated_with",
+  l.notes as "notes",
+  l.url as "url",
+  l.email_address as "email_address",
   case 
     when l.unique_property_reference_number is not null then u.longitude
     else p.longitude
