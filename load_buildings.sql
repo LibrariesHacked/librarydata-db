@@ -9,6 +9,8 @@ insert into geo_building(guid, geom)
 select guid, ST_GeomFromText(wkt, 27700)
 from geo_staging_buildings;
 
+drop table geo_staging_buildings;
+
 create unique index idx_geobuilding_id on geo_building (id);
 cluster geo_building using idx_geobuilding_id;
 create index idx_geobuilding_geom on geo_building using gist (geom);
@@ -29,5 +31,3 @@ join(
   left join geo_uprn u on u.uprn = l.unique_property_reference_number
   left join geo_postcode_lookup p on p.postcode = l.postcode
 ) l on st_intersects(b.geom, l.geom);
-
-drop table geo_staging_buildings;

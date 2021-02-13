@@ -49,4 +49,4 @@ set client_encoding = 'UTF8';
 -- load buildings 
 \i 'load_buildings.sql';
 
-vacuum analyze;
+vacuum full analyze;
