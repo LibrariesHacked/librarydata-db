@@ -8,3 +8,6 @@ create index idx_geouprn_xy on geo_uprn (x_coordinate, y_coordinate);
 
 -- Local authorities
 \copy schemas_local_authority from 'data/ons_local_authorities.csv' csv header;
+
+-- Authentication
+\copy authentication from 'data/authentication.csv' csv header;

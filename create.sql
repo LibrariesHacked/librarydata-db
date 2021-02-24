@@ -29,6 +29,8 @@ set client_encoding = 'UTF8';
 
 \i 'tables/tbl_geo_building_library.sql';
 
+\i 'tables/tbl_authentication.sql';
+
 -- create views
 \i 'views/vw_schemas_libraries.sql';
 \i 'views/vw_schemas_libraries_extended.sql';
