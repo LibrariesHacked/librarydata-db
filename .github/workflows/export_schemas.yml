@@ -1,16 +1,14 @@
-name: Export library data schemas
+name: Export libraries
 on:
   schedule:
     - cron:  '0 0 * * *'
 
 jobs:
-  container-job:
+  export:
     runs-on: ubuntu-latest
-    container: node:latest
 
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
       - name: Install PostgreSQL client
         run: |
@@ -25,3 +23,10 @@ jobs:
           PGPORT: 5432
           PGUSER: ${{ secrets.PGUSER }}
           PGHOST: ${{ secrets.PGHOST }}
+
+      - name: commit changed files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git diff-index --quiet HEAD || git commit -m "Auto export of libraries"
