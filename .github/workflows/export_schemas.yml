@@ -12,8 +12,8 @@ jobs:
 
       - name: Install PostgreSQL client
         run: |
-          apt-get update
-          apt-get install --yes postgresql-client
+          sudo apt-get update
+          sudo apt-get install --yes postgresql-client
 
       - name: Export libraries
         run: psql -f export_libraries.sql

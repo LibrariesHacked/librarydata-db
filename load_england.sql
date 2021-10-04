@@ -89,4 +89,4 @@ select
 from schemas_staging_libraries st
 order by local_authority_code, name;
 
-drop table schemas_staging_libraries;
+delete from schemas_staging_libraries;

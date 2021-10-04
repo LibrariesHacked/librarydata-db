@@ -1,6 +1,5 @@
--- UPRNs
+-- Unique property reference numbers
 \copy geo_uprn from 'data/os_open_uprn.csv' csv header;
-
 create index idx_geouprn_xy on geo_uprn (x_coordinate, y_coordinate);
 
 -- Postcodes
