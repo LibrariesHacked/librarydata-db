@@ -1,3 +1,9 @@
+-- switch to using the database
+\c librarydata;
+
+-- set client encoding
+set client_encoding = 'UTF8';
+
 -- Clear down data
 delete from geo_building_library;
 delete from schemas_libraries;

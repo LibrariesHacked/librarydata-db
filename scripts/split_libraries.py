@@ -14,7 +14,7 @@ with open("./data/libraries/libraries.csv", encoding='utf-8') as libraries:
       dw.writeheader()
       services[service] = fileout, dw
       
-      services[service][1].writerow(row)
+    services[service][1].writerow(row)
 
-    for fout, _ in services.values():
-        fout.close()
+  for fileout, _ in services.values():
+    fileout.close()
