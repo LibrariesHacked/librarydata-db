@@ -1,6 +1,7 @@
 import csv
+import re
 
-with open("./data/libraries/libraries.csv") as libraries:
+with open("./data/libraries/libraries.csv", encoding='utf-8') as libraries:
   csvin = csv.DictReader(libraries)
   services = {}
   
@@ -8,7 +9,7 @@ with open("./data/libraries/libraries.csv") as libraries:
     service = row["Local authority"]
     
     if service not in services:
-      fileout = open("{}.csv".format(service), "w")
+      fileout = open("./data/libraries/{}.csv".format(re.sub(r'(?u)[^-\w.]', '', service.strip().replace(' ', '_')).lower()), "w", newline='', encoding='utf-8')
       dw = csv.DictWriter(fileout, fieldnames=csvin.fieldnames)
       dw.writeheader()
       services[service] = fileout, dw
