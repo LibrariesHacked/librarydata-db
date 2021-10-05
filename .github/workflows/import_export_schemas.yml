@@ -4,8 +4,14 @@ on:
     - cron:  '0 0 * * *'
 
 jobs:
-  export_libraries:
+  import_export_libraries:
     runs-on: ubuntu-latest
+    env:
+      PGDATABASE: ${{ secrets.PGDATABASE }}
+      PGPASSWORD: ${{ secrets.PGPASSWORD }}
+      PGPORT: 5432
+      PGUSER: ${{ secrets.PGUSER }}
+      PGHOST: ${{ secrets.PGHOST }}
 
     steps:
       - uses: actions/checkout@v2
@@ -15,14 +21,11 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes postgresql-client
 
+      - name: Import libraries
+        run: psql -f import_libraries.sql
+
       - name: Export libraries
         run: psql -f export_libraries.sql
-        env:
-          PGDATABASE: ${{ secrets.PGDATABASE }}
-          PGPASSWORD: ${{ secrets.PGPASSWORD }}
-          PGPORT: 5432
-          PGUSER: ${{ secrets.PGUSER }}
-          PGHOST: ${{ secrets.PGHOST }}
 
       - name: Set up Python
         uses: actions/setup-python@v1
