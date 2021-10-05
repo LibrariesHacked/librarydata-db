@@ -1,10 +1,10 @@
-name: Export libraries
+name: Import and export schemas
 on:
   schedule:
     - cron:  '0 0 * * *'
 
 jobs:
-  export:
+  export_libraries:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,9 +24,26 @@ jobs:
           PGUSER: ${{ secrets.PGUSER }}
           PGHOST: ${{ secrets.PGHOST }}
 
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+
+      - name: Split library files
+        run: python3 ./scripts/split_libraries.py
+
+      - name: check for changes
+        run: git status
+
       - name: commit changed files
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git diff-index --quiet HEAD || git commit -m "Auto export of libraries"
+
+      - name: fetch from main
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: push code to main
+        run: git push origin HEAD:main
