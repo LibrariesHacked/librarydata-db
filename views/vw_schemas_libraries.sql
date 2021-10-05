@@ -25,6 +25,7 @@ select
   l.friday_unstaffed_hours as "Friday unstaffed hours",
   l.saturday_unstaffed_hours as "Saturday unstaffed hours",
   l.sunday_unstaffed_hours as "Sunday unstaffed hours",
+  l.special_hours  as "Special hours",
   case when l.colocated then 'Yes' else 'No' end as "Co-located",
   l.colocated_with as "Co-located with",
   l.notes as "Notes",
