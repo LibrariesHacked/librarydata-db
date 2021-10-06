@@ -1,7 +1,7 @@
-Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Co-located,Co-located with,Notes,URL,Email address
-Angus,Arbroath Library,Hill Terrace ,,Arbroath,DD11 1AH,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/libraries,
-Angus,Brechin Library,St Ninian's Square ,,DD9 7AD,DD9 7AD,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/libraries,
-Angus,Carnoustie Library,21 High Street ,,Carnoustie ,DD7 6AN,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/167/carnoustie_library,
-Angus,Kirriemuir Library,Town Hall ,,Reform Street ,DD8 4BS,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/168/kirriemuir_library,
-Angus,Monifieth Library,High Street ,,Monifieth Library,DD5 4AE,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/169/monifieth_library,
-Angus,Montrose Library,High Street,,Montrose ,DD10 8PH,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/170/montrose_library,
+Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
+Angus,Arbroath Library,Hill Terrace ,,Arbroath,DD11 1AH,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/libraries,
+Angus,Brechin Library,St Ninian's Square ,,DD9 7AD,DD9 7AD,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/libraries,
+Angus,Carnoustie Library,21 High Street ,,Carnoustie ,DD7 6AN,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/167/carnoustie_library,
+Angus,Kirriemuir Library,Town Hall ,,Reform Street ,DD8 4BS,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/168/kirriemuir_library,
+Angus,Monifieth Library,High Street ,,Monifieth Library,DD5 4AE,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/169/monifieth_library,
+Angus,Montrose Library,High Street,,Montrose ,DD10 8PH,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.angus.gov.uk/directory_record/170/montrose_library,

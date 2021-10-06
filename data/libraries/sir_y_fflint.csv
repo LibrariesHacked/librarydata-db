@@ -1,11 +1,11 @@
-Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Co-located,Co-located with,Notes,URL,Email address
-Sir y Fflint,Bagillt Library,Bagillt,,,CH6 6EQ,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,
-Sir y Fflint,Broughton Library,Broughton Hall Road,Broughton,Buckley,CH4 0QQ,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:broughton.library@flintshire.gov.uk
-Sir y Fflint,"Buckley Library, Museum and Gallery",The Precinct,Deeside,Flintshire,CH7 2EF,,Yes,CL,,,,,,,,,,,,,,,,,No,,,https://www.visitwales.com/product/1209159,mailto:buckley.library@flintshire.gov.uk
-Sir y Fflint,Connah's Quay Library,Wepre Drive,Connah'S Quay,Flintshire,CH5 4HA,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:connahs.quay.library@flintshire.gov.uk
-Sir y Fflint,Deeside Library,Deeside Leisure Centre,Chester Road West,Queensferry,CH5 1SA,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:deeside.library@flintshire.gov.uk
-Sir y Fflint,Flint Library,Church Street,Flint,Flintshire,CH6 5AP,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:flint.library@flintshire.gov.uk
-Sir y Fflint,Halkyn Library,The Village Hall,Halyn,Holywell,CH8 8BU,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:halkyn.library@flintshire.gov.uk
-Sir y Fflint,Holywell Library,Fron Park Road,Holywell,Flinshire,CH8 7UZ,,Yes,CL,,,,,,,,,,,,,,,,,No,,,https://aura.wales/libraries/libraries-and-contact-details/,mailto:holywell.library@flintshire.gov.uk
-Sir y Fflint,Mold Library,Earl Road,Mold,Flintshire,CH7 1AP,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,mailto:mold.library@flintshire.gov.uk
-Sir y Fflint,Mynydd Isa Library,Mynydd Isa Community Centre,Mercia Drive,Mynydd Isa,CH7 6UH,,Yes,CL,,,,,,,,,,,,,,,,,No,,,,
+Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
+Sir y Fflint,Bagillt Library,Bagillt,,,CH6 6EQ,,No,CL,,,,,,,,,,,,,,,,,,No,,,,
+Sir y Fflint,Broughton Library,Broughton Hall Road,Broughton,Buckley,CH4 0QQ,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:broughton.library@flintshire.gov.uk
+Sir y Fflint,"Buckley Library, Museum and Gallery",The Precinct,Deeside,Flintshire,CH7 2EF,,No,CL,,,,,,,,,,,,,,,,,,No,,,https://www.visitwales.com/product/1209159,mailto:buckley.library@flintshire.gov.uk
+Sir y Fflint,Connah's Quay Library,Wepre Drive,Connah'S Quay,Flintshire,CH5 4HA,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:connahs.quay.library@flintshire.gov.uk
+Sir y Fflint,Deeside Library,Deeside Leisure Centre,Chester Road West,Queensferry,CH5 1SA,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:deeside.library@flintshire.gov.uk
+Sir y Fflint,Flint Library,Church Street,Flint,Flintshire,CH6 5AP,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:flint.library@flintshire.gov.uk
+Sir y Fflint,Halkyn Library,The Village Hall,Halyn,Holywell,CH8 8BU,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:halkyn.library@flintshire.gov.uk
+Sir y Fflint,Holywell Library,Fron Park Road,Holywell,Flinshire,CH8 7UZ,,No,CL,,,,,,,,,,,,,,,,,,No,,,https://aura.wales/libraries/libraries-and-contact-details/,mailto:holywell.library@flintshire.gov.uk
+Sir y Fflint,Mold Library,Earl Road,Mold,Flintshire,CH7 1AP,,No,CL,,,,,,,,,,,,,,,,,,No,,,,mailto:mold.library@flintshire.gov.uk
+Sir y Fflint,Mynydd Isa Library,Mynydd Isa Community Centre,Mercia Drive,Mynydd Isa,CH7 6UH,,No,CL,,,,,,,,,,,,,,,,,,No,,,,

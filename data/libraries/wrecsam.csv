@@ -1,12 +1,12 @@
-Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Co-located,Co-located with,Notes,URL,Email address
-Wrecsam,Brynteg Library,The Memorial Centre,Quarry Road,Wrexham,LL11 6AB,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:brynteg.library@wrexham.gov.uk
-Wrecsam,Cefn Mawr Library,Plas Kynaston,Cefn Mawr,Wrexham,LL14 3AT,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:cefnmawr.library@wrexham.gov.uk
-Wrecsam,Chirk Library,Chapel Lane,Chirk,Wrexham,LL14 5NF,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:chirk.library@wrexham.gov.uk
-Wrecsam,Coedpoeth Library,Plas Pentwyn,Castle Road,Wrexham,LL11 3NA,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:coedpoeth.library@wrexham.gov.uk
-Wrecsam,Gresford Library,Vicarage Lane,Gresford,Wrexham,LL12 8UW,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:gresfordlibrary@hotmail.com
-Wrecsam,Gwersyllt Library,Gwersyllt Community Resource Centre,Second Avenue,Wrexham,LL11 4ED,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.wrexham.gov.uk/english/community/libraries/gwersyllt_library.htm,
-Wrecsam,Llay Library,Market Square,Llay,Wrexham,LL12 0TR,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:llay.library@wrexham.gov.uk
-Wrecsam,Overton Library,Cocoa Rooms,Overton,Wrexham,LL13 0EE,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:overton.library@wrexham.gov.uk
-Wrecsam,Rhos Library,Princes Road,Rhos,Wrexham,LL14 1AB,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:rhos.library@wrexham.gov.uk
-Wrecsam,Ruabon Library,High Street,Ruabon,Wrexham,LL14 6NH,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:ruabon.library@wrexham.gov.uk
-Wrecsam,Wrexham Library,Rhosddu Road,Wrexham,Wrexham,LL11 1AU,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,,mailto:library@wrexham.gov.uk
+Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
+Wrecsam,Brynteg Library,The Memorial Centre,Quarry Road,Wrexham,LL11 6AB,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:brynteg.library@wrexham.gov.uk
+Wrecsam,Cefn Mawr Library,Plas Kynaston,Cefn Mawr,Wrexham,LL14 3AT,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:cefnmawr.library@wrexham.gov.uk
+Wrecsam,Chirk Library,Chapel Lane,Chirk,Wrexham,LL14 5NF,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:chirk.library@wrexham.gov.uk
+Wrecsam,Coedpoeth Library,Plas Pentwyn,Castle Road,Wrexham,LL11 3NA,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:coedpoeth.library@wrexham.gov.uk
+Wrecsam,Gresford Library,Vicarage Lane,Gresford,Wrexham,LL12 8UW,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:gresfordlibrary@hotmail.com
+Wrecsam,Gwersyllt Library,Gwersyllt Community Resource Centre,Second Avenue,Wrexham,LL11 4ED,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.wrexham.gov.uk/english/community/libraries/gwersyllt_library.htm,
+Wrecsam,Llay Library,Market Square,Llay,Wrexham,LL12 0TR,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:llay.library@wrexham.gov.uk
+Wrecsam,Overton Library,Cocoa Rooms,Overton,Wrexham,LL13 0EE,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:overton.library@wrexham.gov.uk
+Wrecsam,Rhos Library,Princes Road,Rhos,Wrexham,LL14 1AB,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:rhos.library@wrexham.gov.uk
+Wrecsam,Ruabon Library,High Street,Ruabon,Wrexham,LL14 6NH,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:ruabon.library@wrexham.gov.uk
+Wrecsam,Wrexham Library,Rhosddu Road,Wrexham,Wrexham,LL11 1AU,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,mailto:library@wrexham.gov.uk

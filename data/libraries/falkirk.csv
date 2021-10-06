@@ -1,9 +1,9 @@
-Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Co-located,Co-located with,Notes,URL,Email address
-Falkirk,Bo'ness Library,Scotland's Close,,Bo'ness,EH51 0AH,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/boness-library/,
-Falkirk,Bonnybridge Library,Bridge Street,,Bonnybridge,FK4 1AD,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/bonnybridge-library/,
-Falkirk,Denny Library,Davies Row ,,Denny,FK6 6FA,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/denny-library/,
-Falkirk,Falkirk Library,Hope Street,,Falkirk,FK1 5AU,136018924,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/falkirk-library/,
-Falkirk,Grangemouth Library,Bo'ness Road,,Grangemouth,FK3 8AG,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/grangemouth-library/,
-Falkirk,Larbert Library,22 Hallam Road ,,Larbert,FK5 3JX,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/larbert-library/,
-Falkirk,Meadowbank Library,Stevenson Avenue,,Polmont,FK2 0GU,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/meadowbank-library/,
-Falkirk,Slamannan Library,High Street,,Slamannan,FK1 3EX,,Yes,LAL,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/slamannan-library/,
+Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
+Falkirk,Bo'ness Library,Scotland's Close,,Bo'ness,EH51 0AH,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/boness-library/,
+Falkirk,Bonnybridge Library,Bridge Street,,Bonnybridge,FK4 1AD,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/bonnybridge-library/,
+Falkirk,Denny Library,Davies Row ,,Denny,FK6 6FA,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/denny-library/,
+Falkirk,Falkirk Library,Hope Street,,Falkirk,FK1 5AU,136018924,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/falkirk-library/,
+Falkirk,Grangemouth Library,Bo'ness Road,,Grangemouth,FK3 8AG,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/grangemouth-library/,
+Falkirk,Larbert Library,22 Hallam Road ,,Larbert,FK5 3JX,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/larbert-library/,
+Falkirk,Meadowbank Library,Stevenson Avenue,,Polmont,FK2 0GU,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/meadowbank-library/,
+Falkirk,Slamannan Library,High Street,,Slamannan,FK1 3EX,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.falkirkcommunitytrust.org/venues/slamannan-library/,
