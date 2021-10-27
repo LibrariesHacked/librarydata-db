@@ -8,7 +8,7 @@ select
   l.postcode as "Postcode",
   l.unique_property_reference_number as "Unique property reference number",
   case when l.statutory then 'Yes' else 'No' end as "Statutory",
-  t.name as "Library type",
+  t.name as "Type of library",
   l.year_opened as "Year opened",
   l.year_closed as "Year closed",
   l.monday_staffed_hours as "Monday staffed hours",

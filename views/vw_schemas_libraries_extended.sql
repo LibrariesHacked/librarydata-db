@@ -13,7 +13,7 @@ select
   u.longitude as "Unique property reference number longitude",
   u.latitude as "Unique property reference number latitude",
   case when l.statutory then 'Yes' else 'No' end as "Statutory",
-  t.name as "Library type",
+  t.name as "Type of library",
   l.year_opened as "Year opened",
   l.year_closed as "Year closed",
   l.monday_staffed_hours as "Monday staffed hours",
