@@ -1,18 +1,18 @@
-Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Library type,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
-Castell-nedd Port Talbot,Baglan Library,Laurel Avenue,Baglan,Port Talbot,SA12 8PA,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5729,mailto:baglan.library@npt.gov.uk
-Castell-nedd Port Talbot,Blaengwynfi Library,Library & Public Hall,Jersey Road,Blaengwynfi,SA13 3TD,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Briton Ferry Library,Neath Road,Briton Ferry,Neath Port Talbot,SA11 2AQ,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5731,
-Castell-nedd Port Talbot,Cwmafan Library,Depot Road,Cwmafan,Port Talbot,SA12 9DF,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5732,mailto:cwmafan.library@npt.gov.uk
-Castell-nedd Port Talbot,Cwmllynfell Library,18 Gwilym Road,Cwmllynfell,Swansea,SA9 2FG,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Cymmer Afan Library,Street Road,Port Talbot,,SA13 3HR,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Glynneath Library,Park Avenue,Glynneath,Neath,SA11 5DW,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5735,mailto:glynneath.library@npt.gov.uk
-Castell-nedd Port Talbot,Neath Library,Victoria Gardens,Neath,Neath Port Talbot,SA11 3BA,100100990861,No,LAL,1905,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5738,mailto:neath.library@npt.gov.uk
-Castell-nedd Port Talbot,Pontardawe Library,Holly Street,Pontardawe,Neath Port Talbot,SA8 4ET,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5740,mailto:pontardawe.library@npt.gov.uk
-Castell-nedd Port Talbot,Port Talbot Library,1st Floor,Aberafan Shopping Centre,Port Talbot,SA13 1PB,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5742,mailto:porttalbot.library@npt.gov.uk
-Castell-nedd Port Talbot,Resolven Library,Neath Road,Resolven,Neath,SA11 4AA,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Sandfields Library,Morrison Road,Sandfields,Port Talbot,SA12 6TG,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5746,mailto:sandfields.library@npt.gov.uk
-Castell-nedd Port Talbot,Seven Sisters Library,Seven Sisters Community Hall,Brynhyfryd Terrace,Seven Sisters,SA10 9BA,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Skewen Library,New Road,Skewen,Neath,SA10 6UU,,No,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5748,mailto:skewen.library@npt.gov.uk
-Castell-nedd Port Talbot,Taibach Library,Commercial Road,Taibach,Port Talbot,SA13 1LN,,No,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.taibachlibrary.org.uk/,
-Castell-nedd Port Talbot,Y Lolfa (Gwaun Cae Gurwen),New Community Hall,New Road,Gwaun Cae Gurwen,SA18 1UN,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
-Castell-nedd Port Talbot,Ystalyfera Library,72 Commercial Road,Ystalyfera,Swansea,SA9 2HS,,No,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Type of library,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
+Castell-nedd Port Talbot,Baglan Library,Laurel Avenue,Baglan,Port Talbot,SA12 8PA,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5729,mailto:baglan.library@npt.gov.uk
+Castell-nedd Port Talbot,Blaengwynfi Library,Library & Public Hall,Jersey Road,Blaengwynfi,SA13 3TD,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Briton Ferry Library,Neath Road,Briton Ferry,Neath Port Talbot,SA11 2AQ,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5731,
+Castell-nedd Port Talbot,Cwmafan Library,Depot Road,Cwmafan,Port Talbot,SA12 9DF,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5732,mailto:cwmafan.library@npt.gov.uk
+Castell-nedd Port Talbot,Cwmllynfell Library,18 Gwilym Road,Cwmllynfell,Swansea,SA9 2FG,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Cymmer Afan Library,Street Road,Port Talbot,,SA13 3HR,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Glynneath Library,Park Avenue,Glynneath,Neath,SA11 5DW,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5735,mailto:glynneath.library@npt.gov.uk
+Castell-nedd Port Talbot,Neath Library,Victoria Gardens,Neath,Neath Port Talbot,SA11 3BA,100100990861,Yes,LAL,1905,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5738,mailto:neath.library@npt.gov.uk
+Castell-nedd Port Talbot,Pontardawe Library,Holly Street,Pontardawe,Neath Port Talbot,SA8 4ET,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5740,mailto:pontardawe.library@npt.gov.uk
+Castell-nedd Port Talbot,Port Talbot Library,1st Floor,Aberafan Shopping Centre,Port Talbot,SA13 1PB,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5742,mailto:porttalbot.library@npt.gov.uk
+Castell-nedd Port Talbot,Resolven Library,Neath Road,Resolven,Neath,SA11 4AA,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Sandfields Library,Morrison Road,Sandfields,Port Talbot,SA12 6TG,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5746,mailto:sandfields.library@npt.gov.uk
+Castell-nedd Port Talbot,Seven Sisters Library,Seven Sisters Community Hall,Brynhyfryd Terrace,Seven Sisters,SA10 9BA,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Skewen Library,New Road,Skewen,Neath,SA10 6UU,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,https://www.npt.gov.uk/5748,mailto:skewen.library@npt.gov.uk
+Castell-nedd Port Talbot,Taibach Library,Commercial Road,Taibach,Port Talbot,SA13 1LN,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,http://www.taibachlibrary.org.uk/,
+Castell-nedd Port Talbot,Y Lolfa (Gwaun Cae Gurwen),New Community Hall,New Road,Gwaun Cae Gurwen,SA18 1UN,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
+Castell-nedd Port Talbot,Ystalyfera Library,72 Commercial Road,Ystalyfera,Swansea,SA9 2HS,,Yes,LAL,,,,,,,,,,,,,,,,,,No,,,,
