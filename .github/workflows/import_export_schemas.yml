@@ -21,6 +21,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes postgresql-client
 
+      - name: Combine libraries
+        run: awk '(NR == 1) || (FNR > 1)' ./data/schemas/libraries/*.csv > ./data/schemas/libraries.csv
+
       - name: Import libraries
         run: psql -f import_libraries.sql
 

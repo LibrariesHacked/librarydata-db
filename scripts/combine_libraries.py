@@ -9,7 +9,7 @@ with open("./data/schemas/libraries.csv", encoding='utf-8') as libraries:
     service = row["Local authority"]
     
     if service not in services:
-      fileout = open("./data/schemas/libraries/{}.csv".format(re.sub(r'(?u)[^-\w.]', '', service.strip().replace(' ', '_')).lower()), "w", newline='', encoding='utf-8')
+      fileout = open("./data/libraries/{}.csv".format(re.sub(r'(?u)[^-\w.]', '', service.strip().replace(' ', '_')).lower()), "w", newline='', encoding='utf-8')
       dw = csv.DictWriter(fileout, fieldnames=csvin.fieldnames)
       dw.writeheader()
       services[service] = fileout, dw
