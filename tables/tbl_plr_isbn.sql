@@ -1,6 +1,6 @@
 create table plr_isbn (
-	id serial,
-	isbn character varying (13),
+  id serial,
+  isbn character varying (13),
   constraint pk_plrisbn_id primary key (id)
 );
 

@@ -1,14 +1,14 @@
 create table plr_count (
-	id serial,
-	isbn_id integer,
-	stock integer,
-	loans integer,
-	contributor_id integer,
-	item_type_id integer,
-	constraint pk_plrcount_id primary key (id),
-	constraint fk_plrcount_isbnid foreign key (isbn_id) references plr_isbn (id),
-	constraint fk_plrcount_contributorid foreign key (contributor_id) references plr_contributor (id),
-	constraint fk_plrcount_itemtypeid foreign key (item_type_id) references plr_item_type (id)
+  id serial,
+  isbn_id integer,
+  stock integer,
+  loans integer,
+  contributor_id integer,
+  item_type_id integer,
+  constraint pk_plrcount_id primary key (id),
+  constraint fk_plrcount_isbnid foreign key (isbn_id) references plr_isbn (id),
+  constraint fk_plrcount_contributorid foreign key (contributor_id) references plr_contributor (id),
+  constraint fk_plrcount_itemtypeid foreign key (item_type_id) references plr_item_type (id)
 );
 
 create unique index idx_plrcount_id on plr_count (id);
