@@ -6,5 +6,5 @@ create table geo_building_library (
   constraint fk_geobuildinglibrary_libraryid foreign key (library_id) references schemas_libraries(id)
 );
 
-create unique index idx_geobuildinglibrary_buildingid_libraryid on geo_building_library (building_id, library_id);
-cluster geo_building_library using idx_geobuildinglibrary_buildingid_libraryid;
+create unique index cuidx_geobuildinglibrary_buildingid_libraryid on geo_building_library (building_id, library_id);
+cluster geo_building_library using cuidx_geobuildinglibrary_buildingid_libraryid;

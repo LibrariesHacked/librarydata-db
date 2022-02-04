@@ -23,6 +23,10 @@ set client_encoding = 'UTF8';
 \i 'tables/tbl_plr_staging_counts.sql';
 
 \i 'tables/tbl_schemas_local_authority.sql';
+\i 'tables/tbl_schemas_type.sql';
+\i 'tables/tbl_schemas_definition.sql';
+\i 'tables/tbl_schemas_definition_version.sql';
+\i 'tables/tbl_schemas_file.sql';
 \i 'tables/tbl_schemas_library_type.sql';
 \i 'tables/tbl_schemas_libraries.sql';
 \i 'tables/tbl_schemas_staging_libraries.sql';

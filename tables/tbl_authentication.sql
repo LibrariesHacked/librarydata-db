@@ -5,5 +5,5 @@ create table authentication (
   constraint pk_authentication_domain primary key (domain)
 );
 
-create unique index idx_authentication_domain on authentication (domain);
-cluster authentication using idx_authentication_domain;
+create unique index cuidx_authentication_domain on authentication (domain);
+cluster authentication using cuidx_authentication_domain;

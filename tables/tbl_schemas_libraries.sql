@@ -36,7 +36,5 @@ create table schemas_libraries (
   constraint fk_schemaslibraries_librarytypeid foreign key (library_type_id) references schemas_library_type (id)
 );
 
-create unique index idx_schemaslibraries_id on schemas_libraries (id);
-cluster schemas_libraries using idx_schemaslibraries_id;
-
-create index idx_schemaslibraries_local_authority_code on schemas_libraries (local_authority_code);
+create index cidx_schemaslibraries_id on schemas_libraries (local_authority_code, name);
+cluster schemas_libraries using cidx_schemaslibraries_id;

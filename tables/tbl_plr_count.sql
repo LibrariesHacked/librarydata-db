@@ -1,5 +1,5 @@
 create table plr_count (
-  id serial,
+  id serial unique,
   isbn_id integer,
   stock integer,
   loans integer,
@@ -11,8 +11,8 @@ create table plr_count (
   constraint fk_plrcount_itemtypeid foreign key (item_type_id) references plr_item_type (id)
 );
 
-create unique index idx_plrcount_id on plr_count (id);
+create unique index cuidx_plrcount_id on plr_count (id);
+cluster plr_count using cuidx_plrcount_id;
 create index idx_plrcount_isbnid on plr_count (isbn_id);
 create index idx_plrcount_contributorid on plr_count (contributor_id);
 create index idx_plrcount_itemtypeid on plr_count (item_type_id);
-cluster plr_count using idx_plrcount_id;

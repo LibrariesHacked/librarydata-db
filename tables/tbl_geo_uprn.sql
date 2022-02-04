@@ -7,5 +7,5 @@ create table geo_uprn (
   constraint pk_geouprn_uprn primary key (uprn)
 );
 
-create unique index idx_geouprn_uprn on geo_uprn (uprn);
-cluster geo_uprn using idx_geouprn_uprn;
+create unique index cuidx_geouprn_uprn on geo_uprn (uprn);
+cluster geo_uprn using cuidx_geouprn_uprn;
