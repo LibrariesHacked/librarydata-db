@@ -5,6 +5,7 @@ dcms.gov.uk,{},TRUE
 bl.uk,{},TRUE
 artscouncil.org.uk,{},TRUE
 cilip.org.uk,{},TRUE
+cilips.org.uk,{},TRUE
 gov.wales,{},TRUE
 scottishlibraries.org,{},TRUE
 gll.org,"{E08000027,E09000011,E10000019,E09000032}",FALSE
@@ -117,7 +118,7 @@ hartlepool.gov.uk,{E06000001},FALSE
 havering.gov.uk,{E09000016},FALSE
 herefordshire.gov.uk,{E06000019},FALSE
 hertfordshire.gov.uk,{E10000015},FALSE
-hertfordshire.gov.uk,{S12000017},FALSE
+highland.gov.uk,{S12000017},FALSE
 hillingdon.gov.uk,{E09000017},FALSE
 hounslow.gov.uk,{E09000018},FALSE
 inverclyde.gov.uk,{S12000018},FALSE

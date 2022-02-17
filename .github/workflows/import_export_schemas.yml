@@ -21,6 +21,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install --yes postgresql-client
 
+      - name: Refresh authentication
+        run: psql -f import_authentication.sql
+
       - name: Combine libraries
         run: awk '(NR == 1) || (FNR > 1)' ./data/schemas/libraries/*.csv > ./data/schemas/libraries.csv
 
