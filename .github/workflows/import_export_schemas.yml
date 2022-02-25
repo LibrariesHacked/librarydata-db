@@ -27,6 +27,9 @@ jobs:
       - name: Combine libraries
         run: awk '(NR == 1) || (FNR > 1)' ./data/schemas/libraries/*.csv > ./data/schemas/libraries.csv
 
+      - name: Remove carriage returns
+        run: sed -i 's/\r//g' ./data/schemas/libraries.csv
+
       - name: Import libraries
         run: psql -f import_libraries.sql
 
