@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import csv
 import urllib.request, urllib.error, urllib.parse
+import http.client
 
 FOLDER_NAME = Path("../data/schemas/libraries")
 
@@ -31,8 +32,13 @@ def run():
                             row["URL"] = ""
                         except urllib.error.URLError as e:
                             row["URL"] = ""
-                        except InvalidURL as e:
+                        except http.client.InvalidURL as e:
                             row["URL"] = ""
+                        except ValueError as e:
+                            row["URL"] = ""
+                        except http.client.RemoteDisconnected as e:
+                            # Do nothing - seems to be when the website blocks the connection
+                            pass
                         else:
                             print("Good URL")
 
