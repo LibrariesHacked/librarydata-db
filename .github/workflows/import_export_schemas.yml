@@ -2,6 +2,7 @@ name: Import and export schemas
 on:
   schedule:
     - cron:  '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   import_export_libraries:
