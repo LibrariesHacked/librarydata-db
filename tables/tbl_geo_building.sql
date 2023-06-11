@@ -1,6 +1,7 @@
 create table geo_building (
   id serial,
   guid text,
+  name text,
   constraint pk_geobuilding_id primary key (id)
 );
 
