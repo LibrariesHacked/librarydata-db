@@ -2,7 +2,7 @@
 \i 'database/db_librarydata.sql';
 
 -- switch to using the database
-\c librarydata_temp;
+\c librarydata;
 
 create extension postgis;
 
