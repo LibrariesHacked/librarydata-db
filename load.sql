@@ -3,7 +3,7 @@
 create index idx_geouprn_xy on geo_uprn (x_coordinate, y_coordinate);
 
 -- Postcodes
-\copy geo_postcode_lookup from 'data/ons_postcode_directory.csv' csv header force null easting,northing,latitude,longitude,lsoa,district,ward,county,region,country,date_of_termination;
+\copy geo_postcode_lookup from 'data/ons_postcode_directory.csv' csv header force null easting,northing,latitude,longitude,district,ward,county,region,country,date_of_termination;
 
 -- Local authorities
 create table schemas_staging_local_authority (
