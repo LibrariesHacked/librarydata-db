@@ -31,12 +31,12 @@ select
     when l.unique_property_reference_number is not null then u.y_coordinate
     else p.northing
   end as "northing",
-  p.oa as "oa_code",
+  p.oa_21 as "oa_code",
   p.county as "county_code",
   p.district as "ward_code",
   p.region as "region_code",
   p.country as "country_code",
-  p.rural_urban_classification as "rural_urban_classification",
+  p.rural_urban_classification_11 as "rural_urban_classification",
   p.imd as "imd"
 from schemas_libraries l
 join schemas_local_authority a on a.code = l.local_authority_code

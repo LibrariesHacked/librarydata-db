@@ -8,7 +8,7 @@ create table geo_staging_buildings (
   feature_code text
 );
 
-\copy geo_staging_buildings from program 'cmd /c "type C:\Development\LibrariesHacked\librarydata-db\data\os_buildings.csv"' csv header;
+\copy geo_staging_buildings from program 'cmd /c "type C:\Development\LibrariesHacked\librarydata-db\data\os_library_buildings.csv"' csv header;
 
 insert into geo_building(guid, name, geom)
 select fid, distinctive_name, ST_GeomFromText(wkt, 27700)
