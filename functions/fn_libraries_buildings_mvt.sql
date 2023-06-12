@@ -6,9 +6,9 @@ declare
 begin
 select st_asmvt(s, 'library_buildings', 4096, 'mvt_geom') into tile
 from (
-  select bl.name, st_asmvtgeom(st_transform(b.geom, 3857), bbox, 4096, 256, true) as mvt_geom
-  from geo_building_library bl
-  where st_intersects(st_transform(b.geom, 3857), bbox)
+  select bl.name, st_asmvtgeom(st_transform(bl.geom, 3857), bbox, 4096, 256, true) as mvt_geom
+  from geo_building bl
+  where st_intersects(st_transform(bl.geom, 3857), bbox)
 ) as s;
 return tile;
 end;
