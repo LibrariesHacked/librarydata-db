@@ -8,6 +8,9 @@ set client_encoding = 'UTF8';
 delete from geo_building_library;
 delete from schemas_libraries;
 
+-- Reset the sequence
+alter sequence schemas_libraries_id_seq restart;
+
 -- Load in data
 \copy schemas_staging_libraries from 'data/schemas/libraries.csv' csv header force null address_1,address_2,address_3,postcode,unique_property_reference_number,year_opened,year_closed,monday_staffed_hours,tuesday_staffed_hours,wednesday_staffed_hours,thursday_staffed_hours,friday_staffed_hours,saturday_staffed_hours,sunday_staffed_hours,monday_unstaffed_hours,tuesday_unstaffed_hours,wednesday_unstaffed_hours,thursday_unstaffed_hours,friday_unstaffed_hours,saturday_unstaffed_hours,sunday_unstaffed_hours,special_hours,colocated,colocated_with,notes,url,email_address;
 
@@ -46,7 +49,7 @@ select
   st.url,
   st.email_address
 from schemas_staging_libraries st
-order by local_authority_code, name;
+order by year_opened, local_authority_code, name;
 
 delete from schemas_staging_libraries;
 
