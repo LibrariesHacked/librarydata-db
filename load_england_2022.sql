@@ -1,7 +1,6 @@
 \c librarydata;
 
-CREATE TABLE basic
-(
+create table basic (
     reporting text,
     name text,
     address1 text,
@@ -106,12 +105,13 @@ update basic set postcode = 'EX23 8LG' where name = 'Bude Library & Information 
 update basic set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
 update basic set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postcode = 'SY5 9AQ';
 update basic set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
+update basic set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 1SA';
 
 
 -- postcode fixes for the original libraries dataset
 update schemas_libraries set postcode = 'NG22 9TH' where name = 'Dukeries' and postcode = 'NG22 9TD';
 update schemas_libraries set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
-
+update schemas_libraries set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 2LN';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -119,5 +119,39 @@ update schemas_libraries set postcode = 'TS23 2LB' where name = 'Rosebery Librar
 update schemas_libraries set postcode = 'TS19 9BX' where name = 'Roseworth Library' and postcode is null;
 update schemas_libraries set postcode = 'TS17 6PG' where name = 'Thornaby Library' and postcode is null;
 update schemas_libraries set postcode = 'WA5 1JH' where name = 'Great Sankey Library' and postcode is null;
+update schemas_libraries set postcode = 'NG6 9AE' where name = 'Bulwell Library' and postcode is null;
+update schemas_libraries set postcode = 'NG7 6BE' where name = 'Hyson Green Library' and postcode is null;
+update schemas_libraries set postcode = 'NG3 4EZ' where name = 'St. Ann''s Library' and postcode is null;
+update schemas_libraries set postcode = 'ST2 8JY' where name = 'Kingsland Early Years' and postcode is null;
+update schemas_libraries set postcode = 'OL16 1JZ' where name = 'Rochdale Central Library' and postcode is null;
+update schemas_libraries set postcode = 'M7 4EY' where name = 'Broughton Library' and postcode is null;
+update schemas_libraries set postcode = 'M6 6QT' where name = 'Lower Kersal Library' and postcode is null;
+update schemas_libraries set postcode = 'M27 4AE' where name = 'Swinton Library' and postcode is null;
+update schemas_libraries set postcode = 'DN6 8HF' where name = 'Carcroft' and postcode is null;
+update schemas_libraries set postcode = 'NE28 7NB' where name = 'Wallsend Library' and postcode is null;
+update schemas_libraries set postcode = 'NE26 1EJ' where name = 'Whitley Bay Library' and postcode is null;
+update schemas_libraries set postcode = 'NE31 1PN' where name = 'Hebburn' and postcode is null;
+update schemas_libraries set postcode = 'SE10 0RL' where name = 'East Greenwich Library' and postcode is null;
+update schemas_libraries set postcode = 'SE3 9JT' where name = 'Ferrier Library' and postcode is null;
+update schemas_libraries set postcode = 'WD6 1JX' where name = 'Borehamwood Library' and postcode is null;
+update schemas_libraries set postcode = 'TN8 5BD' where name = 'Edenbridge' and postcode is null;
+update schemas_libraries set postcode = 'TN23 5SH' where name = 'Stanhope Library' and postcode is null;
+update schemas_libraries set postcode = 'FY7 8EG' where name = 'Chatsworth' and postcode is null;
+update schemas_libraries set postcode = 'BB12 9QH' where name = 'Wheatley Lane' and postcode is null;
+update schemas_libraries set postcode = 'CV12 0BN' where name = 'Bedworth Heath' and postcode is null;
+update schemas_libraries set postcode = 'CV3 2BQ' where name = 'Binley Woods' and postcode is null;
+update schemas_libraries set postcode = 'B78 2HN' where name = 'Kingsbury' and postcode is null;
+
+-- was temporarily closed, now open again in same location
+delete from schemas_libraries where name = 'Swanley' and postcode is null;
+
+-- closed in 2022 and reopened (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2022 where name = 'Sidcup Library' and postcode = 'DA14 4AQ';
+
+-- closed in 2022 and reopened in firestation
+update schemas_libraries set year_closed = 2022 where name = 'Aston Library' and postcode = 'B6 6EJ';
+
+
+
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
