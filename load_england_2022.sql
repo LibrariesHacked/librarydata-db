@@ -58,7 +58,7 @@ update basic set type = 'Static Library' where type = 'Static library';
 
 delete from basic where type != 'Static Library';
 
--- Path: load_england_2022.sql
+-- load basic dataset
 \copy basic from 'data/libraries_england_2022.csv' csv header;
 
 -- convert all library postcodes to uppercase
@@ -68,6 +68,8 @@ update basic set postcode = upper(postcode);
 update basic set postcode = trim(postcode);
 
 -- other postcode fixes
+update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
+update basic set postcode = 'NE8 1EH' where postcode = 'NE8 4NO';
 update basic set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
 update basic set postcode = 'BD16 1GL' where name = 'Bingley Library' and postcode = 'BD16 1AW';
 update basic set postcode = 'CA1 3SN' where name = 'Harraby Library Link' and postcode = 'CA1 3PP';
@@ -105,10 +107,25 @@ update basic set postcode = 'EX23 8LG' where name = 'Bude Library & Information 
 update basic set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
 update basic set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postcode = 'SY5 9AQ';
 update basic set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
-
-
 update basic set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 1SA';
+update basic set postcode = 'PE23 5LH' where name = 'Spilsby Community Hub Library' and postcode = 'PE23 5JE';
 
+
+-- empty postcodes 
+update basic set postcode = 'HD8 0HB' where name = 'Lepton Library' and postcode is null;
+update basic set postcode = 'WF12 9DU' where name = 'Thornhill Lees Library' and postcode is null;
+update basic set postcode = 'NE31 1PN' where name = 'Hebburn' and postcode is null;
+update basic set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
+update basic set postcode = 'TS23 2LB' where name = 'Rosebery Library' and postcode is null;
+update basic set postcode = 'TS19 9BX' where name = 'Roseworth Library' and postcode is null;
+update basic set postcode = 'TS17 6PG' where name = 'Thornaby Library' and postcode is null;
+update basic set postcode = 'ST2 8JY' where name = 'Kingsland Early Years' and postcode is null;
+update basic set postcode = 'SL4 6AR' where name = 'Eton' and postcode is null;
+update basic set postcode = 'SL6 7UA' where name = 'Furze Platt Container' and postcode is null;
+update basic set postcode = 'SL6 2LP' where name = 'Holyport Container' and postcode is null;
+update basic set postcode = 'SL6 3GW' where name = 'Woodlands Park Container' and postcode is null;
+
+delete from basic where name = 'Gorse Hill Community Book Collection';
 
 -- postcode fixes for the original libraries dataset
 update schemas_libraries set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
@@ -148,7 +165,9 @@ update schemas_libraries set postcode = 'EX23 8LG' where name = 'Bude Library & 
 update schemas_libraries set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
 update schemas_libraries set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postcode = 'SY5 9AQ';
 update schemas_libraries set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
-
+update schemas_libraries set postcode = 'CR6 9NF' where name = 'Warlingham' and postcode = 'CR6 9NE';
+update schemas_libraries set postcode = 'YO7 1TH' where name = 'Thirsk Library' and postcode = 'YO7 1DA';
+update schemas_libraries set postcode = 'SE24 0DG' where name = 'Carnegie Library (Herne Hill)' and postcode = 'SE24 0AG';
 
 update schemas_libraries set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 2LN';
 
@@ -187,8 +206,32 @@ delete from schemas_libraries where name = 'Swanley' and postcode is null;
 -- closed in 2022 and reopened (use basic dataset to add new entry)
 update schemas_libraries set year_closed = 2022 where name = 'Sidcup Library' and postcode = 'DA14 4AQ';
 
--- closed in 2022 and reopened in firestation
+-- closed in 2022 and reopened in firestation (use basic dataset to add new entry)
 update schemas_libraries set year_closed = 2022 where name = 'Aston Library' and postcode = 'B6 6EJ';
+
+-- closed in 2020 and reopened in 2020 (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2020 where name = 'Crowle Library' and postcode = 'DN17 4LB';
+
+-- closed in 2021 and moved to new location (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2021 where name = 'Meir Library' and postcode = 'ST3 7DJ';
+
+-- closed in 2022 and moved to new location (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2022 where name = 'Bedlington Station Library' and postcode = 'NE22 5HB';
+
+-- closed in 2022 and moved to new location (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2022 where name = 'Timperley' and postcode = 'WA15 6QQ';
+
+-- closed in 2022 and moved to new location (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2022 where name = 'North Baddesley Community' and postcode = 'SO52 9EN';
+
+-- moved in 2020 to new premises (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2020 where name = 'Walton' and postcode = 'WF2 6LD';
+
+-- closed in 2019 and replaced with new library (use basic dataset to add new entry)
+update schemas_libraries set year_closed = 2019 where name = 'Birkby & Fartown Library' and postcode = 'HD1 6HA';
+
+
+
 
 -- Meerside library closed and replaced by Langdale Library and Community Hub
 -- Will need custom work to add new entry
