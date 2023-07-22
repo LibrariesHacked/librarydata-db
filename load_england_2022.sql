@@ -109,7 +109,11 @@ update basic set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postco
 update basic set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
 update basic set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 1SA';
 update basic set postcode = 'PE23 5LH' where name = 'Spilsby Community Hub Library' and postcode = 'PE23 5JE';
-
+update basic set postcode = 'RG12 9LP' where name = 'Harmans Water' and postcode = 'RG12 9HY';
+update basic set postcode = 'BD10 9PY' where name = 'Idle Library' and postcode = 'BD10 9LD';
+update basic set postcode = 'TN33 0QW' where name = 'Sedlescombe Village Library' and postcode = 'TN33 0QP';
+update basic set postcode = 'CO15 2RH' where name = 'Jaywick Library' and postcode = 'CO15 2RG';
+update basic set postcode = 'CM0 7AB' where name = 'Southminster Library' and postcode = 'CM0 7AD';
 
 -- empty postcodes 
 update basic set postcode = 'HD8 0HB' where name = 'Lepton Library' and postcode is null;
@@ -168,8 +172,14 @@ update schemas_libraries set postcode = 'W12 7BF' where name = 'Shepherds Bush' 
 update schemas_libraries set postcode = 'CR6 9NF' where name = 'Warlingham' and postcode = 'CR6 9NE';
 update schemas_libraries set postcode = 'YO7 1TH' where name = 'Thirsk Library' and postcode = 'YO7 1DA';
 update schemas_libraries set postcode = 'SE24 0DG' where name = 'Carnegie Library (Herne Hill)' and postcode = 'SE24 0AG';
-
 update schemas_libraries set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 2LN';
+update schemas_libraries set postcode = 'TN31 7JG' where name = 'Rye Library' and postcode = 'TN31 7JF';
+update schemas_libraries set postcode = 'GL3 4EX' where name = 'Brockworth Community Library' and postcode = 'GL3 4ET';
+update schemas_libraries set postcode = 'PE16 6DY' where name = 'Chatteris Library' and postcode = 'PE16 6PT';
+update schemas_libraries set postcode = 'LA5 0DF' where name = 'Arnside Library Link' and postcode = 'LA5 0DA';
+update schemas_libraries set postcode = 'CM8 3RQ' where name = 'Silver End Library' and postcode = 'CM8 3RB';
+update schemas_libraries set postcode = 'SE19 1TQ' where name = 'Upper Norwood' and postcode = 'SE19 1TJ';
+update schemas_libraries set postcode = 'M20 2DN' where name = 'Didsbury Library' and postcode = 'M21 9PN';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
