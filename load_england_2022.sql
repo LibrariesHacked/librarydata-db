@@ -209,6 +209,9 @@ update schemas_libraries set postcode = 'BS2 8XJ' where name = 'St. Pauls' and p
 update schemas_libraries set postcode = 'LA14 4BP' where name = 'Ormsgill (Library Link)' and postcode = 'LA14 4AR';
 update schemas_libraries set postcode = 'CM13 1BD' where name = 'Shenfield Library' and postcode = 'CM15 8NJ';
 update schemas_libraries set postcode = 'PR2 1UH' where name = 'Savick' and postcode = 'PR2 1TU';
+update schemas_libraries set postcode = 'LN6 0NA' where name = 'Birchwood Community Hub Library' and postcode = 'LN6 0QB';
+update schemas_libraries set postcode = 'NG34 9RE' where name = 'Heckington Community Hub' and postcode = 'NG34 9RQ';
+update schemas_libraries set postcode = 'BS29 6DA' where name = 'Banwell' and postcode = 'BS29 6DB';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -334,19 +337,19 @@ insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Southmead Library', true, 2022, 'BS10 6BQ', false);
 
 -- missing the old chester library
-insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
 values ('Chester Library', true, 2017, 'CH1 2EF', false);
 
 -- missing the old bodmin library closed in 2017
-insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
 values ('Bodmin Library and One Stop Shop', true, 2017, 'PL31 2JX', true);
 
 -- missing the old Par library closed in 2018
-insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
 values ('Par Library', true, 2018, 'PL24 2AH', false);
 
 -- mssing the old upton cross library closed in 2017
-insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
 values ('Upton Cross Library', true, 2017, 'PL14 5AX', false);
 
 -- bampton library moved in 2016
@@ -392,7 +395,7 @@ values ('Chrishall Community Library', true, 2019, 'SG8 8RP', false);
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Finchingfield Community Library', true, 2019, 'CM7 4NN', false);
 
--- missing"Great Bromley Community Library" opened in 2019
+-- missing "Great Bromley Community Library" opened in 2019
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Great Bromley Community Library', true, 2019, 'CO7 7TL', false);
 
@@ -428,5 +431,36 @@ values ('Shanklin Community Library', true, 2020, 'PO37 7LA', false);
 update schemas_libraries set year_closed = 2021 where name = 'Southborough Library' and postcode = 'TN4 0BA';
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Southborough Library', true, 2021, 'TN4 0NA', false);
+
+-- castle donington library moved in 2019
+update schemas_libraries set year_closed = 2019 where name = 'Castle Donington' and postcode = 'DE74 2LJ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Castle Donington', true, 2019, 'DE74 2NR', false);
+
+-- catford library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Catford library' and postcode = 'SE6 4RU';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Catford library', true, 2022, 'SE6 4JU', false);
+
+-- missing the closed library in welton from 2018
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Welton', true, 2018, 'LN2 3JJ', false);
+
+-- missing the old holbeach library closed in 2018
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Holbeach Library', true, 2018, 'PE12 7LL', false);
+
+-- missing the old burgh le marsh library closed in 2018
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Burgh le Marsh', true, 2018, 'PE24 5JS', false);
+
+-- missing wigmore library closed in 2014
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Wigmore', true, 2014, 'LU2 8DJ', false);
+
+-- milborne port closed in 2018 and reopened  as community library
+update schemas_libraries set year_closed = 2018 where name = 'Milborne Port' and postcode = 'DT9 5ET';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Milborne Port', true, 2018, 'DT9 5DF', false);
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
