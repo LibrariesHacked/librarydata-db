@@ -62,6 +62,7 @@ delete from basic where name = 'Gorse Hill Community Book Collection';
 delete from basic where name = 'Small Business Research + Enterprise Centre';
 delete from basic where name = 'West Cumberland Hospital Book Drop';
 delete from basic where name = 'St. Bernard''s Hospital Library';
+delete from basic where name = 'Library Support Unit';
 
 -- load basic dataset
 \copy basic from 'data/libraries_england_2022.csv' csv header;
@@ -127,6 +128,9 @@ update basic set postcode = 'M27 4AE' where name = 'Swinton Library' and postcod
 update basic set postcode = 'WA1 1JG' where name = 'Warrington Library' and postcode = 'WA1 1JB';
 update basic set postcode = 'DL3 9AA' where name = 'Cockerton Library' and postcode = 'DL3 9NN';
 update basic set postcode = 'DN5 0HU' where name = 'Bentley Area Community Library' and postcode = 'DN5 0DE';
+update basic set postcode = 'EN3 4DX' where name = 'Ponders End' and postcode = 'EN3 4EZ';
+update basic set postcode = 'N17 8AG' where name = 'Coombes Croft Library' and postcode = 'N17 8BY';
+update basic set postcode = 'NE68 7YL' where name = 'Seahouses' and postcode = 'NE68 7UE';
 
 
 -- empty postcodes 
@@ -203,6 +207,8 @@ update schemas_libraries set postcode = 'BL1 1DF' where name = 'Bolton Central L
 update schemas_libraries set postcode = 'BD17 6JX' where name = 'Baildon Library' and postcode = 'BD17 6ND';
 update schemas_libraries set postcode = 'BS2 8XJ' where name = 'St. Pauls' and postcode = 'BS2 8AL';
 update schemas_libraries set postcode = 'LA14 4BP' where name = 'Ormsgill (Library Link)' and postcode = 'LA14 4AR';
+update schemas_libraries set postcode = 'CM13 1BD' where name = 'Shenfield Library' and postcode = 'CM15 8NJ';
+update schemas_libraries set postcode = 'PR2 1UH' where name = 'Savick' and postcode = 'PR2 1TU';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -223,7 +229,7 @@ update schemas_libraries set postcode = 'NE28 7NB' where name = 'Wallsend Librar
 update schemas_libraries set postcode = 'NE26 1EJ' where name = 'Whitley Bay Library' and postcode is null;
 update schemas_libraries set postcode = 'NE31 1PN' where name = 'Hebburn' and postcode is null;
 update schemas_libraries set postcode = 'SE10 0RL' where name = 'East Greenwich Library' and postcode is null;
-update schemas_libraries set postcode = 'SE3 9JT' where name = 'Ferrier Library' and postcode is null;
+update schemas_libraries set postcode = 'SE3 9YR' where name = 'Ferrier Library' and postcode is null;
 update schemas_libraries set postcode = 'WD6 1JX' where name = 'Borehamwood Library' and postcode is null;
 update schemas_libraries set postcode = 'TN8 5BD' where name = 'Edenbridge' and postcode is null;
 update schemas_libraries set postcode = 'TN23 5SH' where name = 'Stanhope Library' and postcode is null;
@@ -373,5 +379,54 @@ update schemas_libraries set year_closed = 2020 where name = 'Hornsea Library' a
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Hornsea Library & Customer Service Centre', true, 2020, 'HU18 1PZ', false);
 
+-- wickford library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Wickford Library' and postcode = 'SS12 0AG';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Wickford Library', true, 2021, 'SS12 0RA', false);
+
+-- missing chrishall community library
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Chrishall Community Library', true, 2019, 'SG8 8RP', false);
+
+-- missing "Finchingfield Community Library" opened in 2019
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Finchingfield Community Library', true, 2019, 'CM7 4NN', false);
+
+-- missing"Great Bromley Community Library" opened in 2019
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Great Bromley Community Library', true, 2019, 'CO7 7TL', false);
+
+-- missing "Lamarsh Community Library" opened in 2019
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Lamarsh Community Library', true, 2019, 'CO8 5EU', false);
+
+-- missing "Steeple Bumstead Community Library" opened in 2019
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Steeple Bumstead Community Library', true, 2019, 'CB9 7DQ', false);
+
+-- stonehouse library moved in 2020
+update schemas_libraries set year_closed = 2020 where name = 'Stonehouse Library' and postcode = 'GL10 2NP';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Stonehouse Library', true, 2020, 'GL10 2NG', false);
+
+-- emsworth library moved in 2016
+update schemas_libraries set year_closed = 2016 where name = 'Emsworth' and postcode = 'PO10 7AQ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Emsworth', true, 2016, 'PO10 7DD', false);
+
+-- throston grange library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Throston Grange Library' and postcode = 'TS26 0XR';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Throston Grange Library', true, 2022, 'TS26 0TB', false);
+
+-- shanklin moved in 2020
+update schemas_libraries set year_closed = 2020 where name = 'Shanklin Community Library' and postcode = 'PO37 6PG';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Shanklin Community Library', true, 2020, 'PO37 7LA', false);
+
+-- southborough library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Southborough Library' and postcode = 'TN4 0BA';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Southborough Library', true, 2021, 'TN4 0NA', false);
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
