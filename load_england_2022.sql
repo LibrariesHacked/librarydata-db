@@ -63,6 +63,7 @@ delete from basic where name = 'Small Business Research + Enterprise Centre';
 delete from basic where name = 'West Cumberland Hospital Book Drop';
 delete from basic where name = 'St. Bernard''s Hospital Library';
 delete from basic where name = 'Library Support Unit';
+delete from basic where name = 'The Meeting Place';
 
 -- load basic dataset
 \copy basic from 'data/libraries_england_2022.csv' csv header;
@@ -212,6 +213,10 @@ update schemas_libraries set postcode = 'PR2 1UH' where name = 'Savick' and post
 update schemas_libraries set postcode = 'LN6 0NA' where name = 'Birchwood Community Hub Library' and postcode = 'LN6 0QB';
 update schemas_libraries set postcode = 'NG34 9RE' where name = 'Heckington Community Hub' and postcode = 'NG34 9RQ';
 update schemas_libraries set postcode = 'BS29 6DA' where name = 'Banwell' and postcode = 'BS29 6DB';
+update schemas_libraries set postcode = 'NE8 1EH' where name = 'The Multilingual Library' and postcode = 'NE1 7RA';
+update schemas_libraries set postcode = 'PE36 5EF' where name = 'Hunstanton Library' and postcode = 'PE36 5AL';
+update schemas_libraries set postcode = 'DN17 1PT' where name = 'Westcliff Library' and postcode = 'DN15 8LG';
+update schemas_libraries set postcode = 'OL2 5QR' where name = 'Royton Library' and postcode = 'OL2 6QJ';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -462,5 +467,41 @@ values ('Wigmore', true, 2014, 'LU2 8DJ', false);
 update schemas_libraries set year_closed = 2018 where name = 'Milborne Port' and postcode = 'DT9 5ET';
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Milborne Port', true, 2018, 'DT9 5DF', false);
+
+-- Attleborough library moved in 2019
+update schemas_libraries set year_closed = 2019 where name = 'Attleborough Library' and postcode = 'NR17 2BW';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Attleborough Library', true, 2019, 'NR17 2AH', true);
+
+-- worle library moved in 2017
+update schemas_libraries set year_closed = 2017 where name = 'Worle Library & Children''s Centre' and postcode = 'BS22 6JB';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Worle Library & Children''s Centre', true, 2017, 'BS22 6HN', false);
+
+-- missing morpeth chantry library opened in 2020
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Morpeth Chantry Library', true, 2020, 'NE61 1PD', false);
+
+-- roseberry library moved in 2017
+update schemas_libraries set year_closed = 2017 where name = 'Roseberry Library' and postcode = 'TS10 4NY';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Roseberry Library', true, 2017, 'TS10 4EW', false);
+
+-- Brinsworth library moved in 2019 and became community library
+update schemas_libraries set year_closed = 2019 where name = 'Brinsworth Library' and postcode = 'S60 5DJ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Brinsworth Library', true, 2019, 'S60 5DG', false);
+
+-- oldbury library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Oldbury Library' and postcode = 'B69 2AJ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Oldbury Library', true, 2021, 'B69 3DB', false);
+
+-- Pontesbury library moved in 2020
+update schemas_libraries set year_closed = 2020 where name = 'Pontesbury' and postcode = 'SY5 0TD';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Pontesbury', true, 2020, 'SY5 0RF', false);
+
+
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
