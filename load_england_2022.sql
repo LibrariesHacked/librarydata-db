@@ -217,6 +217,8 @@ update schemas_libraries set postcode = 'NE8 1EH' where name = 'The Multilingual
 update schemas_libraries set postcode = 'PE36 5EF' where name = 'Hunstanton Library' and postcode = 'PE36 5AL';
 update schemas_libraries set postcode = 'DN17 1PT' where name = 'Westcliff Library' and postcode = 'DN15 8LG';
 update schemas_libraries set postcode = 'OL2 5QR' where name = 'Royton Library' and postcode = 'OL2 6QJ';
+update schemas_libraries set postcode = 'B79 7JN' where name = 'Tamworth Library' and postcode = 'B79 7DN';
+update schemas_libraries set postcode = 'WA15 9SD' where name = 'Hale' and postcode = 'WA15 9BG';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
