@@ -64,6 +64,7 @@ delete from basic where name = 'West Cumberland Hospital Book Drop';
 delete from basic where name = 'St. Bernard''s Hospital Library';
 delete from basic where name = 'Library Support Unit';
 delete from basic where name = 'The Meeting Place';
+delete from basic where name = 'Haxby Library';
 
 -- load basic dataset
 \copy basic from 'data/libraries_england_2022.csv' csv header;
@@ -132,6 +133,7 @@ update basic set postcode = 'DN5 0HU' where name = 'Bentley Area Community Libra
 update basic set postcode = 'EN3 4DX' where name = 'Ponders End' and postcode = 'EN3 4EZ';
 update basic set postcode = 'N17 8AG' where name = 'Coombes Croft Library' and postcode = 'N17 8BY';
 update basic set postcode = 'NE68 7YL' where name = 'Seahouses' and postcode = 'NE68 7UE';
+update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'TW19 7HF';
 
 
 -- empty postcodes 
@@ -219,6 +221,8 @@ update schemas_libraries set postcode = 'DN17 1PT' where name = 'Westcliff Libra
 update schemas_libraries set postcode = 'OL2 5QR' where name = 'Royton Library' and postcode = 'OL2 6QJ';
 update schemas_libraries set postcode = 'B79 7JN' where name = 'Tamworth Library' and postcode = 'B79 7DN';
 update schemas_libraries set postcode = 'WA15 9SD' where name = 'Hale' and postcode = 'WA15 9BG';
+update schemas_libraries set postcode = 'CO10 7QA' where name = 'Glemsford' and postcode = 'CO10 7RH';
+update schemas_libraries set postcode = 'NE12 7LJ' where name = 'Forest Hall' and postcode = 'NE12 0LJ';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -503,6 +507,31 @@ values ('Oldbury Library', true, 2021, 'B69 3DB', false);
 update schemas_libraries set year_closed = 2020 where name = 'Pontesbury' and postcode = 'SY5 0TD';
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Pontesbury', true, 2020, 'SY5 0RF', false);
+
+-- long melford library moved to the british legion in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Long Melford' and postcode = 'CO10 9JT';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Long Melford', true, 2022, 'CO10 9EH', false);
+
+-- mildenhall library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Mildenhall' and postcode = 'IP28 7NL';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Mildenhall', true, 2021, 'IP28 7JX', false);
+
+-- Seacombe library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Seacombe' and postcode = 'CH44 6LT';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Seacombe', true, 2022, 'CH44 7AN', false);
+
+-- Merstham library moved in 2017
+update schemas_libraries set year_closed = 2017 where name = 'Merstham' and postcode = 'RH1 3QB';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Merstham', true, 2017, 'RH1 3HY', false);
+
+-- Melksham library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Melksham' and postcode = 'SN12 7DZ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Melksham Library', true, 2022, 'SN12 6ES', false);
 
 
 
