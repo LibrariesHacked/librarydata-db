@@ -54,6 +54,9 @@ create table basic (
     email text
 );
 
+-- load basic dataset
+\copy basic from 'data/libraries_england_2022.csv' csv header;
+
 update basic set type = 'Static Library' where type = 'Static library';
 
 delete from basic where type != 'Static Library';
@@ -65,9 +68,7 @@ delete from basic where name = 'St. Bernard''s Hospital Library';
 delete from basic where name = 'Library Support Unit';
 delete from basic where name = 'The Meeting Place';
 delete from basic where name = 'Haxby Library';
-
--- load basic dataset
-\copy basic from 'data/libraries_england_2022.csv' csv header;
+delete from basic where name = 'Blunsdon Community Book Collection';
 
 -- convert all library postcodes to uppercase
 update basic set postcode = upper(postcode);
@@ -134,6 +135,9 @@ update basic set postcode = 'EN3 4DX' where name = 'Ponders End' and postcode = 
 update basic set postcode = 'N17 8AG' where name = 'Coombes Croft Library' and postcode = 'N17 8BY';
 update basic set postcode = 'NE68 7YL' where name = 'Seahouses' and postcode = 'NE68 7UE';
 update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'TW19 7HF';
+update basic set postcode = 'CA1 3PP' where name = 'Harraby Library Link' and postcode = 'CA1 3SN';
+update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and postcode = 'WA4 2PF';
+update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
 
 -- empty postcodes 
@@ -149,6 +153,13 @@ update basic set postcode = 'SL4 6AR' where name = 'Eton' and postcode is null;
 update basic set postcode = 'SL6 7UA' where name = 'Furze Platt Container' and postcode is null;
 update basic set postcode = 'SL6 2LP' where name = 'Holyport Container' and postcode is null;
 update basic set postcode = 'SL6 3GW' where name = 'Woodlands Park Container' and postcode is null;
+
+-- find dupes in basic dataset
+select postcode
+from basic
+where type = 'Static Library'
+group by postcode
+having count(*) > 1;
 
 
 -- postcode fixes for the original libraries dataset
@@ -223,6 +234,13 @@ update schemas_libraries set postcode = 'B79 7JN' where name = 'Tamworth Library
 update schemas_libraries set postcode = 'WA15 9SD' where name = 'Hale' and postcode = 'WA15 9BG';
 update schemas_libraries set postcode = 'CO10 7QA' where name = 'Glemsford' and postcode = 'CO10 7RH';
 update schemas_libraries set postcode = 'NE12 7LJ' where name = 'Forest Hall' and postcode = 'NE12 0LJ';
+update schemas_libraries set postcode = 'M29 8EH' where name = 'Tyldesley' and postcode = 'M29 8AE';
+update schemas_libraries set postcode = 'B61 8DA' where name = 'Bromsgrove Library' and postcode = 'B60 1AP' and year_closed is null;
+update schemas_libraries set postcode = 'BN6 8FJ' where name = 'Hassocks Library' and postcode = 'BN6 8QJ';
+update schemas_libraries set postcode = 'NN3 7AX' where name = 'Moulton' and postcode = 'NN3 7TA' and year_closed is null;
+update schemas_libraries set postcode = 'WF4 1JB' where name = 'Crofton' and postcode = 'WF4 1NG';
+update schemas_libraries set postcode = 'WF4 2BD' where name = 'Havercroft' and postcode = 'WF4 2BE';
+update schemas_libraries set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
 -- closed libraries without postcodes
 update schemas_libraries set postcode = 'TS23 1AJ' where name = 'Billingham Library' and postcode is null;
@@ -343,7 +361,7 @@ insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Hollingbury Library', true, 2017, 'BN1 8GN', false);
 
 -- southmead library moved in 2022
-update schemas_libraries set year_closed = 2022 where name = 'Southmead Library' and postcode = 'BS10 6AS';
+update schemas_libraries set year_closed = 2022 where name = 'Southmead' and postcode = 'BS10 6AS';
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Southmead Library', true, 2022, 'BS10 6BQ', false);
 
@@ -419,7 +437,7 @@ insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Steeple Bumstead Community Library', true, 2019, 'CB9 7DQ', false);
 
 -- stonehouse library moved in 2020
-update schemas_libraries set year_closed = 2020 where name = 'Stonehouse Library' and postcode = 'GL10 2NP';
+update schemas_libraries set year_closed = 2020 where name = 'Stonehouse' and postcode = 'GL10 2NP';
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Stonehouse Library', true, 2020, 'GL10 2NG', false);
 
@@ -533,6 +551,147 @@ update schemas_libraries set year_closed = 2022 where name = 'Melksham' and post
 insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
 values ('Melksham Library', true, 2022, 'SN12 6ES', false);
 
+-- Market Lavington library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Market Lavington' and postcode = 'SN10 4AG';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Market Lavington Library', true, 2021, 'SN10 4DT', false);
+
+-- Missing old Dawley library closed in 2016
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Dawley', true, 2016, 'TF4 3JS', false);
+
+-- wokingham library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Wokingham' and postcode = 'RG40 2BB';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Wokingham', true, 2022, 'RG40 2AF', false);
+
+-- missing "Shinfield Micro-Library" opened in 2022
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Shinfield Micro-Library', true, 2022, 'RG2 9EH', false);
+
+-- missing horton popup library opened in 2022
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Horton Pop Up Library', true, 2022, 'SL3 9PA', false);
+
+-- missing altofts independent library
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Altofts Library', false, 2012, 'WF6 2JH', true);
+
+-- st james library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'St James' and postcode = 'NN5 5LQ';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('St James', true, 2022, 'NN5 5LD', false);
+
+-- wood street library moved in 2020
+update schemas_libraries set year_closed = 2020 where name = 'Wood Street Library' and postcode = 'E17 4AA';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Wood Street Library', true, 2020, 'E17 3HB', false);
+
+-- whitnash library moved in 2021
+update schemas_libraries set year_closed = 2021 where name = 'Whitnash Library & One-Stop-Shop' and postcode = 'CV31 2JH';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Whitnash Civic Centre & Library', true, 2021, 'CV31 2ND', false);
+
+-- missing "Grange Community Book Collection" closed in 2022
+insert into schemas_libraries(name, statutory, year_closed, postcode, colocated)
+values ('Grange Community Book Collection', true, 2022, 'SN3 4JY', false);
+
+-- missing rushmere library opened in 2018
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Rushmere (Suffolk Libraries Local)', true, 2018, 'IP4 4JJ', false);
+
+-- missing shotley library opened in 2017
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Shotley (Suffolk Libraries Local)', true, 2017, 'IP9 1LX', false);
+
+-- Southwold library moved in 2022
+update schemas_libraries set year_closed = 2022 where name = 'Southwold' and postcode = 'IP18 6AT';
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Southwold', true, 2022, 'IP18 6LD', false);
+
+-- Moreton Hall library opened in 2022
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Moreton Hall', true, 2022, 'IP32 7EE', false);
+
+-- red lodge library opened in 2022
+insert into schemas_libraries(name, statutory, year_opened, postcode, colocated)
+values ('Red Lodge (Suffolk Libraries Local)', true, 2022, 'IP28 8FQ', false);
+
+
+-- Take each column in turn to set it from the basic dataset
+
+-- local_authority_code
+update schemas_libraries l
+set local_authority_code = (
+    select distinct code
+    from schemas_local_authority la 
+    left join geo_postcode_lookup dst
+	on dst.district = la.code
+	and dst.postcode = l.postcode
+	left join geo_postcode_lookup cty
+	on cty.county = la.code
+	and cty.postcode = l.postcode
+	where (
+		dst.postcode is not null or cty.postcode is not null)
+    and code in (select distinct local_authority_code from schemas_libraries)
+)
+where l.local_authority_code is null
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+-- name
+update schemas_libraries l
+set name = (
+    select name from basic where l.postcode = basic.postcode limit 1
+)
+where l.year_closed is null
+and l.postcode in (select postcode from basic)
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+
+-- address_1
+update schemas_libraries l
+set address_1 = (
+    select address1 from basic where l.postcode = basic.postcode limit 1
+)
+where l.year_closed is null
+and l.postcode in (select postcode from basic)
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+-- address_2
+update schemas_libraries l
+set address_2 = (
+    select address2 from basic where l.postcode = basic.postcode limit 1
+)
+where l.year_closed is null
+and l.postcode in (select postcode from basic)
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+-- address_3
+update schemas_libraries l
+set address_3 = (
+    select address3 from basic where l.postcode = basic.postcode limit 1
+)
+where l.year_closed is null
+and l.postcode in (select postcode from basic)
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+
+-- statutory - based on latest 22 assessment
+update basic set statutory_22 = 'No' where statutory_22 = 'no';
+update basic set statutory_22 = 'Yes' where statutory_22 = 'yes';
+
+update schemas_libraries l
+set statutory = (
+    select 
+        case 
+            when statutory_22 = 'Yes' then true
+            when statutory_22 = 'No' then false
+        end
+    from basic where l.postcode = basic.postcode limit 1
+)
+where l.year_closed is null
+and l.postcode in (select postcode from basic)
+and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
 
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
