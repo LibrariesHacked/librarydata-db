@@ -639,41 +639,46 @@ where l.local_authority_code is null
 and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
 
 -- name
-update schemas_libraries l
-set name = (
-    select name from basic where l.postcode = basic.postcode limit 1
-)
-where l.year_closed is null
-and l.postcode in (select postcode from basic)
-and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+update  
+    schemas_libraries l
+set 
+    name = b.name  
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.name != b.name;
+
 
 
 -- address_1
-update schemas_libraries l
-set address_1 = (
-    select address1 from basic where l.postcode = basic.postcode limit 1
-)
-where l.year_closed is null
-and l.postcode in (select postcode from basic)
-and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+update  
+    schemas_libraries l
+set 
+    address_1 = b.address1  
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.address_1 != b.address1;
 
 -- address_2
-update schemas_libraries l
-set address_2 = (
-    select address2 from basic where l.postcode = basic.postcode limit 1
-)
-where l.year_closed is null
-and l.postcode in (select postcode from basic)
-and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+update  
+    schemas_libraries l
+set 
+    address_2 = b.address2  
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.address_2 != b.address2;
 
 -- address_3
-update schemas_libraries l
-set address_3 = (
-    select address3 from basic where l.postcode = basic.postcode limit 1
-)
-where l.year_closed is null
-and l.postcode in (select postcode from basic)
-and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+update  
+    schemas_libraries l
+set 
+    address_3 = b.address3
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.address_3 != b.address3;
 
 
 -- statutory - based on latest 22 assessment
@@ -692,6 +697,8 @@ set statutory = (
 where l.year_closed is null
 and l.postcode in (select postcode from basic)
 and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+
 
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
