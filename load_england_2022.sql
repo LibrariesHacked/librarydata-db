@@ -684,8 +684,7 @@ set
     address_1 = b.address1  
 from basic b 
 where l.postcode = b.postcode
-and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
-and l.address_1 != b.address1;
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
 
 -- address_2
 update  
@@ -694,8 +693,7 @@ set
     address_2 = b.address2  
 from basic b 
 where l.postcode = b.postcode
-and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
-and l.address_2 != b.address2;
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
 
 -- address_3
 update  
@@ -704,8 +702,7 @@ set
     address_3 = b.address3
 from basic b 
 where l.postcode = b.postcode
-and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
-and l.address_3 != b.address3;
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
 
 
 -- statutory - based on latest 22 assessment

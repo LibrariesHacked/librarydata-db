@@ -6,7 +6,7 @@ Bristol City Council,Bishopsworth,Bishopsworth Road,Bishopsworth,Bristol,BS13 7L
 Bristol City Council,Bristol Central,College Green,,Bristol,BS1 5TL,199356,Yes,LAL,,,09:30-17:00,09:30-19:00,09:30-17:00,09:30-19:00,09:30-17:00,10:00-17:00,13:00-17:00,,,,,,,,,No,,,,lending.library@bristol.gov.uk
 Bristol City Council,Cheltenham Road,Cheltenham Road,,Bristol,BS6 5QX,,No,LAL,,2017,,,,,,,,,,,,,,,,No,,,,
 Bristol City Council,Clifton,Princess Victoria Street,Clifton,Bristol,BS8 4BX,,Yes,LAL,1968,,10:00-14:00,13:00-17:00,,13:00-17:00,10:00-14:00,13:00-17:00,,,,,,,,,,No,,,,clifton.library@bristol.gov.uk
-Bristol City Council,Eastville,,,,BS5 6XP,,No,LAL,,2016,,,,,,,,,,,,,,,,No,,,,
+Bristol City Council,Eastville,Muller Road,Eastville,Bristol,BS5 6XP,,No,LAL,,2016,,,,,,,,,,,,,,,,No,,,,
 Bristol City Council,Filwood,Filwood Broadway,Filwood,Bristol,BS4 1JN,,Yes,LAL,1960,,11:00-17:00,,11:00-17:00,,11:00-17:00,10:00-14:00,,,,,,,,,,No,,,,filwood.library@bristol.gov.uk
 Bristol City Council,Fishponds,"Robinson House, Hockeys Lane",Fishponds,Bristol,BS16 3HL,,Yes,LAL,,,10:00-17:00,10:00-17:00,,11:00-19:00,10:00-17:00,10:00-17:00,,,,,,,,,,No,,,,fishponds.library@bristol.gov.uk
 Bristol City Council,Hartcliffe,"Symes District Centre, Peterson Square",Hartcliffe,Bristol,BS13 0BE,,Yes,LAL,,,13:00-17:00,,10:00-14:00,13:00-17:00,13:00-17:00,11:00-17:00,,,,,,,,,,Yes,,,,hartcliffe.library@bristol.gov.uk
@@ -23,11 +23,11 @@ Bristol City Council,Redland,Whiteladies Road,Redland,Bristol,BS8 2PY,,Yes,LAL,1
 Bristol City Council,Sea Mills,Sylvan Way,Sea Mills,Bristol,BS9 2NA,,Yes,LAL,1934,,10:00-14:00,10:00-14:00,13:00-17:00,13:00-17:00,10:00-15:00,10:00-15:00,,,,,,,,,,No,,,,seamills.library@bristol.gov.uk
 Bristol City Council,Shirehampton,Station Road,Shirehampton,Bristol,BS11 9TU,,Yes,LAL,,,13:00-17:00,,13:00-17:00,10:00-14:00,13:00-17:00,10:00-14:00,,,,,,,,,,Yes,,,,shirehampton.library@bristol.gov.uk
 Bristol City Council,Southmead,Greystoke Avenue,Southmead,Bristol,BS10 6AS,,Yes,LAL,,2022,,11:00-17:00,11:00-17:00,,13:00-17:00,11:00-17:00,,,,,,,,,,No,,,,southmead.library@bristol.gov.uk
-Bristol City Council,Southmead,,,,BS10 6BQ,,Yes,LAL,2022,,,,,,,,,,,,,,,,,No,,,,southmead.library@bristol.gov.uk
+Bristol City Council,Southmead,"Southmead House, 256 Greystoke Avenue",Southmead,Bristol,BS10 6BQ,,Yes,LAL,2022,,,,,,,,,,,,,,,,,No,,,,southmead.library@bristol.gov.uk
 Bristol City Council,St. George,Church Road ,St. George,Bristol,BS5 8AL,,Yes,LAL,,,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,13:00-17:00,,,,,,,,,No,,,,st.george.library@bristol.gov.uk
 Bristol City Council,Stockwood,Stockwood Road,Stockwood,Bristol,BS14 8PL,,Yes,LAL,1981,,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,13:00-17:00,,,,,,,,,No,,,,stockwood.library@bristol.gov.uk
 Bristol City Council,St. Pauls,94 Grosvenor Road ,St. Pauls,Bristol,BS2 8XJ,,Yes,LAL,2004,,13:00-17:00,13:00-17:00,10:00-14:00,13:00-17:00,,11:00-17:00,,,,,,,,,,Yes,,,,st.pauls.library@bristol.gov.uk
-Bristol City Council,Trinity Road,,,,BS2 0NW,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
+Bristol City Council,Trinity Road,Trinity Road,St Judes,Bristol,BS2 0NW,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Bristol City Council,Westbury,Falcondale Road,Westbury on Trym,Bristol,BS9 3JZ,,Yes,LAL,,,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,08:00-19:00,13:00-17:00,,,,,,,,,No,,,,westbury.library@bristol.gov.uk
 Bristol City Council,Whitchurch,"Whitchurch District Centre, Oatlands Avenue",Whitchurch,Bristol,BS14 0SX,,Yes,LAL,2010,,13:00-17:00,10:00-14:00,13:00-17:00,,13:00-17:00,10:00-14:00,,,,,,,,,,No,,,,whitchurch.library@bristol.gov.uk
 Bristol City Council,Wick Road,Wick Road,Bristlington,Bristol,BS4 4HE,,Yes,LAL,1933,,,10:00-17:00,10:00-17:00,,10:00-17:00,11:00-17:00,,,,,,,,,,No,,,,wickrd.library@bristol.gov.uk
