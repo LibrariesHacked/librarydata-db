@@ -1,40 +1,41 @@
 Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Type of library,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
-Cumberland Council,Aspatria (Local Link),Market Square,Wigton,Cumbria,CA7 3EZ,,Yes,LAL,,,13:00-17:00,10:00-17:00,10:00-17:00,,13:00-17:00,,,,,,,,,,,No,,,,
+Cumberland Council,Aspatria Library,Market Square,Aspatria,Cumbria,CA7 3EZ,,Yes,LAL,,,13:00-17:00,10:00-17:00,10:00-17:00,,13:00-17:00,,,,,,,,,,,No,,,,workington.library@cumbria.gov.uk
 Cumberland Council,Boltongate Book Drop,The Bell Institute,Wigton,Cumbria,CA7 1DA,,No,LAL,,2019,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Brampton Library,1 Market Place,Brampton,Cumbria,CA8 1NW,,Yes,LAL,,,14:00-17:00,,10:00-17:00,14:00-17:00,14:00-17:00,10:00-13:00,,,,,,,,,,No,,,,brampton.library@cumbria.gov.uk
-Cumberland Council,Burgh by Sands Book Drop,Burgh by Sands Village Hall,Carlisle,Cumbria,CA5 6BD,,Yes,LAL,,2019,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Carlisle Library,11 Globe Lane,Carlisle,Cumbria,CA3 8NX,,Yes,LAL,,,09:00-17:30,10:00-19:00,09:00-17:30,09:00-19:00,09:00-17:30,09:00-16:00,12:00-16:00,,,,,,,,,No,,,,
-Cumberland Council,Carlisle West (Library Link),19-23 Shadygrove Road,Carlisle,Cumbria,CA2 7LE,,Yes,LAL,,,09:00-17:00,09:00-17:00,09:00-17:00,09:00-17:00,09:00-16:30,,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Brampton Library,1 Market Place,Brampton,Cumbria,CA8 1NW,,Yes,LAL,,,14:00-17:00,,10:00-17:00,14:00-17:00,14:00-17:00,10:00-13:00,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Burgh by Sands Book Drop,Burgh by Sands Village Hall,Carlisle ,Cumbria,CA5 6BD,,Yes,LAL,,2019,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Carlisle Library,11 Globe Lane,Carlisle,Cumbria,CA3 8NX,,Yes,LAL,,,09:00-17:30,10:00-19:00,09:00-17:30,09:00-19:00,09:00-17:30,09:00-16:00,12:00-16:00,,,,,,,,,Yes,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Carlisle West Library Link,19-23 Shadygrove Road,Carlisle,Cumbria,CA2 7LE,,Yes,LAL,,,09:00-17:00,09:00-17:00,09:00-17:00,09:00-17:00,09:00-16:30,,,,,,,,,,,Yes,,,,carlisle.library@cumbria.gov.uk
 Cumberland Council,Cleator Moor Library,Market Square,Cleator Moor,Cumbria,CA25 5AP,,Yes,LAL,,,09:00-14:00,09:00-17:00,,09:00-17:00,09:00-14:00,,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
-Cumberland Council,Cockermouth Library,Main Street,Cockermouth,Cumbria,CA13 9LU,,Yes,LAL-,,,10:00-16:00,10:00-16:00,10:00-17:00,10:00-16:00,10:00-16:00,10:00-14:00,,,,,,,,,,No,,,,
-Cumberland Council,Cotehill Book Drop,"Cotehill Village Hall, Front Street",Carlisle,Cumbria,CA4 0EA,,No,CRL,,,,,,10:00-12:00,,,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Cockermouth Library Link,Main Street,Cockermouth,Cumbria,CA13 9LU,,Yes,LAL-,,,10:00-16:00,10:00-16:00,10:00-17:00,10:00-16:00,10:00-16:00,10:00-14:00,,,,,,,,,,Yes,,,,workington.library@cumbria.gov.uk
+Cumberland Council,Cotehill Book Drop,"Cotehill Village Hall, Front Street",Carlisle,Cumbria,CA4 0EA,,No,CRL,2017,2022,,,,10:00-12:00,,,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
 Cumberland Council,Denton Holme Library Link,"Denton Holme Community Centre, Morley Street",Carlisle,Cumbria,CA2 5HQ,,Yes,LAL,,,14:00-16:00,12:00-14:00,11:00-15:00,10:00-12:00,,,,,,,,,,,,Yes,Community Centre,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Distington (Library Link),Church Road,Workington,Cumbria,CA14 5TE,,Yes,LAL-,,,10:00-14:00,10:00-14:00,,10:00-14:00,10:00-14:00,,,,,,,,,,,No,,,,
-Cumberland Council,Egremont Library,"West lakes Academy, Main Street",Egremont,Cumbria,CA22 2DQ,,Yes,LAL,,,09:00-17:00,09:00-17:00,,09:00-17:00,09:00-17:00,10:00-12:00,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
-Cumberland Council,Ennerdale Book Drop,The Gather,Ennerdale Bridge,Cumbria,CA23 3AR,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Distington Library Link,Church Road,Distington,Cumbria,CA14 5TE,,Yes,LAL-,,,10:00-14:00,10:00-14:00,,10:00-14:00,10:00-14:00,,,,,,,,,,,Yes,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Egremont Library,"West Lakes Academy, Main Street",Egremont,Cumbria,CA22 2DQ,,Yes,LAL,2012,,09:00-17:00,09:00-17:00,,09:00-17:00,09:00-17:00,10:00-12:00,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Ennerdale Book Drop,The Gather,Ennerdale Bridge,Cumbria,CA23 3AR,,No,LAL,2014,2018,,,,,,,,,,,,,,,,No,,,,
 Cumberland Council,Frizington Library,Main Street,Frizington,Cumbria,CA26 3PF,,Yes,LAL,,,14:00-17:00,,14:00-17:00,,09:30-12:00,,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
-Cumberland Council,Gosforth Village (Library Link),Public Hall,Seascale,Cumbria,CA20 1AS,,Yes,LAL-,,,13:00-15:30,,15:00-17:30,,,10:00-12:00,,,,,,,,,,No,,,,
-Cumberland Council,Hallbankgate (Library link),,,,CA8 2NJ,,Yes,LAL,,,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,09:00-15:00,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Harraby (Library Link),"Harraby Community Centre, Edgehill Road",Carlisle,Cumbria,CA1 3PP,,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-15:00,10:00-15:00,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Hensingham Library,Richmond Hill Road,Whitehaven,Cumbria,CA28 8SU,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Kells Library,High Road,Whitehaven,Cumbria,CA28 9PQ,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Keswick Library,Heads Lane,Keswick,Cumbria,CA12 5HD,,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-12:00,09:30-17:00,09:30-12:00,,,,,,,,,,No,,,,
-Cumberland Council,Longtown (Local Link),Lochinvar Centre,Longtown,Cumbria,CA6 5UG,,Yes,LAL,,,13:00-17:00,13:00-17:00,15:00-17:00,13:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Maryport Library,Lawson Street,Maryport,Cumbria,CA15 6ND,,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-17:00,09:30-17:00,09:30-12:30,,,,,,,,,,No,,,,
-Cumberland Council,Millom Library,St. George's Road,Millom,Cumbria,LA18 4DD,,Yes,LAL,,,09:00-17:00,09:00-17:00,09:00-12:00,09:00-17:00,09:00-17:00,09:00-12:00,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
-Cumberland Council,Mirehouse Library,Meadow Road,Whitehaven,Cumbria,CA28 8ER,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Moorclose Library,Needham Drive,Workington,Cumbria,CA14 3SE,,Yes,LAL,,,09:30-17:00,13:00-17:00,,09:30-17:00,09:30-17:00,,,,,,,,,,,No,,,,
-Cumberland Council,Morton Library Link,"Morton Community Centre, Wigton Road",Carlisle,Cumbria,CA2 6JP,,Yes,LAL,,,09:00-18:00,09:00-18:00,09:00-18:00,09:00-18:00,09:00-18:00,09:00-12:30,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Nicholforest Book Drop,Nicholforest Village Hall,Carlisle,Cumbria,CA6 5QD,,No,CRL,,,,,13:00-16:00,,,,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
-Cumberland Council,Petteril Bank House (Library Link),"Lady Gillford's house, Petteril Bank Road",Carlisle,Cumbria,CA1 3AJ,,Yes,LAL,,2017,,,,,,,,,,,,,,,,No,,,,
-Cumberland Council,Seascale Library Link,Gosforth Road,Seascale,Cumbria,CA20 1PN,,Yes,LAL-,,,10:00-17:00,,10:00-17:00,,10:00-17:00,,,,,,,,,,,No,,,,
-Cumberland Council,Seaton Library,Main Street,Workington,Cumbria,CA14 1JD,,Yes,LAL,,,13:00-17:00,10:00-17:00,,10:00-17:00,14:00-17:00,,,,,,,,,,,No,,,,
-Cumberland Council,Silloth Library,"Discovery Centre, Liddell Street",Wigton,Cumbria,CA7 4DD,,Yes,LAL,,,10:00-16:00,,10:00-16:00,,10:00-16:00,10:00-13:00,,,,,,,,,,No,,,,
+Cumberland Council,Gosforth Village Library Link,Public Hall,Gosforth,Cumbria,CA20 1AS,,Yes,LAL-,,,13:00-15:30,,15:00-17:30,,,10:00-12:00,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Hallbankgate Library Link,,,,CA8 2NJ,,No,LAL,2017,2022,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,08:30-17:00,09:00-15:00,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Harraby Library Link,"Harraby Community Centre, Edgehill Road",Carlisle,Cumbria,CA1 3PP,,Yes,LAL,2015,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-15:00,10:00-15:00,,,,,,,,,,Yes,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Hensingham Library,Richmond Hill Road,Hensingham,Cumbria,CA28 8SU,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Kells Library,High Road,Kells,Cumbria,CA28 9PQ,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Keswick Library,Heads Lane,Keswick,Cumbria,CA12 5HD,,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-12:00,09:30-17:00,09:30-12:00,,,,,,,,,,No,,,,workington.library@cumbria.gov.uk
+Cumberland Council,Longtown ,Lochinvar Centre,Longtown,Cumbria,CA6 5UG,,Yes,LAL,,,13:00-17:00,13:00-17:00,15:00-17:00,13:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Maryport Library,Lawson Street,Maryport,Cumbria,CA15 6ND,,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-17:00,09:30-17:00,09:30-12:30,,,,,,,,,,No,,,,workington.library@cumbria.gov.uk
+Cumberland Council,Millom Library,St. George's Road,Millom,Cumbria,LA18 4DD,,Yes,LAL,,2022,09:00-17:00,09:00-17:00,09:00-12:00,09:00-17:00,09:00-17:00,09:00-12:00,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Millom Library,,,,LA18 5AB,,Yes,LAL,2022,,,,,,,,,,,,,,,,,Yes,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Mirehouse Library,Meadow Road,Mirehouse,Cumbria,CA28 8ER,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Moorclose Library,Needham Drive,Workington,Cumbria,CA14 3SE,,No,LAL,,2021,09:30-17:00,13:00-17:00,,09:30-17:00,09:30-17:00,,,,,,,,,,,No,,,,
+Cumberland Council,Morton Library Link,"Morton Community Centre, Wigton Road",Carlisle,Cumbria,CA2 6JP,,Yes,LAL,,,09:00-18:00,09:00-18:00,09:00-18:00,09:00-18:00,09:00-18:00,09:00-12:30,,,,,,,,,,Yes,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Nicholforest Book Drop,"Nicholforest Village Hall, Warwicksland, Penton",Carlisle,Cumbria,CA6 5QD,,No,CRL,,2022,,,13:00-16:00,,,,,,,,,,,,,No,,,,carlisle.library@cumbria.gov.uk
+Cumberland Council,Petteril Bank House Library Link,"Lady Gillford's house, Petteril Bank Road",Carlisle,Cumbria,CA1 3AJ,,Yes,LAL,2012,2017,,,,,,,,,,,,,,,,No,,,,
+Cumberland Council,Seascale Library Link,Gosforth Road,Seascale,Cumbria,CA20 1PN,,Yes,LAL-,,,10:00-17:00,,10:00-17:00,,10:00-17:00,,,,,,,,,,,No,,,,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Seaton Library,Main Street,Seaton,Cumbria,CA14 1JD,,Yes,LAL,,,13:00-17:00,10:00-17:00,,10:00-17:00,14:00-17:00,,,,,,,,,,,No,,,,workington.library@cumbria.gov.uk
+Cumberland Council,Silloth Library,"The Discovery Centre, Liddell Street",Silloth,Cumbria,CA7 4DD,,Yes,LAL,2012,,10:00-16:00,,10:00-16:00,,10:00-16:00,10:00-13:00,,,,,,,,,,Yes,,,,workington.library@cumbria.gov.uk
 Cumberland Council,St. Bees Book Drop,"St. Bees Village School, Main Street",St. Bees,Cumbria,CA27 0AA,,No,LAL,,2017,,,,,,,,,,,,,,,,No,,,,
 Cumberland Council,Thornhill Library,,,,CA22 2SJ,,Yes,LAL,,2016,,,,,,,,,,,,,,,,No,,,,
 Cumberland Council,Thursby Book Drop,Thursby Parish Hall,Carlisle,Cumbria,CA5 6PQ,,No,LAL,,2019,,,,,,,,,,,,,,,,No,,,,
 Cumberland Council,Upperby,"Upperby Primary School, Uldale Road",Carlisle,Cumbria,CA2 4JT,,No,LAL,,2018,,,,,,,,,,,,,,,,No,,,,
 Cumberland Council,Whitehaven Archive & Local Studies Centre,Scotch Street,Whitehaven,Cumbria,CA28 7NL,,Yes,LAL,,,,,09:30-17:00,09:30-17:00,09:30-17:00,,,,,,,,,,,No,Archives,,,whitehaven.archives@cumbria.gov.uk
-Cumberland Council,Whitehaven Library,Lowther Street,Whitehaven,Cumbria,CA28 7QZ,100110735276,Yes,LAL,,,09:00-17:00,09:00-18:00,09:00-17:00,09:00-18:00,09:00-17:00,10:00-14:00,,,,,,,,,,No,,"Refurbishment of front of llibrary, approix Â£50k, 2017",,whitehaven.library@cumbria.gov.uk
-Cumberland Council,Wigton Library,High Street,Wigton,Cumbria,CA7 9NJ,,Yes,LAL,,,09:30-17:00,09:30-17:00,,09:30-17:00,09:30-17:00,10:00-12:00,,,,,,,,,,No,,,,
-Cumberland Council,Workington Library,Vulcan's Lane,Workington,Cumbria,CA14 2ND,,Yes,LAL,,,09:00-18:00,09:00-17:00,09:00-18:00,09:00-17:00,09:00-17:00,09:00-14:00,,,,,,,,,,No,,,,
+Cumberland Council,Whitehaven Library,Lowther Street,Whitehaven,Cumbria,CA28 7QZ,100110735276,Yes,LAL,,,09:00-17:00,09:00-18:00,09:00-17:00,09:00-18:00,09:00-17:00,10:00-14:00,,,,,,,,,,Yes,,"Refurbishment of front of llibrary, approix Â£50k, 2017",,whitehaven.library@cumbria.gov.uk
+Cumberland Council,Wigton Library,High Street,Wigton,Cumbria,CA7 9NJ,,Yes,LAL,,,09:30-17:00,09:30-17:00,,09:30-17:00,09:30-17:00,10:00-12:00,,,,,,,,,,Yes,,,,workington.library@cumbria.gov.uk
+Cumberland Council,Workington Library,Vulcan's Lane,Workington,Cumbria,CA14 2ND,,Yes,LAL,,,09:00-18:00,09:00-17:00,09:00-18:00,09:00-17:00,09:00-17:00,09:00-14:00,,,,,,,,,,Yes,,,,workington.library@cumbria.gov.uk

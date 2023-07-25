@@ -1,15 +1,15 @@
 Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Type of library,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
-Sefton Metropolitan Borough Council,Ainsdale,Liverpool Avenue,Southport,Merseyside,PR8 3NE,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sefton Metropolitan Borough Council,Aintree,Altway,Aintree,Merseyside,L10 6LF,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Birkdale,240-244 Liverpool Road,Birkdale,Merseyside,PR8 4PD,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Bootle,220 Stanley Road,Bootle,Merseyside,L20 3EN,41091335,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,No,,,,bootle.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Birkdale,240-244 Liverpool Road,Birkdale ,Merseyside,PR8 4PD,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
+Sefton Metropolitan Borough Council,Bootle,220 Stanley Road,Bootle,Merseyside,L20 3EN,41091335,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,No,,,,bootle.library@sefton.gov.uk
 Sefton Metropolitan Borough Council,Churchtown,Mill Lane,Churchtown,Merseyside,PR9 7PL,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sefton Metropolitan Borough Council,College Road,College Road,Great Crosby,Merseyside,L23 3DP,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Crosby,Crosby Road North,Liverpool,Merseyside,L22 0LQ,41022376,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,No,,,,crosby.library@sefton.gov.uk
-Sefton Metropolitan Borough Council,Edda,Liverpool Avenue,Southport,Merseyside,PR8 3NE,41053518,No,ICL,,,10:00-16:00,10:00-16:00,10:00-16:00,10:00-16:00,10:00-16:00,10:00-13:00,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Formby,Duke Street,Formby,Merseyside,L37 4AN,41026770,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,Yes,Family Wellbeing Centre,,,formby.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Crosby,Crosby Road North,Liverpool,Merseyside,L22 0LQ,41022376,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,Yes,,,,crosby.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Edda,Liverpool Avenue,Southport,Merseyside,PR8 3NE,,Yes,ICL,,2013,,,,,,,,,,,,,,,,Yes,,,,
+Sefton Metropolitan Borough Council,Edda,Liverpool Avenue,Southport,Merseyside,PR8 3NE,41053518,No,ICL,,,10:00-16:00,10:00-16:00,10:00-16:00,10:00-16:00,10:00-16:00,10:00-13:00,,,,,,,,,,Yes,,,,
+Sefton Metropolitan Borough Council,Formby,Duke Street,Formby,Merseyside,L37 4AN,41026770,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,Yes,Family Wellbeing Centre,,,formby.library@sefton.gov.uk
 Sefton Metropolitan Borough Council,Litherland,Linacre Road,Litherland,Merseyside,L21 6NR,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Meadows (Maghull),Hall Lane,Liverpool,Merseyside,L31 7BB,41216177,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,Yes,Leisure Centre,,,maghull.library@sefton.gov.uk
-Sefton Metropolitan Borough Council,Netherton,Glovers Lane,Liverpool,Merseyside,L30 3TL,41226677,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,Yes,Leisure Centre,,,netherton.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Meadows (Maghull),Hall Lane,Liverpool,Merseyside,L31 7BB,41216177,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-14:00,,,,,,,,,,Yes,Leisure Centre,,,maghull.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Netherton,Glovers Lane,Liverpool,Merseyside,L30 3TL,41226677,Yes,LAL,2017,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-13:00,,,,,,,,,,Yes,Leisure Centre,,,moultlib@firstforwellbeing.co.uk
 Sefton Metropolitan Borough Council,Orrell,Linacre Lane,Orrell,Merseyside,L20 6ES,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sefton Metropolitan Borough Council,Southport,112 Lord Street,Southport,Merseyside,PR8 1DJ,41056316,No,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,,,,,,,,,,Yes,Arts Centre,,,southport.library@sefton.gov.uk
+Sefton Metropolitan Borough Council,Southport,112 Lord Street,Southport,Merseyside,PR8 1DJ,41056316,Yes,LAL,,,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,10:00-17:00,,,,,,,,,,Yes,Arts Centre,,,southport.library@sefton.gov.uk

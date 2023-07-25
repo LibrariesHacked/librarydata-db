@@ -1,6 +1,6 @@
 Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Type of library,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
 Sunderland City Council,Bunny Hill,Hylton Lane,Sunderland,Tyne and Wear,SR5 4BW,,No,LAL,,2017,,,,,,,,,,,,,,,,No,,,,
-Sunderland City Council,City,Burdon Road,Sunderland,Tyne and Wear,SR1 1PP,45093586,No,LAL,,,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,09:30-17:00,10:00-16:00,,,,,,,,,,No,,,,
+Sunderland City Council,City,Burdon Road,Sunderland,Tyne and Wear,SR1 1PP,45093586,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,09:30-17:00,10:00-16:00,,,,,,,,,,No,,,,enquiry.desk@sunderland.gov.uk
 Sunderland City Council,Doxford Park,,,,SR3 2ND,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,Easington Lane,,,,DH5 0JW,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,East Herrington,,,,SR3 3PF,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
@@ -8,7 +8,7 @@ Sunderland City Council,Fence Houses,,,,DH4 6HL,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No
 Sunderland City Council,Fulwell,Dene Lane,Sunderland,Tyne and Wear,SR6 8EH,,No,ICL,,,10:00-16:00,,10:00-17:00,,10:00-16:00,10:00-13:00,,,,,,,,,,No,,Community service with a library offer,,
 Sunderland City Council,Hendon,,,,SR2 8JG,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,Hetton Centre,Welfare Road,Hetton,Tyne and Wear,DH5 9NE,,No,ICL,,2021,09:00-15:15,,,,,,,,,,,,,,,No,,Community service with a library offer,,
-Sunderland City Council,Houghton,74 Newbottle Street,Houghton-le-Spring,Tyne and Wear,DH4 4AF,,No,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,10:00-14:00,,,,,,,,,,No,,,,
+Sunderland City Council,Houghton,74 Newbottle Street,Houghton-le-Spring,Tyne and Wear,DH4 4AF,,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,10:00-14:00,,,,,,,,,,No,,,,houghton.library@sunderland.gov.uk
 Sunderland City Council,Kayll Road,Kayll Road,Sunderland,Tyne and Wear,SR4 7TW,,No,ICL,,,,,,,,,,,,,,,,,,No,,Community service with a library offer,,
 Sunderland City Council,Monkwearmouth,,,,SR6 0DR,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,Ryhope,Black Road,Sunderland,Tyne and Wear,SR2 0RX,,No,LAL,,2017,,,,,,,,,,,,,,,,No,,,,
@@ -17,5 +17,5 @@ Sunderland City Council,Shiney Row,Chester Road,Shiney Row,Tyne and Wear,DH4 4RB
 Sunderland City Council,Silksworth,,,,SR3 1HN,,Yes,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,Southwick,,,,SR5 2JR,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
 Sunderland City Council,Washington Green,,,,NE38 7AB,,No,LAL,,2013,,,,,,,,,,,,,,,,No,,,,
-Sunderland City Council,Washington Millennium,"Washington Millennium Centre, The Oval",Washington,Tyne and Wear,NE37 2QD,,No,ICL,,,08:30-20:30,08:30-20:30,08:30-20:30,08:30-20:30,08:30-16:30,09:00-16:30,09:00-16:30,,,,,,,,,No,,,,
-Sunderland City Council,Washington Town Centre,Independence Square,Washington,Tyne and Wear,NE38 7RZ,45085799,No,LAL,,,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,09:30-17:00,10:00-16:00,,,,,,,,,,No,,,,
+Sunderland City Council,Washington Millennium,"Washington Millennium Centre, The Oval",Washington,Tyne and Wear,NE37 2QD,,No,ICL,,,08:30-20:30,08:30-20:30,08:30-20:30,08:30-20:30,08:30-16:30,09:00-16:30,09:00-16:30,,,,,,,,,Yes,,,,
+Sunderland City Council,Washington Town Centre,Independence Square,Washington,Tyne and Wear,NE38 7RZ,45085799,Yes,LAL,,,09:30-17:00,09:30-17:00,09:30-19:00,09:30-17:00,09:30-17:00,10:00-16:00,,,,,,,,,,No,,,,washtown.library@sunderland.gov.uk
