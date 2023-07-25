@@ -649,7 +649,6 @@ and b.postcode not in (select postcode from basic where type = 'Static Library' 
 and l.name != b.name;
 
 
-
 -- address_1
 update  
     schemas_libraries l
@@ -685,20 +684,95 @@ and l.address_3 != b.address3;
 update basic set statutory_22 = 'No' where statutory_22 = 'no';
 update basic set statutory_22 = 'Yes' where statutory_22 = 'yes';
 
-update schemas_libraries l
-set statutory = (
-    select 
+-- statutory
+update  
+    schemas_libraries l
+set 
+    statutory =  
         case 
-            when statutory_22 = 'Yes' then true
-            when statutory_22 = 'No' then false
+            when b.statutory_22 = 'Yes' then true
+            when b.statutory_22 = 'No' then false
         end
-    from basic where l.postcode = basic.postcode limit 1
-)
-where l.year_closed is null
-and l.postcode in (select postcode from basic)
-and postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.year_closed is null;
+
+
+-- uprn
+update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
 
 
 
+-- library_type_id
+update basic set operation_22 = 'LA' where operation_22 = 'La';
+update basic set operation_22 = 'C' where operation_22 = 'c';
+
+update  
+    schemas_libraries l
+set 
+    library_type_id =  
+        case 
+            when b.operation_22 = 'LA' then 1
+            when b.operation_22 = 'LAU' then 2
+            when b.operation_22 = 'C' then 3
+            when b.operation_22 = 'CR' then 4
+            when b.operation_22 = 'ICL' then 5
+        end
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and b.closed is null
+and b.operation_22  in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
+
+-- year opened
+update  
+    schemas_libraries l
+set 
+    year_opened = cast(b.opened as numeric)
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and b.opened ~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'
+and l.year_opened is null;
+
+
+-- year_closed
+update  
+    schemas_libraries l
+set 
+    year_closed = cast(b.closed as numeric)
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and b.closed ~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'
+and l.year_closed is null;
+
+-- colocated
+update basic set co_located = 'Yes' where co_located = 'yes';
+update basic set co_located = 'No' where co_located = 'N/A';
+
+update  
+    schemas_libraries l
+set
+    colocated = case
+        when b.co_located = 'Yes' then true
+        when b.co_located = 'No' then false
+    end
+from basic b
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1);
+
+-- email
+update  
+    schemas_libraries l
+set 
+    email_address = b.email
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and b.email is not null
+and l.year_closed is null;
 
 -- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
