@@ -1,18 +1,19 @@
 Local authority,Library name,Address 1,Address 2,Address 3,Postcode,Unique property reference number,Statutory,Type of library,Year opened,Year closed,Monday staffed hours,Tuesday staffed hours,Wednesday staffed hours,Thursday staffed hours,Friday staffed hours,Saturday staffed hours,Sunday staffed hours,Monday unstaffed hours,Tuesday unstaffed hours,Wednesday unstaffed hours,Thursday unstaffed hours,Friday unstaffed hours,Saturday unstaffed hours,Sunday unstaffed hours,Special hours,Co-located,Co-located with,Notes,URL,Email address
-Royal Borough of Windsor and Maidenhead,Ascot Durning,High Street,Ascot,Berkshire,SL5 7JF,,Yes,LAL,,,10:00-19:00,10:00-17:00,10:00-17:00,10:00-19:00,10:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Boyn Grove Community Resource Centre,11 Courthouse Road,Maidenhead,Berkshire,SL6 6JE,,Yes,LAL,,,14:00-17:00,14:00-17:00,14:00-17:00,10:00-19:00,14:00-17:00,10:00-16:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Cookham,High Road,Cookham Rise,Berkshire,SL6 9JF,,Yes,LAL,,,14:00-19:00,14:00-17:00,14:00-17:00,10:00-17:00,14:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Cox Green,49 Highfield Lane,Maidenhead,Berkshire,SL6 3AX,,Yes,LAL,,,,13:30-17:00,10:00-19:00,10:00-17:00,13:30-17:00,10:00-13:30,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Datchet,"Montagu House, 8 Horton Road",Datchet,Berkshire,SL3 9ER,,Yes,LAL,,,,14:00-19:00,10:00-17:00,10:00-13:00,10:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Dedworth,"Dedworth School, Smith's Lane",Windsor,Berkshire,SL4 5PE,,Yes,LAL,,,14:00-19:00,14:00-17:00,14:00-17:00,08:45-17:00,08:45-17:00,10:00-16:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Eton,136 High Street,Eton,Berkshire,SL4 6AR,,Yes,LAL,,2021,14:00-17:00,10:00-17:00,,,14:00-19:00,10:00-13:00,,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Eton Wick,Village Hall,Eton Wick,Berkshire,SL4 6LT,,Yes,LAL,,,,14:00-17:00,10:00-19:00,10:00-17:00,10:00-13:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Furze Platt Container,Shifford Crescent Shops,Maidenhead,Berkshire,SL6 7UA,,Yes,LAL,,2021,,10:00-17:00,,,,,,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Holyport Container,Stroud Farm Road,Holyport,Berkshire,SL6 2LP,,Yes,LAL,,2021,,,,10:00-19:00,,,,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Maidenhead,St. Ives Road,Maidenhead,Berkshire,SL6 1QU,,Yes,LAL,,,09:00-19:00,09:00-19:00,10:00-19:00,09:00-19:00,09:00-19:00,09:00-17:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Old Windsor,Straight Road,Windsor,Berkshire,SL4 2RN,,Yes,LAL,,,,10:00-17:00,14:00-17:00,,14:00-19:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Sunningdale Container,Recreation Ground,Ascot,Berkshire,SL5 0QS,,Yes,LAL,,,,,,,10:00-19:00,10:00-16:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Sunninghill,School Road,Ascot,Berkshire,SL5 7AA,,Yes,LAL,,,14:00-19:00,14:00-17:00,14:00-17:00,10:00-17:00,14:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Windsor,Bachelors Acre,Windsor,Berkshire,SL4 1ER,,Yes,LAL,,,09:00-17:00,09:00-19:00,10:00-17:00,09:00-17:00,09:00-19:00,09:30-17:00,11:00-14:00,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Woodlands Park Container,"Community Centre, Manifold Way",White Waltham,Berkshire,SL6 3GW,,Yes,LAL,,2021,10:00-17:00,,,,,,,,,,,,,,,No,,,,
-Royal Borough of Windsor and Maidenhead,Wraysbury Container,33 The Green,Staines,Berkshire,TW19 5NA,,Yes,LAL,,,,00:00-10:00,19:00-00:00,,,,,,,,,,,,,No,,,,
+Royal Borough of Windsor and Maidenhead,Ascot Durning,High Street,Ascot,Berkshire,SL5 7JF,,Yes,LAL,,,10:00-19:00,10:00-17:00,10:00-17:00,10:00-19:00,10:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,Yes,,,,ascot.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Boyn Grove ,11 Courthouse Road,Maidenhead,Berkshire,SL6 6JE,,Yes,LAL,2014,,14:00-17:00,14:00-17:00,14:00-17:00,10:00-19:00,14:00-17:00,10:00-16:00,11:00-14:00,,,,,,,,,Yes,,,,boyngrove.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Cookham,High Road,Cookham Rise,Berkshire,SL6 9JF,,Yes,LAL,2002,,14:00-19:00,14:00-17:00,14:00-17:00,10:00-17:00,14:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,Yes,,,,cookham.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Cox Green,49 Highfield Lane,Maidenhead,Berkshire,SL6 3AX,,Yes,LAL,2006,,,13:30-17:00,10:00-19:00,10:00-17:00,13:30-17:00,10:00-13:30,11:00-14:00,,,,,,,,,Yes,,,,coxgreenlib@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Datchet,"Montagu House, 8 Horton Road",Datchet,Berkshire,SL3 9ER,,Yes,LAL,,,,14:00-19:00,10:00-17:00,10:00-13:00,10:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,Yes,,,,datchet.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Dedworth,"Dedworth School, Smith's Lane",Windsor,Berkshire,SL4 5PE,,Yes,LAL,,,14:00-19:00,14:00-17:00,14:00-17:00,08:45-17:00,08:45-17:00,10:00-16:00,11:00-14:00,,,,,,,,,Yes,,,,dedworth.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Eton, , , ,SL4 6AR,,Yes,LAL,,2021,14:00-17:00,10:00-17:00,,,14:00-19:00,10:00-13:00,,,,,,,,,,No,,,,
+Royal Borough of Windsor and Maidenhead,Eton Wick,Village Hall,Eton Wick,Berkshire,SL4 6LT,,Yes,LAL,,,,14:00-17:00,10:00-19:00,10:00-17:00,10:00-13:00,10:00-13:00,11:00-14:00,,,,,,,,,Yes,,,,etonwick.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Furze Platt Container, , , ,SL6 7UA,,Yes,LAL,,2021,,10:00-17:00,,,,,,,,,,,,,,No,,,,
+Royal Borough of Windsor and Maidenhead,Holyport Container, , , ,SL6 2LP,,Yes,LAL,,2021,,,,10:00-19:00,,,,,,,,,,,,No,,,,
+Royal Borough of Windsor and Maidenhead,Horton Pop Up Library,,,,SL3 9PA,,Yes,LAL,2022,,,,,,,,,,,,,,,,,Yes,,,,Horton.Library@RBWM.gov.uk
+Royal Borough of Windsor and Maidenhead,Maidenhead,St. Ives Road ,Maidenhead,Berkshire,SL6 1QU,,Yes,LAL,,,09:00-19:00,09:00-19:00,10:00-19:00,09:00-19:00,09:00-19:00,09:00-17:00,11:00-14:00,,,,,,,,,No,,,,maidenhead.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Old Windsor,Straight Road,Windsor,Berkshire,SL4 2RN,,Yes,LAL,,,,10:00-17:00,14:00-17:00,,14:00-19:00,10:00-13:00,11:00-14:00,,,,,,,,,Yes,,,,oldwindsor.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Sunningdale Pop Up Library,The Pavilion,Ascot,Berkshire,SL5 0QS,,Yes,LAL,2022,,,,,,10:00-19:00,10:00-16:00,11:00-14:00,,,,,,,,,Yes,,,,sunningdale.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Sunninghill,School Road,Ascot,Berkshire,SL5 7AA,,Yes,LAL,,,14:00-19:00,14:00-17:00,14:00-17:00,10:00-17:00,14:00-17:00,10:00-13:00,11:00-14:00,,,,,,,,,No,,,,sunninghill.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Windsor,Bachelors Acre,Windsor,Berkshire,SL4 1ER,,Yes,LAL,,,09:00-17:00,09:00-19:00,10:00-17:00,09:00-17:00,09:00-19:00,09:30-17:00,11:00-14:00,,,,,,,,,No,,,,windsor.library@rbwm.gov.uk
+Royal Borough of Windsor and Maidenhead,Woodlands Park Container, , , ,SL6 3GW,,Yes,LAL,,2021,10:00-17:00,,,,,,,,,,,,,,,No,,,,
+Royal Borough of Windsor and Maidenhead,Wraysbury Container,"Village Hall Car Park, The Green",Staines,Berkshire,TW19 5NA,,No,LAL,,2022,,00:00-10:00,19:00-00:00,,,,,,,,,,,,,No,,,,

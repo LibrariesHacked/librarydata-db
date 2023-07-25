@@ -154,12 +154,40 @@ update basic set postcode = 'SL6 7UA' where name = 'Furze Platt Container' and p
 update basic set postcode = 'SL6 2LP' where name = 'Holyport Container' and postcode is null;
 update basic set postcode = 'SL6 3GW' where name = 'Woodlands Park Container' and postcode is null;
 
--- find dupes in basic dataset
-select postcode
-from basic
-where type = 'Static Library'
-group by postcode
-having count(*) > 1;
+update basic set uprn = trim(uprn);
+-- remove invalid uprns
+update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
+-- remove uprns that have no match in geo_uprn
+update basic
+set uprn = null
+where uprn in 
+(
+    select 
+        b.uprn
+    from basic b
+    left join geo_uprn u
+    on u.uprn = cast(b.uprn as numeric)
+    where b.uprn is not null
+    and u is null
+);
+-- remove uprns that seem to have an invalid location
+update basic
+set uprn = null
+where uprn in 
+(
+    select uprn from
+        (select 
+            b.uprn as uprn,
+            st_distance(st_setsrid(st_makepoint(u.x_coordinate, u.y_coordinate), 27700), 
+            st_setsrid(st_makepoint(p.easting, p.northing), 27700)) as distance
+        from basic b
+        join geo_postcode_lookup p
+        on p.postcode = b.postcode
+        left join geo_uprn u
+        on u.uprn = cast(b.uprn as numeric)
+        where b.uprn is not null) as d
+    where d.distance > 3218
+);
 
 
 -- postcode fixes for the original libraries dataset
@@ -700,7 +728,15 @@ and l.year_closed is null;
 
 
 -- uprn
-update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
+update  
+    schemas_libraries l
+set 
+    unique_property_reference_number = cast(b.uprn as numeric)
+from basic b 
+where l.postcode = b.postcode
+and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
+and l.unique_property_reference_number != cast(b.uprn as numeric)
+and b.uprn  is not null;
 
 
 
