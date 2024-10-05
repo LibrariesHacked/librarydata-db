@@ -60,6 +60,25 @@ create table basic (
 -- load basic dataset
 \copy basic from 'data/libraries_england_2023.csv' csv header;
 
+-- Update the reporting name to the 'nice_name' in the 'schemas_authorities' table
+update basic set reporting = 'City of Bristol' where reporting = 'Bristol, City of';
+update basic set reporting = 'Herefordshire' where reporting = 'Herefordshire, County of';
+update basic set reporting = 'Kingston upon Thames' where reporting = 'Kingston Upon Thames';
+update basic set reporting = 'Southampton' where reporting = 'southampton';
+update basic set reporting = 'Southend-on-Sea' where reporting = 'Southend';
+update basic set reporting = 'Dorset Council' where reporting = 'Dorset';
+update basic set reporting = 'Newcastle upon Tyne' where reporting = 'Newcastle Upon Tyne';
+update basic set reporting = 'East Riding of Yorkshire' where reporting = 'East Riding Of Yorkshire';
+update basic set reporting = 'Richmond upon Thames' where reporting = 'Richmond Upon Thames';
+update basic set reporting = 'Kingston upon Hull' where reporting = 'Kingston upon Hull, City of';
+
+-- Update the authority name to the 'name' in the 'schemas_authorities' table
+update basic
+set reporting = a.name
+from schemas_local_authority a
+where basic.reporting = a.nice_name;
+
+
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
 
@@ -73,6 +92,51 @@ delete from basic where name = 'Library Support Unit';
 delete from basic where name = 'The Meeting Place';
 delete from basic where name = 'Haxby Library';
 delete from basic where name = 'Blunsdon Community Book Collection';
+
+
+-- Trim address fields
+update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
+update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
+update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
+
+
+-- Ensure statutory fields are Yes or No
+update basic set statutory_10 = 'No' where statutory_10 = '[Unknown]';
+update basic set statutory_10 = 'Yes' where statutory_10 = 'yes';
+update basic set statutory_10 = 'No' where statutory_10 = 'Facility not open'
+
+update basic set statutory_16 = 'No' where statutory_16 = '[Unknown]';
+update basic set statutory_16 = 'No' where statutory_16 = 'no';
+update basic set statutory_16 = 'Yes' where statutory_16 = 'yes';
+update basic set statutory_16 = 'No' where statutory_16 = 'Facility Not Open';
+update basic set statutory_16 = 'No' where statutory_16 = 'Facility not open'
+
+update basic set statutory_19 = 'Yes' where statutory_19 = 'yes';
+update basic set statutory_19 = 'No' where statutory_19 = 'Facility Not Open';
+update basic set statutory_19 = 'No' where statutory_19 = 'Facility not open'
+
+update basic set statutory_21 = 'No' where statutory_21 = 'no';
+update basic set statutory_21 = 'No' where statutory_21 = 'Facility Not Open';
+update basic set statutory_21 = 'No' where statutory_21 = 'Facility not open';
+
+update basic set statutory_22 = 'Yes' where statutory_22 = 'yes';
+update basic set statutory_22 = 'No' where statutory_22 = 'no';
+update basic set statutory_22 = 'No' where statutory_22 = 'Facility Not Open';
+update basic set statutory_22 = 'No' where statutory_22 = 'Facility not open';
+
+update basic set statutory_23 = 'No' where statutory_23 = 'NO';
+
+
+-- Ensure operation fields are a valid code
+update basic set operation_16 = '' where operation_16 = 'Facility Not Open';
+update basic set operation_16 = '' where operation_16 = 'Closed';
+update basic set operation_16 = '' where operation_16 = 'Temporary Closure';
+update basic set operation_16 = '' where operation_16 = '[Unknown]';
+
+
+
+
+
 
 -- convert all library postcodes to uppercase
 update basic set postcode = upper(postcode);
@@ -141,8 +205,12 @@ update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
 update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
 update basic set postcode = 'SE2 9FA' where postcode = 'SE29FA';
 
+-- trim whitespace where there is whitespace to trim - 8
+update basic set uprn = trim(uprn) where uprn ~ '\s';
 
-update basic set uprn = trim(uprn);
+-- remove trailing zeros where there are trailing zeros
+update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
+
 -- remove invalid uprns
 update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
 -- remove uprns that have no match in geo_uprn
@@ -175,16 +243,15 @@ where uprn in
         on u.uprn = cast(b.uprn as numeric)
         where b.uprn is not null) as d
     where d.distance > 3218
-); -- 265
+); -- 248
 
 -- statutory - based on latest 23 assessment
-update basic set statutory_23 = 'No' where statutory_23 = 'no';
-update basic set statutory_23 = 'Yes' where statutory_23 = 'yes';
 update basic set statutory_23 = 'No' where statutory_23 = 'NO';
 
 -- library_type_id
 update basic set operation_23 = 'LA' where operation_23 = 'La';
 update basic set operation_23 = 'C' where operation_23 = 'c';
+update basic set operation_23 = 'Closed' where operation_23 = 'closed';
 
 -- name
 update  
@@ -250,10 +317,7 @@ and b.postcode not in (select postcode from basic where type = 'Static Library' 
 and l.unique_property_reference_number != cast(b.uprn as numeric)
 and b.uprn  is not null; -- 1 updated
 
-
-
-
-
+-- library type
 update  
     schemas_libraries l
 set 
