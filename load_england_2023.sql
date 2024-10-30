@@ -81,6 +81,9 @@ where basic.reporting = a.nice_name;
 
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
+update basic set type = 'Archive' where type = 'archive';
+update basic set type = 'Mobile Library' where type = 'mobile library';
+update basic set type = 'Archive' where type = 'static archive';
 
 delete from basic where type != 'Static Library';
 
@@ -90,7 +93,6 @@ delete from basic where name = 'West Cumberland Hospital Book Drop';
 delete from basic where name = 'St. Bernard''s Hospital Library';
 delete from basic where name = 'Library Support Unit';
 delete from basic where name = 'The Meeting Place';
-delete from basic where name = 'Haxby Library';
 delete from basic where name = 'Blunsdon Community Book Collection';
 
 
@@ -103,40 +105,44 @@ update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
 -- Ensure statutory fields are Yes or No
 update basic set statutory_10 = 'No' where statutory_10 = '[Unknown]';
 update basic set statutory_10 = 'Yes' where statutory_10 = 'yes';
-update basic set statutory_10 = 'No' where statutory_10 = 'Facility not open'
+update basic set statutory_10 = 'No' where statutory_10 = 'Facility not open';
+update basic set statutory_10 = 'No' where statutory_10 = 'Facility Not Open';
 
 update basic set statutory_16 = 'No' where statutory_16 = '[Unknown]';
 update basic set statutory_16 = 'No' where statutory_16 = 'no';
 update basic set statutory_16 = 'Yes' where statutory_16 = 'yes';
 update basic set statutory_16 = 'No' where statutory_16 = 'Facility Not Open';
-update basic set statutory_16 = 'No' where statutory_16 = 'Facility not open'
+update basic set statutory_16 = 'No' where statutory_16 = 'Facility not open';
+update basic set statutory_16 = 'No' where statutory_16 = 'Temporary Closure';
 
 update basic set statutory_19 = 'Yes' where statutory_19 = 'yes';
 update basic set statutory_19 = 'No' where statutory_19 = 'Facility Not Open';
 update basic set statutory_19 = 'No' where statutory_19 = 'Facility not open'
+update basic set statutory_19 = 'No' where statutory_19 = 'Temporary Closure';
 
 update basic set statutory_21 = 'No' where statutory_21 = 'no';
 update basic set statutory_21 = 'No' where statutory_21 = 'Facility Not Open';
 update basic set statutory_21 = 'No' where statutory_21 = 'Facility not open';
+update basic set statutory_21 = 'No' where statutory_21 = 'Temporary Closure';
 
 update basic set statutory_22 = 'Yes' where statutory_22 = 'yes';
 update basic set statutory_22 = 'No' where statutory_22 = 'no';
 update basic set statutory_22 = 'No' where statutory_22 = 'Facility Not Open';
-update basic set statutory_22 = 'No' where statutory_22 = 'Facility not open';
+update basic set statutory_22 = 'No' where statutory_22 = 'Temporary Closure';
 
 update basic set statutory_23 = 'No' where statutory_23 = 'NO';
+update basic set statutory_23 = 'No' where statutory_23 = 'Temporary Closure';
 
 
 -- Ensure operation fields are a valid code
-update basic set operation_16 = '' where operation_16 = 'Facility Not Open';
-update basic set operation_16 = '' where operation_16 = 'Closed';
-update basic set operation_16 = '' where operation_16 = 'Temporary Closure';
-update basic set operation_16 = '' where operation_16 = '[Unknown]';
-
-
-
-
-
+update basic set operation_16 = '' where operation_16 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_19 = '' where operation_19 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_21 = '' where operation_21 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_22 = 'LA' where operation_22 ='La';
+update basic set operation_22 = 'C' where operation_22 ='c';
+update basic set operation_22 = '' where operation_22 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_23 = 'C' where operation_23 ='c';
+update basic set operation_23 = '' where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 -- convert all library postcodes to uppercase
 update basic set postcode = upper(postcode);
@@ -213,6 +219,7 @@ update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
 
 -- remove invalid uprns
 update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
+
 -- remove uprns that have no match in geo_uprn
 update basic
 set uprn = null
@@ -226,6 +233,7 @@ where uprn in
     where b.uprn is not null
     and u is null
 ); -- 276
+
 -- remove uprns that seem to have an invalid location
 update basic
 set uprn = null
@@ -242,16 +250,11 @@ where uprn in
         left join geo_uprn u
         on u.uprn = cast(b.uprn as numeric)
         where b.uprn is not null) as d
-    where d.distance > 3218
-); -- 248
+    where d.distance > 8045 -- 5 miles
+); -- 305
 
--- statutory - based on latest 23 assessment
-update basic set statutory_23 = 'No' where statutory_23 = 'NO';
 
--- library_type_id
-update basic set operation_23 = 'LA' where operation_23 = 'La';
-update basic set operation_23 = 'C' where operation_23 = 'c';
-update basic set operation_23 = 'Closed' where operation_23 = 'closed';
+-- Now process updates to the libraries table
 
 -- name
 update  
