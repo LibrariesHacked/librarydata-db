@@ -62,15 +62,16 @@ create table basic (
 
 -- Update the reporting name to the 'nice_name' in the 'schemas_authorities' table
 update basic set reporting = 'City of Bristol' where reporting = 'Bristol, City of';
+update basic set reporting = 'Dorset Council' where reporting = 'Dorset';
+update basic set reporting = 'East Riding of Yorkshire' where reporting = 'East Riding Of Yorkshire';
 update basic set reporting = 'Herefordshire' where reporting = 'Herefordshire, County of';
+update basic set reporting = 'Kingston upon Hull' where reporting = 'Kingston upon Hull, City of';
 update basic set reporting = 'Kingston upon Thames' where reporting = 'Kingston Upon Thames';
+update basic set reporting = 'Newcastle upon Tyne' where reporting = 'Newcastle Upon Tyne';
+update basic set reporting = 'Richmond upon Thames' where reporting = 'Richmond Upon Thames';
 update basic set reporting = 'Southampton' where reporting = 'southampton';
 update basic set reporting = 'Southend-on-Sea' where reporting = 'Southend';
-update basic set reporting = 'Dorset Council' where reporting = 'Dorset';
-update basic set reporting = 'Newcastle upon Tyne' where reporting = 'Newcastle Upon Tyne';
-update basic set reporting = 'East Riding of Yorkshire' where reporting = 'East Riding Of Yorkshire';
-update basic set reporting = 'Richmond upon Thames' where reporting = 'Richmond Upon Thames';
-update basic set reporting = 'Kingston upon Hull' where reporting = 'Kingston upon Hull, City of';
+
 
 -- Update the authority name to the 'name' in the 'schemas_authorities' table
 update basic
@@ -79,27 +80,37 @@ from schemas_local_authority a
 where basic.reporting = a.nice_name;
 
 
+-- Trim address fields
+update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
+update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
+update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
+
+
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
 update basic set type = 'Archive' where type = 'archive';
 update basic set type = 'Mobile Library' where type = 'mobile library';
 update basic set type = 'Archive' where type = 'static archive';
 
-delete from basic where type != 'Static Library';
 
-delete from basic where name = 'Gorse Hill Community Book Collection';
-delete from basic where name = 'Small Business Research + Enterprise Centre';
-delete from basic where name = 'West Cumberland Hospital Book Drop';
-delete from basic where name = 'St. Bernard''s Hospital Library';
+
+delete from basic where name = 'Gorse Hill Community Book Collection'; -- Closed in 2009
 delete from basic where name = 'Library Support Unit';
 delete from basic where name = 'The Meeting Place';
 delete from basic where name = 'Blunsdon Community Book Collection';
 
 
--- Trim address fields
-update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
-update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
-update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
+
+delete from basic where name = 'Millbrook Micro';
+delete from basic where name = 'Mullion Micro';
+delete from basic where name = 'Polbathic Micro';
+delete from basic where name = 'St Dennis Micro';
+delete from basic where name = 'St. Columb Library';
+delete from basic where name = 'Stoke Climsland';
+delete from basic where name = 'Treverbyn Micro';
+delete from basic where name = 'Vogue Micro';
+delete from basic where name = 'Wainhouse Corner Micro Library';
+delete from basic where name = 'Sedlescombe Village Library';
 
 
 -- Ensure statutory fields are Yes or No
@@ -149,6 +160,9 @@ update basic set postcode = upper(postcode);
 
 -- remove trailing whitespace
 update basic set postcode = trim(postcode);
+
+-- how many invalid postcodes
+select count(*) from basic where postcode not in (select postcode from geo_postcode_lookup);
 
 -- other postcode fixes - all existing errors
 update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
