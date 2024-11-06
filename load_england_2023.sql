@@ -95,12 +95,11 @@ update basic set type = 'Archive' where type = 'static archive';
 
 
 delete from basic where name = 'Gorse Hill Community Book Collection'; -- Closed in 2009
-delete from basic where name = 'Library Support Unit';
-delete from basic where name = 'The Meeting Place';
-delete from basic where name = 'Blunsdon Community Book Collection';
+delete from basic where name = 'Library Support Unit'; -- not a public library
 
 
 
+-- These micros have operation status as unkownn - will delete
 delete from basic where name = 'Millbrook Micro';
 delete from basic where name = 'Mullion Micro';
 delete from basic where name = 'Polbathic Micro';
@@ -115,16 +114,16 @@ delete from basic where name = 'Sedlescombe Village Library';
 
 -- Ensure statutory fields are Yes or No
 update basic set statutory_10 = 'No' where statutory_10 = '[Unknown]';
-update basic set statutory_10 = 'Yes' where statutory_10 = 'yes';
 update basic set statutory_10 = 'No' where statutory_10 = 'Facility not open';
 update basic set statutory_10 = 'No' where statutory_10 = 'Facility Not Open';
+update basic set statutory_10 = 'Yes' where statutory_10 = 'yes';
 
 update basic set statutory_16 = 'No' where statutory_16 = '[Unknown]';
 update basic set statutory_16 = 'No' where statutory_16 = 'no';
-update basic set statutory_16 = 'Yes' where statutory_16 = 'yes';
 update basic set statutory_16 = 'No' where statutory_16 = 'Facility Not Open';
 update basic set statutory_16 = 'No' where statutory_16 = 'Facility not open';
 update basic set statutory_16 = 'No' where statutory_16 = 'Temporary Closure';
+update basic set statutory_16 = 'Yes' where statutory_16 = 'yes';
 
 update basic set statutory_19 = 'Yes' where statutory_19 = 'yes';
 update basic set statutory_19 = 'No' where statutory_19 = 'Facility Not Open';
@@ -157,10 +156,8 @@ update basic set operation_23 = '' where operation_23 not in ('LA', 'LAU', 'C', 
 
 -- convert all library postcodes to uppercase
 update basic set postcode = upper(postcode);
-
 -- remove trailing whitespace
 update basic set postcode = trim(postcode);
-
 -- how many invalid postcodes
 select count(*) from basic where postcode not in (select postcode from geo_postcode_lookup);
 
@@ -218,22 +215,22 @@ update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'T
 update basic set postcode = 'CA1 3PP' where name = 'Harraby Library Link' and postcode = 'CA1 3SN';
 update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and postcode = 'WA4 2PF';
 update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
-
-
 -- other postcode fixes - new errors
 update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
 update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
 update basic set postcode = 'SE2 9FA' where postcode = 'SE29FA';
 
+update basic set postcode = null where postcode = '[No registered public address]';
+update basic set postcode = null where postcode = '[UNKNOWN]';
+update basic set postcode = null where postcode = 'N/A - MOBILE';
+update basic set postcode = null where postcode = '[NO REGISTERED PUBLIC ADDRESS]';
+
 -- trim whitespace where there is whitespace to trim - 8
 update basic set uprn = trim(uprn) where uprn ~ '\s';
-
 -- remove trailing zeros where there are trailing zeros
 update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
-
 -- remove invalid uprns
 update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
-
 -- remove uprns that have no match in geo_uprn
 update basic
 set uprn = null
@@ -247,7 +244,6 @@ where uprn in
     where b.uprn is not null
     and u is null
 ); -- 276
-
 -- remove uprns that seem to have an invalid location
 update basic
 set uprn = null
