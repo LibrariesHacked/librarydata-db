@@ -60,6 +60,64 @@ create table basic (
 -- load basic dataset
 \copy basic from 'data/libraries_england_2023.csv' csv header;
 
+-- Trim all fields
+update basic set reporting = trim(reporting) where reporting ~ '^\s|\s$';
+update basic set name = trim(name) where name ~ '^\s|\s$';
+update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
+update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
+update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
+update basic set authority = trim(authority) where authority ~ '^\s|\s$';
+update basic set postcode = trim(postcode) where postcode ~ '^\s|\s$';
+update basic set uprn = trim(uprn) where uprn ~ '^\s|\s$';
+update basic set type = trim(type) where type ~ '^\s|\s$';
+update basic set statutory_10 = trim(statutory_10) where statutory_10 ~ '^\s|\s$';
+update basic set statutory_16 = trim(statutory_16) where statutory_16 ~ '^\s|\s$';
+update basic set statutory_19 = trim(statutory_19) where statutory_19 ~ '^\s|\s$';
+update basic set statutory_21 = trim(statutory_21) where statutory_21 ~ '^\s|\s$';
+update basic set statutory_22 = trim(statutory_22) where statutory_22 ~ '^\s|\s$';
+update basic set statutory_23 = trim(statutory_23) where statutory_23 ~ '^\s|\s$';
+update basic set operation_16 = trim(operation_16) where operation_16 ~ '^\s|\s$';
+update basic set operation_19 = trim(operation_19) where operation_19 ~ '^\s|\s$';
+update basic set operation_21 = trim(operation_21) where operation_21 ~ '^\s|\s$';
+update basic set operation_22 = trim(operation_22) where operation_22 ~ '^\s|\s$';
+update basic set operation_23 = trim(operation_23) where operation_23 ~ '^\s|\s$';
+update basic set closed = trim(closed) where closed ~ '^\s|\s$';
+update basic set opened = trim(opened) where opened ~ '^\s|\s$';
+update basic set operating_organisation = trim(operating_organisation) where operating_organisation ~ '^\s|\s$';
+update basic set department = trim(department) where department ~ '^\s|\s$';
+update basic set new_build_21 = trim(new_build_21) where new_build_21 ~ '^\s|\s$';
+update basic set co_located = trim(co_located) where co_located ~ '^\s|\s$';
+update basic set co_located_archives = trim(co_located_archives) where co_located_archives ~ '^\s|\s$';
+update basic set co_located_artscentre = trim(co_located_artscentre) where co_located_artscentre ~ '^\s|\s$';
+update basic set co_located_carehome_hostel = trim(co_located_carehome_hostel) where co_located_carehome_hostel ~ '^\s|\s$';
+update basic set co_located_catering_bars_pub = trim(co_located_catering_bars_pub) where co_located_catering_bars_pub ~ '^\s|\s$';
+update basic set co_located_civic = trim(co_located_civic) where co_located_civic ~ '^\s|\s$';
+update basic set co_located_community = trim(co_located_community) where co_located_community ~ '^\s|\s$';
+update basic set co_located_faithbuildings = trim(co_located_faithbuildings) where co_located_faithbuildings ~ '^\s|\s$';
+update basic set co_located_health = trim(co_located_health) where co_located_health ~ '^\s|\s$';
+update basic set co_located_hotel = trim(co_located_hotel) where co_located_hotel ~ '^\s|\s$';
+update basic set co_located_industrial_business = trim(co_located_industrial_business) where co_located_industrial_business ~ '^\s|\s$';
+update basic set co_located_library = trim(co_located_library) where co_located_library ~ '^\s|\s$';
+update basic set co_located_museum = trim(co_located_museum) where co_located_museum ~ '^\s|\s$';
+update basic set co_located_retail = trim(co_located_retail) where co_located_retail ~ '^\s|\s$';
+update basic set co_located_schools_colleges = trim(co_located_schools_colleges) where co_located_schools_colleges ~ '^\s|\s$';
+update basic set co_located_universities_highereducation = trim(co_located_universities_highereducation) where co_located_universities_highereducation ~ '^\s|\s$';
+update basic set co_located_other = trim(co_located_other) where co_located_other ~ '^\s|\s$';
+update basic set co_located_other_text = trim(co_located_other_text) where co_located_other_text ~ '^\s|\s$';
+update basic set monday = trim(monday) where monday ~ '^\s|\s$';
+update basic set tuesday = trim(tuesday) where tuesday ~ '^\s|\s$';
+update basic set wednesday = trim(wednesday) where wednesday ~ '^\s|\s$';
+update basic set thursday = trim(thursday) where thursday ~ '^\s|\s$';
+update basic set friday = trim(friday) where friday ~ '^\s|\s$';
+update basic set saturday = trim(saturday) where saturday ~ '^\s|\s$';
+update basic set sunday = trim(sunday) where sunday ~ '^\s|\s$';
+update basic set hours = trim(hours) where hours ~ '^\s|\s$';
+update basic set staffed_hours = trim(staffed_hours) where staffed_hours ~ '^\s|\s$';
+update basic set automated = trim(automated) where automated ~ '^\s|\s$';
+update basic set email = trim(email) where email ~ '^\s|\s$';
+
+
+
 -- Update the reporting name to the 'nice_name' in the 'schemas_authorities' table
 update basic set reporting = 'City of Bristol' where reporting = 'Bristol, City of';
 update basic set reporting = 'Dorset Council' where reporting = 'Dorset';
@@ -73,11 +131,18 @@ update basic set reporting = 'Southampton' where reporting = 'southampton';
 update basic set reporting = 'Southend-on-Sea' where reporting = 'Southend';
 
 
--- Update the authority name to the 'name' in the 'schemas_authorities' table
-update basic
-set reporting = a.name
-from schemas_local_authority a
-where basic.reporting = a.nice_name;
+update basic set authority = 'City of Bristol' where authority = 'Bristol, City of';
+update basic set authority = 'Dorset Council' where authority = 'Dorset';
+update basic set authority = 'East Riding of Yorkshire' where authority = 'East Riding Of Yorkshire';
+update basic set authority = 'Herefordshire' where authority = 'Herefordshire, County of';
+update basic set authority = 'Kingston upon Hull' where authority = 'Kingston upon Hull, City of';
+update basic set authority = 'Kingston upon Thames' where authority = 'Kingston Upon Thames';
+update basic set authority = 'Newcastle upon Tyne' where authority = 'Newcastle Upon Tyne';
+update basic set authority = 'Richmond upon Thames' where authority = 'Richmond Upon Thames';
+update basic set authority = 'Westminster' where authority = 'London';
+-- Suffolk run a prison library in Norfolk
+update basic set authority = 'Norfolk' where authority = 'Norwich' and reporting = 'Suffolk';
+
 
 
 -- Trim address fields
