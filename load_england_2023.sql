@@ -25,7 +25,7 @@ create table basic (
     opened text,
     operating_organisation text,
     department text,
-    new_build_21 text,
+    new_build_22 text,
     co_located text,
     co_located_archives text,
     co_located_artscentre text,
@@ -85,7 +85,7 @@ update basic set closed = trim(closed) where closed ~ '^\s|\s$';
 update basic set opened = trim(opened) where opened ~ '^\s|\s$';
 update basic set operating_organisation = trim(operating_organisation) where operating_organisation ~ '^\s|\s$';
 update basic set department = trim(department) where department ~ '^\s|\s$';
-update basic set new_build_21 = trim(new_build_21) where new_build_21 ~ '^\s|\s$';
+update basic set new_build_22 = trim(new_build_22) where new_build_22 ~ '^\s|\s$';
 update basic set co_located = trim(co_located) where co_located ~ '^\s|\s$';
 update basic set co_located_archives = trim(co_located_archives) where co_located_archives ~ '^\s|\s$';
 update basic set co_located_artscentre = trim(co_located_artscentre) where co_located_artscentre ~ '^\s|\s$';
@@ -141,7 +141,7 @@ update basic set closed = null where closed = '';
 update basic set opened = null where opened = '';
 update basic set operating_organisation = null where operating_organisation = '';
 update basic set department = null where department = '';
-update basic set new_build_21 = null where new_build_21 = '';
+update basic set new_build_22 = null where new_build_22 = '';
 update basic set co_located = null where co_located = '';
 update basic set co_located_archives = null where co_located_archives = '';
 update basic set co_located_artscentre = null where co_located_artscentre = '';
@@ -295,6 +295,42 @@ update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and pos
 update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
 
+-- remove trailing zeros where there are trailing zeros
+update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
+-- remove invalid uprns
+update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
+-- remove uprns that have no match in geo_uprn
+update basic
+set uprn = null
+where uprn in 
+(
+    select 
+        b.uprn
+    from basic b
+    left join geo_uprn u
+    on u.uprn = cast(b.uprn as numeric)
+    where b.uprn is not null
+    and u is null
+); -- 276
+-- remove uprns that seem to have an invalid location
+update basic
+set uprn = null
+where uprn in 
+(
+    select uprn from
+        (select 
+            b.uprn as uprn,
+            st_distance(st_setsrid(st_makepoint(u.x_coordinate, u.y_coordinate), 27700), 
+            st_setsrid(st_makepoint(p.easting, p.northing), 27700)) as distance
+        from basic b
+        join geo_postcode_lookup p
+        on p.postcode = b.postcode
+        left join geo_uprn u
+        on u.uprn = cast(b.uprn as numeric)
+        where b.uprn is not null) as d
+    where d.distance > 8045 -- 5 miles
+); -- 305
+
 
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
@@ -302,13 +338,9 @@ update basic set type = 'Archive' where type = 'archive';
 update basic set type = 'Mobile Library' where type = 'mobile library';
 update basic set type = 'Archive' where type = 'static archive';
 
-
-
+-- Non libraries
 delete from basic where name = 'Gorse Hill Community Book Collection'; -- Closed in 2009
 delete from basic where name = 'Library Support Unit'; -- not a public library
-
-
-
 -- These micros have operation status as unkownn - will delete
 delete from basic where name = 'Millbrook Micro';
 delete from basic where name = 'Mullion Micro';
@@ -364,44 +396,32 @@ update basic set operation_22 = '' where operation_22 not in ('LA', 'LAU', 'C', 
 update basic set operation_23 = 'C' where operation_23 ='c';
 update basic set operation_23 = '' where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
+-- check where year closed is not a number - 0
+select * from basic where closed !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
 
--- trim whitespace where there is whitespace to trim - 8
-update basic set uprn = trim(uprn) where uprn ~ '\s';
--- remove trailing zeros where there are trailing zeros
-update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
--- remove invalid uprns
-update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
--- remove uprns that have no match in geo_uprn
-update basic
-set uprn = null
-where uprn in 
-(
-    select 
-        b.uprn
-    from basic b
-    left join geo_uprn u
-    on u.uprn = cast(b.uprn as numeric)
-    where b.uprn is not null
-    and u is null
-); -- 276
--- remove uprns that seem to have an invalid location
-update basic
-set uprn = null
-where uprn in 
-(
-    select uprn from
-        (select 
-            b.uprn as uprn,
-            st_distance(st_setsrid(st_makepoint(u.x_coordinate, u.y_coordinate), 27700), 
-            st_setsrid(st_makepoint(p.easting, p.northing), 27700)) as distance
-        from basic b
-        join geo_postcode_lookup p
-        on p.postcode = b.postcode
-        left join geo_uprn u
-        on u.uprn = cast(b.uprn as numeric)
-        where b.uprn is not null) as d
-    where d.distance > 8045 -- 5 miles
-); -- 305
+--- check where year opened is not a number - 5
+select * from basic where opened !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
+
+update basic set opened = null where opened = '[unknown]';
+update basic set opened = null where opened = '[Unknown]';
+update basic set opened = '1960' where opened = '1960s';
+update basic set opened = '1970' where opened = '1970s';
+update basic set opened = '1985' where opened = '1985c';
+
+-- 2000
+update basic set operating_organisation = null where operating_organisation = '-';
+-- 15
+update basic set operating_organisation = null where operating_organisation = 'NA';
+-- 1
+update basic set operating_organisation = null where operating_organisation = 'N';
+-- 7
+update basic set operating_organisation = null where operating_organisation = 'CR';
+-- 264
+update basic set operating_organisation = null where operating_organisation = 'N/A';
+-- 77
+update basic set operating_organisation = null where operating_organisation = 'LA';
+
+
 
 
 -- Now process updates to the libraries table
@@ -487,7 +507,6 @@ where l.postcode = b.postcode
 and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
 and b.closed is null
 and b.operation_23  in ('LA', 'LAU', 'C', 'CR', 'ICL');
-
 
 -- year opened
 update  
