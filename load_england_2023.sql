@@ -116,6 +116,61 @@ update basic set staffed_hours = trim(staffed_hours) where staffed_hours ~ '^\s|
 update basic set automated = trim(automated) where automated ~ '^\s|\s$';
 update basic set email = trim(email) where email ~ '^\s|\s$';
 
+-- set all columns to null where the value is now an empty string
+update basic set reporting = null where reporting = '';
+update basic set name = null where name = '';
+update basic set address1 = null where address1 = '';
+update basic set address2 = null where address2 = '';
+update basic set address3 = null where address3 = '';
+update basic set authority = null where authority = '';
+update basic set postcode = null where postcode = '';
+update basic set uprn = null where uprn = '';
+update basic set type = null where type = '';
+update basic set statutory_10 = null where statutory_10 = '';
+update basic set statutory_16 = null where statutory_16 = '';
+update basic set statutory_19 = null where statutory_19 = '';
+update basic set statutory_21 = null where statutory_21 = '';
+update basic set statutory_22 = null where statutory_22 = '';
+update basic set statutory_23 = null where statutory_23 = '';
+update basic set operation_16 = null where operation_16 = '';
+update basic set operation_19 = null where operation_19 = '';
+update basic set operation_21 = null where operation_21 = '';
+update basic set operation_22 = null where operation_22 = '';
+update basic set operation_23 = null where operation_23 = '';
+update basic set closed = null where closed = '';
+update basic set opened = null where opened = '';
+update basic set operating_organisation = null where operating_organisation = '';
+update basic set department = null where department = '';
+update basic set new_build_21 = null where new_build_21 = '';
+update basic set co_located = null where co_located = '';
+update basic set co_located_archives = null where co_located_archives = '';
+update basic set co_located_artscentre = null where co_located_artscentre = '';
+update basic set co_located_carehome_hostel = null where co_located_carehome_hostel = '';
+update basic set co_located_catering_bars_pub = null where co_located_catering_bars_pub = '';
+update basic set co_located_civic = null where co_located_civic = '';
+update basic set co_located_community = null where co_located_community = '';
+update basic set co_located_faithbuildings = null where co_located_faithbuildings = '';
+update basic set co_located_health = null where co_located_health = '';
+update basic set co_located_hotel = null where co_located_hotel = '';
+update basic set co_located_industrial_business = null where co_located_industrial_business = '';
+update basic set co_located_library = null where co_located_library = '';
+update basic set co_located_museum = null where co_located_museum = '';
+update basic set co_located_retail = null where co_located_retail = '';
+update basic set co_located_schools_colleges = null where co_located_schools_colleges = '';
+update basic set co_located_universities_highereducation = null where co_located_universities_highereducation = '';
+update basic set co_located_other = null where co_located_other = '';
+update basic set co_located_other_text = null where co_located_other_text = '';
+update basic set monday = null where monday = '';
+update basic set tuesday = null where tuesday = '';
+update basic set wednesday = null where wednesday = '';
+update basic set thursday = null where thursday = '';
+update basic set friday = null where friday = '';
+update basic set saturday = null where saturday = '';
+update basic set sunday = null where sunday = '';
+update basic set hours = null where hours = '';
+update basic set staffed_hours = null where staffed_hours = '';
+update basic set automated = null where automated = '';
+update basic set email = null where email = '';
 
 
 -- Update the reporting name to the 'nice_name' in the 'schemas_authorities' table
@@ -144,11 +199,101 @@ update basic set authority = 'Westminster' where authority = 'London';
 update basic set authority = 'Norfolk' where authority = 'Norwich' and reporting = 'Suffolk';
 
 
+-- convert all library postcodes to uppercase
+update basic set postcode = upper(postcode);
 
--- Trim address fields
-update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
-update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
-update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
+update basic set postcode = null where postcode = '[No registered public address]';
+update basic set postcode = null where postcode = '[UNKNOWN]';
+update basic set postcode = null where postcode = 'N/A - MOBILE';
+update basic set postcode = null where postcode = '[NO REGISTERED PUBLIC ADDRESS]';
+
+-- find invalid postcodes for closed libraries - 2
+-- (it is valid to have a terminated postcode for a closed library)
+select * from basic
+where closed is not null
+and postcode not in
+(select b.postcode from basic b
+join geo_postcode_lookup p
+on p.postcode = b.postcode
+where p.postcode is not null);
+
+update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
+update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
+update basic set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
+update basic set postcode = 'BD16 1GL' where name = 'Bingley Library' and postcode = 'BD16 1AW';
+
+-- invalid postcodes for open libraries - 33
+select * from basic where postcode not in
+(select b.postcode from basic b
+join geo_postcode_lookup p
+on p.postcode = b.postcode
+where p.postcode is not null
+and p.date_of_termination is null)
+and closed is null;
+
+-- invalid codes
+update basic set postcode = 'NW9 4BR' where name = 'Colindale' and postcode = 'NW9 5XL';
+update basic set postcode = 'SE2 9FA' where postcode = 'SE29FA';
+update basic set postcode = 'CH1 1RL' where postcode = 'CH1 1 RL';
+update basic set postcode = 'CA1 3SN' where name = 'Harraby Library Link' and postcode = 'CA1 3PP';
+update basic set postcode = 'SK22 3BR' where name = 'New Mills' and postcode = 'SK22 4AR';
+update basic set postcode = 'TN31 7JG' where name = 'Rye Library' and postcode = 'TN31 7JL';
+update basic set postcode = 'GL50 3JT' where name = 'Cheltenham Children''s library' and postcode = 'GL50 3JY';
+update basic set postcode = 'WD19 7FD' where name = 'Oxhey Library (South Oxhey)' and postcode = 'WD19 7AG';
+update basic set postcode = 'PO30 5RS' where postcode = 'PO30 5NX';
+update basic set postcode = 'SE27 9NS' where name = 'West Norwood' and postcode = 'SE27 9JX';
+update basic set postcode = 'PR1 2PP' where name = 'Preston Harris' and postcode = 'PR1 1HT';
+update basic set postcode = 'M19 3BP' where name = 'Arcadia library & Leisure Centre' and postcode = 'M19 3PH';
+update basic set postcode = 'NE5 4BR' where name = 'Newbiggin Hall Library' and postcode = 'NE5 4BZ';
+update basic set postcode = 'NN17 1PD' where name = 'Corby' and postcode = 'NN17 1QJ';
+update basic set postcode = 'NE12 7LJ' where name = 'Forest Hall Library' and postcode = 'NE12 0LJ';
+update basic set postcode = 'NG22 9TH' where name = 'Dukeries' and postcode = 'NG22 9TD';
+update basic set postcode = 'M35 0FH' where name = 'Failsworth Library' and postcode = 'M35 0FJ';
+update basic set postcode = 'OX4 6JZ' where name = 'Littlemore' and postcode = 'OX4 5JY';
+update basic set postcode = 'TS12 2HP' where name = 'Skelton Library' and postcode = 'TS12 2HN';
+update basic set postcode = 'M27 6FA' where name = 'Swinton Gateway Library' and postcode = 'M27 6BP';
+update basic set postcode 'S13 7GD' where postcode = 'S13 7JU';
+update basic set uprn = '10094516167' where uprn = '100052086384';
+update basic set postcode = 'BS15 9AG' where name = 'Kingswood' and postcode = 'BS15 9TR';
+update basic set postcode = 'NE33 2PE' where name = 'Jarrow Library' and postcode = 'NE33 2PE';
+update basic set closed = '2016' where postcode = 'NE33 2PE';
+update basic set postcode = 'NE33 1JF' where name = 'The Word Library' and postcode = 'NE33 1DX';
+update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
+update basic set postcode = 'TS17 7EW' where name = 'Thornaby Central Library & Customer Service Centre' and postcode = 'TS17 9EU';
+update basic set postcode = 'CO10 0NH' where name = 'Great Cornard' and postcode = 'CO10 0JU';
+update basic set postcode = 'SN3 2LZ' where name = 'Park Library' and postcode = 'SN3 2LP';
+update basic set postcode = 'WF1 2EB' where name = 'Wakefield One' and postcode = 'WF1 2DA';
+update basic set postcode = 'B43 7HN' where postcode = 'B43 7NE';
+update basic set postcode = 'B49 5HJ' where name = 'Alcester Library' and postcode = 'B495HJ';
+update basic set postcode = 'M46 9JQ' where name = 'Atherton' and postcode = 'M46 9JH';
+
+-- incorrect but valid postcodes
+update basic set postcode = 'TA24 8NP' where name = 'Porlock' and postcode = 'TA24 7HD';
+update basic set postcode = 'EX23 8LG' where name = 'Bude Library & Information Service' and postcode = 'EX23 9LG';
+update basic set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
+update basic set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postcode = 'SY5 9AQ';
+update basic set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
+update basic set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 1SA';
+update basic set postcode = 'PE23 5LH' where name = 'Spilsby Community Hub Library' and postcode = 'PE23 5JE';
+update basic set postcode = 'RG12 9LP' where name = 'Harmans Water' and postcode = 'RG12 9HY';
+update basic set postcode = 'BD10 9PY' where name = 'Idle Library' and postcode = 'BD10 9LD';
+update basic set postcode = 'TN33 0QW' where name = 'Sedlescombe Village Library' and postcode = 'TN33 0QP';
+update basic set postcode = 'CO15 2RH' where name = 'Jaywick Library' and postcode = 'CO15 2RG';
+update basic set postcode = 'PO12 1BT' where name = 'Gosport Naval & Local Studies' and postcode = 'PO12 1NS';
+update basic set postcode = 'N4 4QR' where name = 'Stroud Green & Harringay Library' and postcode = 'N4 4QL';
+update basic set postcode = 'DE74 2DA' where name = 'Kegworth' and postcode = 'LE67 6NP';
+update basic set postcode = 'PE25 1NP' where name = 'Ingoldmells Community Hub' and postcode = 'PE25 1NL';
+update basic set postcode = 'M27 4AE' where name = 'Swinton Library' and postcode = 'M27 6BP';
+update basic set postcode = 'WA1 1JG' where name = 'Warrington Library' and postcode = 'WA1 1JB';
+update basic set postcode = 'DL3 9AA' where name = 'Cockerton Library' and postcode = 'DL3 9NN';
+update basic set postcode = 'DN5 0HU' where name = 'Bentley Area Community Library' and postcode = 'DN5 0DE';
+update basic set postcode = 'EN3 4DX' where name = 'Ponders End' and postcode = 'EN3 4EZ';
+update basic set postcode = 'N17 8AG' where name = 'Coombes Croft Library' and postcode = 'N17 8BY';
+update basic set postcode = 'NE68 7YL' where name = 'Seahouses' and postcode = 'NE68 7UE';
+update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'TW19 7HF';
+update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and postcode = 'WA4 2PF';
+update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
+
 
 
 update basic set type = 'Static Library' where type = 'Static library';
@@ -219,76 +364,6 @@ update basic set operation_22 = '' where operation_22 not in ('LA', 'LAU', 'C', 
 update basic set operation_23 = 'C' where operation_23 ='c';
 update basic set operation_23 = '' where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
--- convert all library postcodes to uppercase
-update basic set postcode = upper(postcode);
--- remove trailing whitespace
-update basic set postcode = trim(postcode);
--- how many invalid postcodes
-select count(*) from basic where postcode not in (select postcode from geo_postcode_lookup);
-
--- other postcode fixes - all existing errors
-update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
-update basic set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
-update basic set postcode = 'BD16 1GL' where name = 'Bingley Library' and postcode = 'BD16 1AW';
-update basic set postcode = 'CA1 3SN' where name = 'Harraby Library Link' and postcode = 'CA1 3PP';
-update basic set postcode = 'SK22 3BR' where name = 'New Mills' and postcode = 'SK22 4AR';
-update basic set postcode = 'TN31 7JG' where name = 'Rye Library' and postcode = 'TN31 7JL';
-update basic set postcode = 'GL50 3JT' where name = 'Cheltenham Children''s library' and postcode = 'GL50 3JY';
-update basic set postcode = 'WD19 7FD' where name = 'Oxhey Library (South Oxhey)' and postcode = 'WD19 7AG';
-update basic set postcode = 'SE27 9NS' where name = 'West Norwood' and postcode = 'SE27 9JX';
-update basic set postcode = 'PR1 2PP' where name = 'Preston Harris' and postcode = 'PR1 1HT';
-update basic set postcode = 'M19 3BP' where name = 'Arcadia library & Leisure Centre' and postcode = 'M19 3PH';
-update basic set postcode = 'NE5 4BR' where name = 'Newbiggin Hall Library' and postcode = 'NE5 4BZ';
-update basic set postcode = 'NN17 1PD' where name = 'Corby' and postcode = 'NN17 1QJ';
-update basic set postcode = 'NE12 7LJ' where name = 'Forest Hall Library' and postcode = 'NE12 0LJ';
-update basic set postcode = 'NG22 9TH' where name = 'Dukeries' and postcode = 'NG22 9TD';
-update basic set postcode = 'M35 0FH' where name = 'Failsworth Library' and postcode = 'M35 0FJ';
-update basic set postcode = 'OX4 6JZ' where name = 'Littlemore' and postcode = 'OX4 5JY';
-update basic set postcode = 'TS12 2HP' where name = 'Skelton Library' and postcode = 'TS12 2HN';
-update basic set postcode = 'M27 6FA' where name = 'Swinton Gateway Library' and postcode = 'M27 6BP';
-update basic set postcode = 'BS15 9AG' where name = 'Kingswood' and postcode = 'BS15 9TR';
-update basic set postcode = 'NE33 1JF' where name = 'The Word Library' and postcode = 'NE33 1DX';
-update basic set postcode = 'TS17 7EW' where name = 'Thornaby Central Library & Customer Service Centre' and postcode = 'TS17 9EU';
-update basic set postcode = 'CO10 0NH' where name = 'Great Cornard' and postcode = 'CO10 0JU';
-update basic set postcode = 'SN3 2LZ' where name = 'Park Library' and postcode = 'SN3 2LP';
-update basic set postcode = 'WF1 2EB' where name = 'Wakefield One' and postcode = 'WF1 2DA';
-update basic set postcode = 'M46 9JQ' where name = 'Atherton' and postcode = 'M46 9JH';
-update basic set postcode = 'NW9 4BR' where name = 'Colindale' and postcode = 'NW9 5XL';
-update basic set postcode = 'TA24 8NP' where name = 'Porlock' and postcode = 'TA24 7HD';
-update basic set postcode = 'EX23 8LG' where name = 'Bude Library & Information Service' and postcode = 'EX23 9LG';
-update basic set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
-update basic set postcode = 'SY9 5AQ' where name = 'Bishop''s Castle' and postcode = 'SY5 9AQ';
-update basic set postcode = 'W12 7BF' where name = 'Shepherds Bush' and postcode = 'W6 7AT';
-update basic set postcode = 'N3 1TR' where name = 'Church End' and postcode = 'N3 1SA';
-update basic set postcode = 'PE23 5LH' where name = 'Spilsby Community Hub Library' and postcode = 'PE23 5JE';
-update basic set postcode = 'RG12 9LP' where name = 'Harmans Water' and postcode = 'RG12 9HY';
-update basic set postcode = 'BD10 9PY' where name = 'Idle Library' and postcode = 'BD10 9LD';
-update basic set postcode = 'TN33 0QW' where name = 'Sedlescombe Village Library' and postcode = 'TN33 0QP';
-update basic set postcode = 'CO15 2RH' where name = 'Jaywick Library' and postcode = 'CO15 2RG';
-update basic set postcode = 'PO12 1BT' where name = 'Gosport Naval & Local Studies' and postcode = 'PO12 1NS';
-update basic set postcode = 'N4 4QR' where name = 'Stroud Green & Harringay Library' and postcode = 'N4 4QL';
-update basic set postcode = 'DE74 2DA' where name = 'Kegworth' and postcode = 'LE67 6NP';
-update basic set postcode = 'PE25 1NP' where name = 'Ingoldmells Community Hub' and postcode = 'PE25 1NL';
-update basic set postcode = 'M27 4AE' where name = 'Swinton Library' and postcode = 'M27 6BP';
-update basic set postcode = 'WA1 1JG' where name = 'Warrington Library' and postcode = 'WA1 1JB';
-update basic set postcode = 'DL3 9AA' where name = 'Cockerton Library' and postcode = 'DL3 9NN';
-update basic set postcode = 'DN5 0HU' where name = 'Bentley Area Community Library' and postcode = 'DN5 0DE';
-update basic set postcode = 'EN3 4DX' where name = 'Ponders End' and postcode = 'EN3 4EZ';
-update basic set postcode = 'N17 8AG' where name = 'Coombes Croft Library' and postcode = 'N17 8BY';
-update basic set postcode = 'NE68 7YL' where name = 'Seahouses' and postcode = 'NE68 7UE';
-update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'TW19 7HF';
-update basic set postcode = 'CA1 3PP' where name = 'Harraby Library Link' and postcode = 'CA1 3SN';
-update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and postcode = 'WA4 2PF';
-update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
--- other postcode fixes - new errors
-update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
-update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
-update basic set postcode = 'SE2 9FA' where postcode = 'SE29FA';
-
-update basic set postcode = null where postcode = '[No registered public address]';
-update basic set postcode = null where postcode = '[UNKNOWN]';
-update basic set postcode = null where postcode = 'N/A - MOBILE';
-update basic set postcode = null where postcode = '[NO REGISTERED PUBLIC ADDRESS]';
 
 -- trim whitespace where there is whitespace to trim - 8
 update basic set uprn = trim(uprn) where uprn ~ '\s';
