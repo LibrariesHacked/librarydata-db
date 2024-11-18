@@ -60,61 +60,119 @@ create table basic (
 -- load basic dataset
 \copy basic from 'data/libraries_england_2023.csv' csv header;
 
--- Trim all fields
-update basic set reporting = trim(reporting) where reporting ~ '^\s|\s$';
-update basic set name = trim(name) where name ~ '^\s|\s$';
-update basic set address1 = trim(address1) where address1 ~ '^\s|\s$';
-update basic set address2 = trim(address2) where address2 ~ '^\s|\s$';
-update basic set address3 = trim(address3) where address3 ~ '^\s|\s$';
-update basic set authority = trim(authority) where authority ~ '^\s|\s$';
-update basic set postcode = trim(postcode) where postcode ~ '^\s|\s$';
-update basic set uprn = trim(uprn) where uprn ~ '^\s|\s$';
-update basic set type = trim(type) where type ~ '^\s|\s$';
-update basic set statutory_10 = trim(statutory_10) where statutory_10 ~ '^\s|\s$';
-update basic set statutory_16 = trim(statutory_16) where statutory_16 ~ '^\s|\s$';
-update basic set statutory_19 = trim(statutory_19) where statutory_19 ~ '^\s|\s$';
-update basic set statutory_21 = trim(statutory_21) where statutory_21 ~ '^\s|\s$';
-update basic set statutory_22 = trim(statutory_22) where statutory_22 ~ '^\s|\s$';
-update basic set statutory_23 = trim(statutory_23) where statutory_23 ~ '^\s|\s$';
-update basic set operation_16 = trim(operation_16) where operation_16 ~ '^\s|\s$';
-update basic set operation_19 = trim(operation_19) where operation_19 ~ '^\s|\s$';
-update basic set operation_21 = trim(operation_21) where operation_21 ~ '^\s|\s$';
-update basic set operation_22 = trim(operation_22) where operation_22 ~ '^\s|\s$';
-update basic set operation_23 = trim(operation_23) where operation_23 ~ '^\s|\s$';
-update basic set closed = trim(closed) where closed ~ '^\s|\s$';
-update basic set opened = trim(opened) where opened ~ '^\s|\s$';
-update basic set operating_organisation = trim(operating_organisation) where operating_organisation ~ '^\s|\s$';
-update basic set department = trim(department) where department ~ '^\s|\s$';
-update basic set new_build_22 = trim(new_build_22) where new_build_22 ~ '^\s|\s$';
-update basic set co_located = trim(co_located) where co_located ~ '^\s|\s$';
-update basic set co_located_archives = trim(co_located_archives) where co_located_archives ~ '^\s|\s$';
-update basic set co_located_artscentre = trim(co_located_artscentre) where co_located_artscentre ~ '^\s|\s$';
-update basic set co_located_carehome_hostel = trim(co_located_carehome_hostel) where co_located_carehome_hostel ~ '^\s|\s$';
-update basic set co_located_catering_bars_pub = trim(co_located_catering_bars_pub) where co_located_catering_bars_pub ~ '^\s|\s$';
-update basic set co_located_civic = trim(co_located_civic) where co_located_civic ~ '^\s|\s$';
-update basic set co_located_community = trim(co_located_community) where co_located_community ~ '^\s|\s$';
-update basic set co_located_faithbuildings = trim(co_located_faithbuildings) where co_located_faithbuildings ~ '^\s|\s$';
-update basic set co_located_health = trim(co_located_health) where co_located_health ~ '^\s|\s$';
-update basic set co_located_hotel = trim(co_located_hotel) where co_located_hotel ~ '^\s|\s$';
-update basic set co_located_industrial_business = trim(co_located_industrial_business) where co_located_industrial_business ~ '^\s|\s$';
-update basic set co_located_library = trim(co_located_library) where co_located_library ~ '^\s|\s$';
-update basic set co_located_museum = trim(co_located_museum) where co_located_museum ~ '^\s|\s$';
-update basic set co_located_retail = trim(co_located_retail) where co_located_retail ~ '^\s|\s$';
-update basic set co_located_schools_colleges = trim(co_located_schools_colleges) where co_located_schools_colleges ~ '^\s|\s$';
-update basic set co_located_universities_highereducation = trim(co_located_universities_highereducation) where co_located_universities_highereducation ~ '^\s|\s$';
-update basic set co_located_other = trim(co_located_other) where co_located_other ~ '^\s|\s$';
-update basic set co_located_other_text = trim(co_located_other_text) where co_located_other_text ~ '^\s|\s$';
-update basic set monday = trim(monday) where monday ~ '^\s|\s$';
-update basic set tuesday = trim(tuesday) where tuesday ~ '^\s|\s$';
-update basic set wednesday = trim(wednesday) where wednesday ~ '^\s|\s$';
-update basic set thursday = trim(thursday) where thursday ~ '^\s|\s$';
-update basic set friday = trim(friday) where friday ~ '^\s|\s$';
-update basic set saturday = trim(saturday) where saturday ~ '^\s|\s$';
-update basic set sunday = trim(sunday) where sunday ~ '^\s|\s$';
-update basic set hours = trim(hours) where hours ~ '^\s|\s$';
-update basic set staffed_hours = trim(staffed_hours) where staffed_hours ~ '^\s|\s$';
-update basic set automated = trim(automated) where automated ~ '^\s|\s$';
-update basic set email = trim(email) where email ~ '^\s|\s$';
+-- replace all non-breaking spaces with normal spaces
+update basic set reporting = regexp_replace(reporting, E'\\xa0', ' ', 'g');
+update basic set name = regexp_replace(name, E'\\xa0', ' ', 'g');
+update basic set address1 = regexp_replace(address1, E'\\xa0', ' ', 'g');
+update basic set address2 = regexp_replace(address2, E'\\xa0', ' ', 'g');
+update basic set address3 = regexp_replace(address3, E'\\xa0', ' ', 'g');
+update basic set authority = regexp_replace(authority, E'\\xa0', ' ', 'g');
+update basic set postcode = regexp_replace(postcode, E'\\xa0', ' ', 'g');
+update basic set uprn = regexp_replace(uprn, E'\\xa0', ' ', 'g');
+update basic set type = regexp_replace(type, E'\\xa0', ' ', 'g');
+update basic set statutory_10 = regexp_replace(statutory_10, E'\\xa0', ' ', 'g');
+update basic set statutory_16 = regexp_replace(statutory_16, E'\\xa0', ' ', 'g');
+update basic set statutory_19 = regexp_replace(statutory_19, E'\\xa0', ' ', 'g');
+update basic set statutory_21 = regexp_replace(statutory_21, E'\\xa0', ' ', 'g');
+update basic set statutory_22 = regexp_replace(statutory_22, E'\\xa0', ' ', 'g');
+update basic set statutory_23 = regexp_replace(statutory_23, E'\\xa0', ' ', 'g');
+update basic set operation_16 = regexp_replace(operation_16, E'\\xa0', ' ', 'g');
+update basic set operation_19 = regexp_replace(operation_19, E'\\xa0', ' ', 'g');
+update basic set operation_21 = regexp_replace(operation_21, E'\\xa0', ' ', 'g');
+update basic set operation_22 = regexp_replace(operation_22, E'\\xa0', ' ', 'g');
+update basic set operation_23 = regexp_replace(operation_23, E'\\xa0', ' ', 'g');
+update basic set closed = regexp_replace(closed, E'\\xa0', ' ', 'g');
+update basic set opened = regexp_replace(opened, E'\\xa0', ' ', 'g');
+update basic set operating_organisation = regexp_replace(operating_organisation, E'\\xa0', ' ', 'g');
+update basic set department = regexp_replace(department, E'\\xa0', ' ', 'g');
+update basic set new_build_22 = regexp_replace(new_build_22, E'\\xa0', ' ', 'g');
+update basic set co_located = regexp_replace(co_located, E'\\xa0', ' ', 'g');
+update basic set co_located_archives = regexp_replace(co_located_archives, E'\\xa0', ' ', 'g');
+update basic set co_located_artscentre = regexp_replace(co_located_artscentre, E'\\xa0', ' ', 'g');
+update basic set co_located_carehome_hostel = regexp_replace(co_located_carehome_hostel, E'\\xa0', ' ', 'g');
+update basic set co_located_catering_bars_pub = regexp_replace(co_located_catering_bars_pub, E'\\xa0', ' ', 'g');
+update basic set co_located_civic = regexp_replace(co_located_civic, E'\\xa0', ' ', 'g');
+update basic set co_located_community = regexp_replace(co_located_community, E'\\xa0', ' ', 'g');
+update basic set co_located_faithbuildings = regexp_replace(co_located_faithbuildings, E'\\xa0', ' ', 'g');
+update basic set co_located_health = regexp_replace(co_located_health, E'\\xa0', ' ', 'g');
+update basic set co_located_hotel = regexp_replace(co_located_hotel, E'\\xa0', ' ', 'g');
+update basic set co_located_industrial_business = regexp_replace(co_located_industrial_business, E'\\xa0', ' ', 'g');
+update basic set co_located_library = regexp_replace(co_located_library, E'\\xa0', ' ', 'g');
+update basic set co_located_museum = regexp_replace(co_located_museum, E'\\xa0', ' ', 'g');
+update basic set co_located_retail = regexp_replace(co_located_retail, E'\\xa0', ' ', 'g');
+update basic set co_located_schools_colleges = regexp_replace(co_located_schools_colleges, E'\\xa0', ' ', 'g');
+update basic set co_located_universities_highereducation = regexp_replace(co_located_universities_highereducation, E'\\xa0', ' ', 'g');
+update basic set co_located_other = regexp_replace(co_located_other, E'\\xa0', ' ', 'g');
+update basic set co_located_other_text = regexp_replace(co_located_other_text, E'\\xa0', ' ', 'g');
+update basic set monday = regexp_replace(monday, E'\\xa0', ' ', 'g');
+update basic set tuesday = regexp_replace(tuesday, E'\\xa0', ' ', 'g');
+update basic set wednesday = regexp_replace(wednesday, E'\\xa0', ' ', 'g');
+update basic set thursday = regexp_replace(thursday, E'\\xa0', ' ', 'g');
+update basic set friday = regexp_replace(friday, E'\\xa0', ' ', 'g');
+update basic set saturday = regexp_replace(saturday, E'\\xa0', ' ', 'g');
+update basic set sunday = regexp_replace(sunday, E'\\xa0', ' ', 'g');
+update basic set hours = regexp_replace(hours, E'\\xa0', ' ', 'g');
+update basic set staffed_hours = regexp_replace(staffed_hours, E'\\xa0', ' ', 'g');
+update basic set automated = regexp_replace(automated, E'\\xa0', ' ', 'g');
+update basic set email = regexp_replace(email, E'\\xa0', ' ', 'g');
+
+
+-- Trim all fields including spaces, newlines and tabs - the standard trim doesn't remove tabs or new lines
+update basic set reporting = regexp_replace(reporting, '^\s+|\s+$', '', 'g') where reporting ~ '^\s|\s$';
+update basic set name = regexp_replace(name, '^\s+|\s+$', '', 'g') where name ~ '^\s|\s$';
+update basic set address1 = regexp_replace(address1, '^\s+|\s+$', '', 'g') where address1 ~ '^\s|\s$';
+update basic set address2 = regexp_replace(address2, '^\s+|\s+$', '', 'g') where address2 ~ '^\s|\s$';
+update basic set address3 = regexp_replace(address3, '^\s+|\s+$', '', 'g') where address3 ~ '^\s|\s$';
+update basic set authority = regexp_replace(authority, '^\s+|\s+$', '', 'g') where authority ~ '^\s|\s$';
+update basic set postcode = regexp_replace(postcode, '^\s+|\s+$', '', 'g') where postcode ~ '^\s|\s$';
+update basic set uprn = regexp_replace(uprn, '^\s+|\s+$', '', 'g') where uprn ~ '^\s|\s$';
+update basic set type = regexp_replace(type, '^\s+|\s+$', '', 'g') where type ~ '^\s|\s$';
+update basic set statutory_10 = regexp_replace(statutory_10, '^\s+|\s+$', '', 'g') where statutory_10 ~ '^\s|\s$';
+update basic set statutory_16 = regexp_replace(statutory_16, '^\s+|\s+$', '', 'g') where statutory_16 ~ '^\s|\s$';
+update basic set statutory_19 = regexp_replace(statutory_19, '^\s+|\s+$', '', 'g') where statutory_19 ~ '^\s|\s$';
+update basic set statutory_21 = regexp_replace(statutory_21, '^\s+|\s+$', '', 'g') where statutory_21 ~ '^\s|\s$';
+update basic set statutory_22 = regexp_replace(statutory_22, '^\s+|\s+$', '', 'g') where statutory_22 ~ '^\s|\s$';
+update basic set statutory_23 = regexp_replace(statutory_23, '^\s+|\s+$', '', 'g') where statutory_23 ~ '^\s|\s$';
+update basic set operation_16 = regexp_replace(operation_16, '^\s+|\s+$', '', 'g') where operation_16 ~ '^\s|\s$';
+update basic set operation_19 = regexp_replace(operation_19, '^\s+|\s+$', '', 'g') where operation_19 ~ '^\s|\s$';
+update basic set operation_21 = regexp_replace(operation_21, '^\s+|\s+$', '', 'g') where operation_21 ~ '^\s|\s$';
+update basic set operation_22 = regexp_replace(operation_22, '^\s+|\s+$', '', 'g') where operation_22 ~ '^\s|\s$';
+update basic set operation_23 = regexp_replace(operation_23, '^\s+|\s+$', '', 'g') where operation_23 ~ '^\s|\s$';
+update basic set closed = regexp_replace(closed, '^\s+|\s+$', '', 'g') where closed ~ '^\s|\s$';
+update basic set opened = regexp_replace(opened, '^\s+|\s+$', '', 'g') where opened ~ '^\s|\s$';
+update basic set operating_organisation = regexp_replace(operating_organisation, '^\s+|\s+$', '', 'g') where operating_organisation ~ '^\s|\s$';
+update basic set department = regexp_replace(department, '^\s+|\s+$', '', 'g') where department ~ '^\s|\s$';
+update basic set new_build_22 = regexp_replace(new_build_22, '^\s+|\s+$', '', 'g') where new_build_22 ~ '^\s|\s$';
+update basic set co_located = regexp_replace(co_located, '^\s+|\s+$', '', 'g') where co_located ~ '^\s|\s$';
+update basic set co_located_archives = regexp_replace(co_located_archives, '^\s+|\s+$', '', 'g') where co_located_archives ~ '^\s|\s$';
+update basic set co_located_artscentre = regexp_replace(co_located_artscentre, '^\s+|\s+$', '', 'g') where co_located_artscentre ~ '^\s|\s$';
+update basic set co_located_carehome_hostel = regexp_replace(co_located_carehome_hostel, '^\s+|\s+$', '', 'g') where co_located_carehome_hostel ~ '^\s|\s$';
+update basic set co_located_catering_bars_pub = regexp_replace(co_located_catering_bars_pub, '^\s+|\s+$', '', 'g') where co_located_catering_bars_pub ~ '^\s|\s$';
+update basic set co_located_civic = regexp_replace(co_located_civic, '^\s+|\s+$', '', 'g') where co_located_civic ~ '^\s|\s$';
+update basic set co_located_community = regexp_replace(co_located_community, '^\s+|\s+$', '', 'g') where co_located_community ~ '^\s|\s$';
+update basic set co_located_faithbuildings = regexp_replace(co_located_faithbuildings, '^\s+|\s+$', '', 'g') where co_located_faithbuildings ~ '^\s|\s$';
+update basic set co_located_health = regexp_replace(co_located_health, '^\s+|\s+$', '', 'g') where co_located_health ~ '^\s|\s$';
+update basic set co_located_hotel = regexp_replace(co_located_hotel, '^\s+|\s+$', '', 'g') where co_located_hotel ~ '^\s|\s$';
+update basic set co_located_industrial_business = regexp_replace(co_located_industrial_business, '^\s+|\s+$', '', 'g') where co_located_industrial_business ~ '^\s|\s$';
+update basic set co_located_library = regexp_replace(co_located_library, '^\s+|\s+$', '', 'g') where co_located_library ~ '^\s|\s$';
+update basic set co_located_museum = regexp_replace(co_located_museum, '^\s+|\s+$', '', 'g') where co_located_museum ~ '^\s|\s$';
+update basic set co_located_retail = regexp_replace(co_located_retail, '^\s+|\s+$', '', 'g') where co_located_retail ~ '^\s|\s$';
+update basic set co_located_schools_colleges = regexp_replace(co_located_schools_colleges, '^\s+|\s+$', '', 'g') where co_located_schools_colleges ~ '^\s|\s$';
+update basic set co_located_universities_highereducation = regexp_replace(co_located_universities_highereducation, '^\s+|\s+$', '', 'g') where co_located_universities_highereducation ~ '^\s|\s$';
+update basic set co_located_other = regexp_replace(co_located_other, '^\s+|\s+$', '', 'g') where co_located_other ~ '^\s|\s$';
+update basic set co_located_other_text = regexp_replace(co_located_other_text, '^\s+|\s+$', '', 'g') where co_located_other_text ~ '^\s|\s$';
+update basic set monday = regexp_replace(monday, '^\s+|\s+$', '', 'g') where monday ~ '^\s|\s$';
+update basic set tuesday = regexp_replace(tuesday, '^\s+|\s+$', '', 'g') where tuesday ~ '^\s|\s$';
+update basic set wednesday = regexp_replace(wednesday, '^\s+|\s+$', '', 'g') where wednesday ~ '^\s|\s$';
+update basic set thursday = regexp_replace(thursday, '^\s+|\s+$', '', 'g') where thursday ~ '^\s|\s$';
+update basic set friday = regexp_replace(friday, '^\s+|\s+$', '', 'g') where friday ~ '^\s|\s$';
+update basic set saturday = regexp_replace(saturday, '^\s+|\s+$', '', 'g') where saturday ~ '^\s|\s$';
+update basic set sunday = regexp_replace(sunday, '^\s+|\s+$', '', 'g') where sunday ~ '^\s|\s$';
+update basic set hours = regexp_replace(hours, '^\s+|\s+$', '', 'g') where hours ~ '^\s|\s$';
+update basic set staffed_hours = regexp_replace(staffed_hours, '^\s+|\s+$', '', 'g') where staffed_hours ~ '^\s|\s$';
+update basic set automated = regexp_replace(automated, '^\s+|\s+$', '', 'g') where automated ~ '^\s|\s$';
+update basic set email = regexp_replace(email, '^\s+|\s+$', '', 'g') where email ~ '^\s|\s$';
+
 
 -- set all columns to null where the value is now an empty string
 update basic set reporting = null where reporting = '';
@@ -201,8 +259,7 @@ update basic set authority = 'Norfolk' where authority = 'Norwich' and reporting
 
 update basic set postcode = null where postcode = '[No registered public address]';
 update basic set postcode = null where postcode = '[Unknown]';
-update basic set postcode = null where postcode = '[UNKNOWN]';
-update basic set postcode = null where postcode = 'N/A - MOBILE';
+update basic set postcode = null where postcode = 'n/a - mobile';
 
 -- convert all library postcodes to uppercase where the postcode includes lowercase
 update basic set postcode = upper(postcode) where postcode ~ '[a-z]';
@@ -222,7 +279,7 @@ where p.postcode is not null);
 update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
 update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
 
--- invalid postcodes for open libraries - 35
+-- invalid postcodes for open libraries - 33
 select * from basic where postcode not in
 (select b.postcode from basic b
 join geo_postcode_lookup p
@@ -253,7 +310,6 @@ update basic set postcode = 'OX4 6JZ' where name = 'Littlemore' and postcode = '
 update basic set postcode = 'TS12 2HP' where name = 'Skelton Library' and postcode = 'TS12 2HN';
 update basic set postcode = 'M27 6FA' where name = 'Swinton Gateway Library' and postcode = 'M27 6BP';
 update basic set postcode = 'S13 7GD' where postcode = 'S13 7JU';
-update basic set uprn = '10094516167' where uprn = '100052086384';
 update basic set postcode = 'BS15 9AG' where name = 'Kingswood' and postcode = 'BS15 9TR';
 update basic set postcode = 'NE33 1JF' where name = 'The Word Library' and postcode = 'NE33 1DX';
 update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
@@ -294,17 +350,17 @@ update basic set postcode = 'TW19 7HE' where name = 'Stanwell' and postcode = 'T
 update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and postcode = 'WA4 2PF';
 update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
+-- remove invalid uprns - 252
+update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
 
-
--- Find UPRNs that have leading zeros
+-- Find UPRNs that have leading zeros - 37
 select * from basic where uprn ~ '^0';
 
 -- Replace all leading zeros from those UPRNs that have leading zeros
 update basic set uprn = regexp_replace(uprn, '^0+', '') where uprn ~ '^0';
 
--- remove invalid uprns
-update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
--- remove uprns that have no match in geo_uprn
+
+-- remove uprns that have no match in geo_uprn - 228
 update basic
 set uprn = null
 where uprn in 
@@ -316,16 +372,15 @@ where uprn in
     on u.uprn = cast(b.uprn as numeric)
     where b.uprn is not null
     and u is null
-); -- 276
+);
 
 -- remove uprns that seem to be too far from their postcode location
-update basic
-set uprn = null
-where uprn in 
+with uprn_distance_over_five as
 (
-    select uprn from
+    select name, uprn from
         (select 
             b.uprn as uprn,
+            b.name as name,
             st_distance(st_setsrid(st_makepoint(u.x_coordinate, u.y_coordinate), 27700), 
             st_setsrid(st_makepoint(p.easting, p.northing), 27700)) as distance
         from basic b
@@ -336,16 +391,23 @@ where uprn in
         where b.uprn is not null) as d
     where d.distance > 8045 -- 5 miles
 )
-and postcode is not null; -- 305
+update basic
+set uprn = null
+where uprn in (select uprn from uprn_distance_over_five)
+and name in (select name from uprn_distance_over_five)
+and uprn is not null
+and postcode is not null; -- 181
 
 
+
+-- Go from 10 distinct types to 5
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
 update basic set type = 'Archive' where type = 'archive';
 update basic set type = 'Mobile Library' where type = 'mobile library';
 update basic set type = 'Archive' where type = 'static archive';
 
--- Non libraries
+-- Non libraries - 12
 delete from basic where name = 'Gorse Hill Community Book Collection'; -- Closed in 2009
 delete from basic where name = 'Library Support Unit'; -- not a public library
 -- These micros have operation status as unkownn - will delete
@@ -376,7 +438,7 @@ update basic set statutory_16 = 'Yes' where statutory_16 = 'yes';
 
 update basic set statutory_19 = 'Yes' where statutory_19 = 'yes';
 update basic set statutory_19 = 'No' where statutory_19 = 'Facility Not Open';
-update basic set statutory_19 = 'No' where statutory_19 = 'Facility not open'
+update basic set statutory_19 = 'No' where statutory_19 = 'Facility not open';
 update basic set statutory_19 = 'No' where statutory_19 = 'Temporary Closure';
 
 update basic set statutory_21 = 'No' where statutory_21 = 'no';
@@ -392,16 +454,36 @@ update basic set statutory_22 = 'No' where statutory_22 = 'Temporary Closure';
 update basic set statutory_23 = 'No' where statutory_23 = 'NO';
 update basic set statutory_23 = 'No' where statutory_23 = 'Temporary Closure';
 
+-- Add closed years where they are missing
+update basic set closed = '2016' where closed is null and operation_16 in ('closed', 'Closed');
+update basic set closed = '2019' where closed is null and operation_19 in ('closed', 'Closed');
+update basic set closed = '2021' where closed is null and operation_21 in ('closed', 'Closed');
+update basic set closed = '2022' where closed is null and operation_22 in ('closed', 'Closed');
+update basic set closed = '2023' where closed is null and operation_23 in ('closed', 'Closed');
 
 -- Ensure operation fields are a valid code
-update basic set operation_16 = '' where operation_16 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
-update basic set operation_19 = '' where operation_19 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
-update basic set operation_21 = '' where operation_21 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
+update basic set operation_16 = 'C' where operation_16 ='c';
+update basic set operation_16 = null where operation_16 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_16 = null where operation_16 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
+update basic set operation_19 = 'C' where operation_19 ='c';
+update basic set operation_19 = null where operation_19 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_19 = null where operation_19 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
+update basic set operation_21 = 'C' where operation_21 ='c';
+update basic set operation_21 = null where operation_21 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_21 = null where operation_21 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
 update basic set operation_22 = 'LA' where operation_22 ='La';
 update basic set operation_22 = 'C' where operation_22 ='c';
-update basic set operation_22 = '' where operation_22 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_22 = null where operation_22 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_22 = null where operation_22 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+
 update basic set operation_23 = 'C' where operation_23 ='c';
-update basic set operation_23 = '' where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
+update basic set operation_23 = null where operation_23 in ('closed', 'Temporary closure', 'Closed')
+-- To do: sort out operation field at least for latest year
+update basic set operation_23 = null where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 -- check where year closed is not a number - 0
 select * from basic where closed !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
