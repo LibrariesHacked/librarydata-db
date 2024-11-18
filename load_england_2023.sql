@@ -199,16 +199,18 @@ update basic set authority = 'Westminster' where authority = 'London';
 update basic set authority = 'Norfolk' where authority = 'Norwich' and reporting = 'Suffolk';
 
 
--- convert all library postcodes to uppercase
-update basic set postcode = upper(postcode);
-
 update basic set postcode = null where postcode = '[No registered public address]';
+update basic set postcode = null where postcode = '[Unknown]';
 update basic set postcode = null where postcode = '[UNKNOWN]';
 update basic set postcode = null where postcode = 'N/A - MOBILE';
-update basic set postcode = null where postcode = '[NO REGISTERED PUBLIC ADDRESS]';
 
--- find invalid postcodes for closed libraries - 2
--- (it is valid to have a terminated postcode for a closed library)
+-- convert all library postcodes to uppercase where the postcode includes lowercase
+update basic set postcode = upper(postcode) where postcode ~ '[a-z]';
+
+-- Set a library as closed
+update basic set closed = '2016' where postcode = 'NE33 2PE';
+
+-- Find invalid postcodes for closed libraries - 2
 select * from basic
 where closed is not null
 and postcode not in
@@ -219,10 +221,8 @@ where p.postcode is not null);
 
 update basic set postcode = 'NE26 1EJ' where postcode = 'NE26 1EJ.';
 update basic set postcode = 'SE1 5TY' where postcode = 'SE1  5TY';
-update basic set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
-update basic set postcode = 'BD16 1GL' where name = 'Bingley Library' and postcode = 'BD16 1AW';
 
--- invalid postcodes for open libraries - 33
+-- invalid postcodes for open libraries - 35
 select * from basic where postcode not in
 (select b.postcode from basic b
 join geo_postcode_lookup p
@@ -231,7 +231,7 @@ where p.postcode is not null
 and p.date_of_termination is null)
 and closed is null;
 
--- invalid codes
+-- Invalid codes for open libraries
 update basic set postcode = 'NW9 4BR' where name = 'Colindale' and postcode = 'NW9 5XL';
 update basic set postcode = 'SE2 9FA' where postcode = 'SE29FA';
 update basic set postcode = 'CH1 1RL' where postcode = 'CH1 1 RL';
@@ -252,11 +252,9 @@ update basic set postcode = 'M35 0FH' where name = 'Failsworth Library' and post
 update basic set postcode = 'OX4 6JZ' where name = 'Littlemore' and postcode = 'OX4 5JY';
 update basic set postcode = 'TS12 2HP' where name = 'Skelton Library' and postcode = 'TS12 2HN';
 update basic set postcode = 'M27 6FA' where name = 'Swinton Gateway Library' and postcode = 'M27 6BP';
-update basic set postcode 'S13 7GD' where postcode = 'S13 7JU';
+update basic set postcode = 'S13 7GD' where postcode = 'S13 7JU';
 update basic set uprn = '10094516167' where uprn = '100052086384';
 update basic set postcode = 'BS15 9AG' where name = 'Kingswood' and postcode = 'BS15 9TR';
-update basic set postcode = 'NE33 2PE' where name = 'Jarrow Library' and postcode = 'NE33 2PE';
-update basic set closed = '2016' where postcode = 'NE33 2PE';
 update basic set postcode = 'NE33 1JF' where name = 'The Word Library' and postcode = 'NE33 1DX';
 update basic set postcode = 'SE1 1JA' where postcode = 'SE1  1JA';
 update basic set postcode = 'TS17 7EW' where name = 'Thornaby Central Library & Customer Service Centre' and postcode = 'TS17 9EU';
@@ -264,10 +262,12 @@ update basic set postcode = 'CO10 0NH' where name = 'Great Cornard' and postcode
 update basic set postcode = 'SN3 2LZ' where name = 'Park Library' and postcode = 'SN3 2LP';
 update basic set postcode = 'WF1 2EB' where name = 'Wakefield One' and postcode = 'WF1 2DA';
 update basic set postcode = 'B43 7HN' where postcode = 'B43 7NE';
-update basic set postcode = 'B49 5HJ' where name = 'Alcester Library' and postcode = 'B495HJ';
+update basic set postcode = 'B49 5HJ' where postcode = 'B495HJ';
 update basic set postcode = 'M46 9JQ' where name = 'Atherton' and postcode = 'M46 9JH';
+update basic set postcode = 'B34 7AQ' where name = 'Shard End Library' and postcode = 'B34 7AG';
+update basic set postcode = 'BD16 1GL' where name = 'Bingley Library' and postcode = 'BD16 1AW';
 
--- incorrect but valid postcodes
+-- Incorrect but valid postcodes
 update basic set postcode = 'TA24 8NP' where name = 'Porlock' and postcode = 'TA24 7HD';
 update basic set postcode = 'EX23 8LG' where name = 'Bude Library & Information Service' and postcode = 'EX23 9LG';
 update basic set postcode = 'DH6 2LW' where name = 'Shotton Library' and postcode = 'DL6 2LW';
@@ -295,8 +295,13 @@ update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and pos
 update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
 
--- remove trailing zeros where there are trailing zeros
-update basic set uprn = regexp_replace(uprn, '0+$', '') where uprn ~ '0+$';
+
+-- Find UPRNs that have leading zeros
+select * from basic where uprn ~ '^0';
+
+-- Replace all leading zeros from those UPRNs that have leading zeros
+update basic set uprn = regexp_replace(uprn, '^0+', '') where uprn ~ '^0';
+
 -- remove invalid uprns
 update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
 -- remove uprns that have no match in geo_uprn
@@ -312,7 +317,8 @@ where uprn in
     where b.uprn is not null
     and u is null
 ); -- 276
--- remove uprns that seem to have an invalid location
+
+-- remove uprns that seem to be too far from their postcode location
 update basic
 set uprn = null
 where uprn in 
@@ -329,7 +335,8 @@ where uprn in
         on u.uprn = cast(b.uprn as numeric)
         where b.uprn is not null) as d
     where d.distance > 8045 -- 5 miles
-); -- 305
+)
+and postcode is not null; -- 305
 
 
 update basic set type = 'Static Library' where type = 'Static library';
@@ -421,6 +428,20 @@ update basic set operating_organisation = null where operating_organisation = 'N
 -- 77
 update basic set operating_organisation = null where operating_organisation = 'LA';
 
+
+-- Update the new_build_22 field
+update basic set new_build_22 = 'No' where new_build_22 = 'n';
+update basic set new_build_22 = 'No' where new_build_22 = 'N/A';
+update basic set new_build_22 = 'No' where new_build_22 = 'no';
+update basic set new_build_22 = 'No' where new_build_22 = 'NO';
+update basic set new_build_22 = 'No' where new_build_22 is null;
+
+
+-- Update the co_located field
+update basic set co_located = 'Yes' where co_located = 'yes';
+update basic set co_located = 'No' where co_located = 'N/A';
+update basic set co_located = 'No' where co_located = 'n/a';
+update basic set co_located = 'No' where co_located = '[Unknown]';
 
 
 
@@ -533,6 +554,30 @@ and l.year_closed is null;
 -- colocated
 update basic set co_located = 'Yes' where co_located = 'yes';
 update basic set co_located = 'No' where co_located = 'N/A';
+
+
+update basic set co_located_archives = 'X' where co_located_archives = 'x';
+update basic set co_located_artscentre = 'X' where co_located_artscentre = 'x';
+update basic set co_located_carehome_hostel = 'X' where co_located_carehome_hostel = 'x';
+update basic set co_located_catering_bars_pub = 'X' where co_located_catering_bars_pub = 'x';
+update basic set co_located_civic = 'X' where co_located_civic = 'x';
+update basic set co_located_community = 'X' where co_located_community = 'x';
+update basic set co_located_faithbuildings = 'X' where co_located_faithbuildings = 'x';
+update basic set co_located_health = 'X' where co_located_health = 'x';
+update basic set co_located_hotel = 'X' where co_located_hotel = 'x';
+update basic set co_located_industrial_business = 'X' where co_located_industrial_business = 'x';
+update basic set co_located_library = 'X' where co_located_library = 'x';
+update basic set co_located_museum = 'X' where co_located_museum = 'x';
+update basic set co_located_retail = 'X' where co_located_retail = 'x';
+update basic set co_located_schools_colleges = 'X' where co_located_schools_colleges = 'x';
+update basic set co_located_universities_highereducation = 'X' where co_located_universities_highereducation = 'x';
+update basic set co_located_other = 'X' where co_located_other = 'x';
+
+
+update basic set co_located_other_text = null where co_located_other_text = '[Detail not provided]';
+
+
+
 
 update  
     schemas_libraries l
