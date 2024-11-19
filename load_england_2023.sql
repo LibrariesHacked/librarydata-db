@@ -351,12 +351,9 @@ update basic set postcode = 'WA4 2PE' where name = 'Grappenhall Library' and pos
 update basic set postcode = 'OL15 0BQ' where name = 'Smithybridge Library' and postcode = 'OL12 9SA';
 
 -- remove invalid uprns - 252
-update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'; -- 255
+update basic set uprn = null where uprn !~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$';
 
--- Find UPRNs that have leading zeros - 37
-select * from basic where uprn ~ '^0';
-
--- Replace all leading zeros from those UPRNs that have leading zeros
+-- Replace all leading zeros from those UPRNs that have leading zeros - 37
 update basic set uprn = regexp_replace(uprn, '^0+', '') where uprn ~ '^0';
 
 
@@ -464,24 +461,24 @@ update basic set closed = '2023' where closed is null and operation_23 in ('clos
 -- Ensure operation fields are a valid code
 
 update basic set operation_16 = 'C' where operation_16 ='c';
-update basic set operation_16 = null where operation_16 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_16 = null where operation_16 in ('closed', 'Temporary closure', 'Closed');
 update basic set operation_16 = null where operation_16 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 update basic set operation_19 = 'C' where operation_19 ='c';
-update basic set operation_19 = null where operation_19 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_19 = null where operation_19 in ('closed', 'Temporary closure', 'Closed');
 update basic set operation_19 = null where operation_19 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 update basic set operation_21 = 'C' where operation_21 ='c';
-update basic set operation_21 = null where operation_21 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_21 = null where operation_21 in ('closed', 'Temporary closure', 'Closed');
 update basic set operation_21 = null where operation_21 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 update basic set operation_22 = 'LA' where operation_22 ='La';
 update basic set operation_22 = 'C' where operation_22 ='c';
-update basic set operation_22 = null where operation_22 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_22 = null where operation_22 in ('closed', 'Temporary closure', 'Closed');
 update basic set operation_22 = null where operation_22 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
 update basic set operation_23 = 'C' where operation_23 ='c';
-update basic set operation_23 = null where operation_23 in ('closed', 'Temporary closure', 'Closed')
+update basic set operation_23 = null where operation_23 in ('closed', 'Temporary closure', 'Closed');
 -- To do: sort out operation field at least for latest year
 update basic set operation_23 = null where operation_23 not in ('LA', 'LAU', 'C', 'CR', 'ICL');
 
@@ -525,6 +522,24 @@ update basic set co_located = 'No' where co_located = 'N/A';
 update basic set co_located = 'No' where co_located = 'n/a';
 update basic set co_located = 'No' where co_located = '[Unknown]';
 
+
+-- Update the co_located fields to X where they are 'x'
+update basic set co_located_archives = 'X' where co_located_archives = 'x';
+update basic set co_located_artscentre = 'X' where co_located_artscentre = 'x';
+update basic set co_located_carehome_hostel = 'X' where co_located_carehome_hostel = 'x';
+update basic set co_located_catering_bars_pub = 'X' where co_located_catering_bars_pub = 'x';
+update basic set co_located_civic = 'X' where co_located_civic = 'x';
+update basic set co_located_community = 'X' where co_located_community = 'x';
+update basic set co_located_faithbuildings = 'X' where co_located_faithbuildings = 'x';
+update basic set co_located_health = 'X' where co_located_health = 'x';
+update basic set co_located_hotel = 'X' where co_located_hotel = 'x';
+update basic set co_located_industrial_business = 'X' where co_located_industrial_business = 'x';
+update basic set co_located_library = 'X' where co_located_library = 'x';
+update basic set co_located_museum = 'X' where co_located_museum = 'x';
+update basic set co_located_retail = 'X' where co_located_retail = 'x';
+update basic set co_located_schools_colleges = 'X' where co_located_schools_colleges = 'x';
+update basic set co_located_universities_highereducation = 'X' where co_located_universities_highereducation = 'x';
+update basic set co_located_other = 'X' where co_located_other = 'x';
 
 
 -- Now process updates to the libraries table
