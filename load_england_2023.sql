@@ -542,6 +542,90 @@ update basic set co_located_universities_highereducation = 'X' where co_located_
 update basic set co_located_other = 'X' where co_located_other = 'x';
 
 
+update basic set monday = 'AM Only' where monday = 'AM only';
+update basic set monday = 'PM Only' where monday = 'PM only';
+update basic set monday = 'AM & PM (continuous)' where monday = 'AM & PM';
+update basic set monday = 'All Day (continuous)' where monday = 'ALl Day (continuous)';
+update basic set monday = 'All Day (with closure)' where monday = 'All day (with closure)';
+update basic set monday = 'Varied by Schedule' where monday = 'Varied by schedule';
+update basic set monday = 'No Regular Opening' where monday = 'No regular opening';
+update basic set monday = 'Closed' where monday = 'closed';
+
+update basic set tuesday = 'AM Only' where tuesday = 'AM only';
+update basic set tuesday = 'PM Only' where tuesday = 'PM only';
+update basic set tuesday = 'AM & PM (continuous)' where tuesday = 'AM & PM';
+update basic set tuesday = 'All Day (continuous)' where tuesday = 'ALl Day (continuous)';
+update basic set tuesday = 'All Day (with closure)' where tuesday = 'All day (with closure)';
+update basic set tuesday = 'Varied by Schedule' where tuesday = 'Varied by schedule';
+update basic set tuesday = 'No Regular Opening' where tuesday = 'No regular opening';
+update basic set tuesday = 'Closed' where tuesday = 'closed';
+
+update basic set wednesday = 'AM Only' where wednesday = 'AM only';
+update basic set wednesday = 'PM Only' where wednesday = 'PM only';
+update basic set wednesday = 'AM & PM (continuous)' where wednesday = 'AM & PM';
+update basic set wednesday = 'All Day (continuous)' where wednesday = 'ALl Day (continuous)';
+update basic set wednesday = 'All Day (with closure)' where wednesday = 'All day (with closure)';
+update basic set wednesday = 'Varied by Schedule' where wednesday = 'Varied by schedule';
+update basic set wednesday = 'No Regular Opening' where wednesday = 'No regular opening';
+update basic set wednesday = 'Closed' where wednesday = 'closed';
+
+update basic set thursday = 'AM Only' where thursday = 'AM only';
+update basic set thursday = 'PM Only' where thursday = 'PM only';
+update basic set thursday = 'AM & PM (continuous)' where thursday = 'AM & PM';
+update basic set thursday = 'All Day (continuous)' where thursday = 'ALl Day (continuous)';
+update basic set thursday = 'All Day (with closure)' where thursday = 'All day (with closure)';
+update basic set thursday = 'Varied by Schedule' where thursday = 'Varied by schedule';
+update basic set thursday = 'No Regular Opening' where thursday = 'No regular opening';
+update basic set thursday = 'Closed' where thursday = 'closed';
+
+update basic set friday = 'AM Only' where friday = 'AM only';
+update basic set friday = 'PM Only' where friday = 'PM only';
+update basic set friday = 'AM & PM (continuous)' where friday = 'AM & PM';
+update basic set friday = 'All Day (continuous)' where friday = 'ALl Day (continuous)';
+update basic set friday = 'All Day (with closure)' where friday = 'All day (with closure)';
+update basic set friday = 'Varied by Schedule' where friday = 'Varied by schedule';
+update basic set friday = 'No Regular Opening' where friday = 'No regular opening';
+update basic set friday = 'Closed' where friday = 'closed';
+
+update basic set saturday = 'AM Only' where saturday = 'AM only';
+update basic set saturday = 'PM Only' where saturday = 'PM only';
+update basic set saturday = 'AM & PM (continuous)' where saturday = 'AM & PM';
+update basic set saturday = 'All Day (continuous)' where saturday = 'ALl Day (continuous)';
+update basic set saturday = 'All Day (with closure)' where saturday = 'All day (with closure)';
+update basic set saturday = 'Varied by Schedule' where saturday = 'Varied by schedule';
+update basic set saturday = 'No Regular Opening' where saturday = 'No regular opening';
+update basic set saturday = 'Closed' where saturday = 'closed';
+
+update basic set sunday = 'AM Only' where sunday = 'AM only';
+update basic set sunday = 'PM Only' where sunday = 'PM only';
+update basic set sunday = 'AM & PM (continuous)' where sunday = 'AM & PM';
+update basic set sunday = 'All Day (continuous)' where sunday = 'ALl Day (continuous)';
+update basic set sunday = 'All Day (with closure)' where sunday = 'All day (with closure)';
+update basic set sunday = 'Varied by Schedule' where sunday = 'Varied by schedule';
+update basic set sunday = 'No Regular Opening' where sunday = 'No regular opening';
+update basic set sunday = 'Closed' where sunday = 'closed';
+
+
+update basic set hours = null where hours = 'Appointment Only';
+update basic set hours = null where hours = 'N/A Closed';
+update basic set hours = null where hours = 'No regular opening';
+update basic set hours = null where hours = 'No Regular Opening';
+update basic set hours = null where hours = 'Not Currently Open';
+update basic set hours = null where hours = '[Unknown]';
+update basic set hours = null where hours = 'Varied by Schedule';
+
+
+update basic set staffed_hours = null where staffed_hours = 'Appointment Only';
+update basic set staffed_hours = null where staffed_hours = 'N/A Closed';
+update basic set staffed_hours = null where staffed_hours = 'No regular opening';
+update basic set staffed_hours = null where staffed_hours = 'No Regular Opening';
+update basic set staffed_hours = null where staffed_hours = 'Not Currently Open';
+update basic set staffed_hours = null where staffed_hours = '[Unknown]';
+update basic set staffed_hours = null where staffed_hours = 'Varied by Schedule';
+
+
+
+
 -- Now process updates to the libraries table
 
 -- name
