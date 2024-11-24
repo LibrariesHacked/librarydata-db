@@ -396,7 +396,6 @@ and uprn is not null
 and postcode is not null; -- 181
 
 
-
 -- Go from 10 distinct types to 5
 update basic set type = 'Static Library' where type = 'Static library';
 update basic set type = 'Static Library' where type = 'static library';
@@ -541,6 +540,23 @@ update basic set co_located_schools_colleges = 'X' where co_located_schools_coll
 update basic set co_located_universities_highereducation = 'X' where co_located_universities_highereducation = 'x';
 update basic set co_located_other = 'X' where co_located_other = 'x';
 
+update basic set co_located_archives = null where co_located_archives != 'X';
+update basic set co_located_artscentre = null where co_located_artscentre != 'X';
+update basic set co_located_carehome_hostel = null where co_located_carehome_hostel != 'X';
+update basic set co_located_catering_bars_pub = null where co_located_catering_bars_pub != 'X';
+update basic set co_located_civic = null where co_located_civic != 'X';
+update basic set co_located_community = null where co_located_community != 'X';
+update basic set co_located_faithbuildings = null where co_located_faithbuildings != 'X';
+update basic set co_located_health = null where co_located_health != 'X';
+update basic set co_located_hotel = null where co_located_hotel != 'X';
+update basic set co_located_industrial_business = null where co_located_industrial_business != 'X';
+update basic set co_located_library = null where co_located_library != 'X';
+update basic set co_located_museum = null where co_located_museum != 'X';
+update basic set co_located_retail = null where co_located_retail != 'X';
+update basic set co_located_schools_colleges = null where co_located_schools_colleges != 'X';
+update basic set co_located_universities_highereducation = null where co_located_universities_highereducation != 'X';
+update basic set co_located_other = null where co_located_other != 'X';
+
 
 update basic set monday = 'AM Only' where monday = 'AM only';
 update basic set monday = 'PM Only' where monday = 'PM only';
@@ -636,6 +652,78 @@ update basic set staffed_hours = null where staffed_hours = '[Unknown]';
 update basic set staffed_hours = null where staffed_hours = 'Varied by Schedule';
 
 update basic set automated = 'No' where automated in ('N/A','no');
+
+-- Now write a query to select all the data in the basic table
+select 
+    b.reporting as "Reporting service",
+    b.name as "Name",
+    b.type as "Type",
+    b.address1 as "Address 1",
+    b.address2 as "Address 2",
+    b.address3 as "Address 3",
+    b.postcode as "Postcode",
+    b.uprn as "Unique property reference number",
+    b.authority as "Upper tier local authority",
+    b.statutory_10 as "Statutory 2010",
+    b.statutory_16 as "Statutory 2016",
+    b.statutory_19 as "Statutory 2019",
+    b.statutory_21 as "Statutory 2021",
+    b.statutory_22 as "Statutory 2022",
+    b.statutory_23 as "Statutory 2023",
+    b.operation_16 as "Operation 2016",
+    b.operation_19 as "Operation 2019",
+    b.operation_21 as "Operation 2021",
+    b.operation_22 as "Operation 2022",
+    b.operation_23 as "Operation 2023",
+    b.opened as "Year opened",
+    b.closed as "Year closed",
+    b.operating_organisation as "Operating organisation",
+    b.department as "Department",
+    b.new_build_22 as "New build 2022",
+    b.co_located as "Co-located",
+    b.co_located_archives as "Co-located archives",
+    b.co_located_artscentre as "Co-located arts centre",
+    b.co_located_carehome_hostel as "Co-located care home or hostel",
+    b.co_located_catering_bars_pub as "Co-located catering, bars or pub",
+    b.co_located_civic as "Co-located civic",
+    b.co_located_community as "Co-located community",
+    b.co_located_faithbuildings as "Co-located faith buildings",
+    b.co_located_health as "Co-located health",
+    b.co_located_hotel as "Co-located hotel",
+    b.co_located_industrial_business as "Co-located industrial or business",
+    b.co_located_library as "Co-located library",
+    b.co_located_museum as "Co-located museum",
+    b.co_located_retail as "Co-located retail",
+    b.co_located_schools_colleges as "Co-located schools or colleges",
+    b.co_located_universities_highereducation as "Co-located universities or higher education",
+    b.co_located_other as "Co-located other",
+    b.co_located_other_text as "Co-located other text",
+    b.monday as "Monday opening times",   
+    b.tuesday as "Tuesday opening times",
+    b.wednesday as "Wednesday opening times",
+    b.thursday as "Thursday opening times",
+    b.friday as "Friday opening times",
+    b.saturday as "Saturday opening times",
+    b.sunday as "Sunday opening times",
+    b.hours as "Hours open per week",
+    b.staffed_hours as "Staffed hours per week",
+    b.automated as "Automated",
+    b.email as "Email or website",
+    r.rural_urban_classification_11 as "Rural urban classification code",
+    case 
+        when rural_urban_classification_11 = 'A1' then 'Urban major conurbation'
+        when rural_urban_classification_11 = 'A2' then 'Urban minor conurbation'
+        when rural_urban_classification_11 = 'B1' then 'Urban city and town'
+        when rural_urban_classification_11 = 'B2' then 'Urban city and town'
+        when rural_urban_classification_11 = 'C1' then 'Urban city and town'
+        when rural_urban_classification_11 = 'C2' then 'Urban city and town'
+        when rural_urban_classification_11 = 'D1' then 'Rural town and fringe'
+        when rural_urban_classification_11 = 'D2' then 'Rural town and fringe'
+    end as "Rural urban classification description"
+from basic b
+left join geo_postcode_lookup p
+on p.postcode = b.postcode
+order by reporting, type, name;
 
 
 -- Now process updates to the libraries table
