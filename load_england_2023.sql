@@ -557,6 +557,8 @@ update basic set co_located_schools_colleges = null where co_located_schools_col
 update basic set co_located_universities_highereducation = null where co_located_universities_highereducation != 'X';
 update basic set co_located_other = null where co_located_other != 'X';
 
+update basic set co_located_other_text = null where co_located_other_text = '[Detail not provided]';
+
 
 update basic set monday = 'AM Only' where monday = 'AM only';
 update basic set monday = 'PM Only' where monday = 'PM only';
@@ -655,7 +657,8 @@ update basic set automated = 'No' where automated in ('N/A','no');
 
 -- Now write a query to select all the data in the basic table
 select 
-    b.reporting as "Reporting service",
+    a.name as "Reporting service",
+	a.code as "Reporting service code",
     b.name as "Name",
     b.type as "Type",
     b.address1 as "Address 1",
@@ -663,23 +666,27 @@ select
     b.address3 as "Address 3",
     b.postcode as "Postcode",
     b.uprn as "Unique property reference number",
+    coalesce(u.x_coordinate, p.easting) as "Easting",
+    coalesce(u.y_coordinate, p.northing) as "Northing",
+    coalesce(u.longitude, p.longitude) as "Longitude",
+    coalesce(u.latitude, p.latitude) as "Latitude",
     b.authority as "Upper tier local authority",
-    b.statutory_10 as "Statutory 2010",
-    b.statutory_16 as "Statutory 2016",
-    b.statutory_19 as "Statutory 2019",
-    b.statutory_21 as "Statutory 2021",
-    b.statutory_22 as "Statutory 2022",
-    b.statutory_23 as "Statutory 2023",
-    b.operation_16 as "Operation 2016",
-    b.operation_19 as "Operation 2019",
-    b.operation_21 as "Operation 2021",
-    b.operation_22 as "Operation 2022",
-    b.operation_23 as "Operation 2023",
+    b.statutory_10 as "Statutory in 2010",
+    b.statutory_16 as "Statutory in 2016",
+    b.statutory_19 as "Statutory in 2019",
+    b.statutory_21 as "Statutory in 2021",
+    b.statutory_22 as "Statutory in 2022",
+    b.statutory_23 as "Statutory in 2023",
+    b.operation_16 as "Operation in 2016",
+    b.operation_19 as "Operation in 2019",
+    b.operation_21 as "Operation in 2021",
+    b.operation_22 as "Operation in 2022",
+    b.operation_23 as "Operation in 2023",
     b.opened as "Year opened",
     b.closed as "Year closed",
     b.operating_organisation as "Operating organisation",
     b.department as "Department",
-    b.new_build_22 as "New build 2022",
+    b.new_build_22 as "New build in 2022",
     b.co_located as "Co-located",
     b.co_located_archives as "Co-located archives",
     b.co_located_artscentre as "Co-located arts centre",
@@ -709,21 +716,40 @@ select
     b.staffed_hours as "Staffed hours per week",
     b.automated as "Automated",
     b.email as "Email or website",
-    r.rural_urban_classification_11 as "Rural urban classification code",
+    p.rural_urban_classification_11 as "Rural urban classification code",
     case 
-        when rural_urban_classification_11 = 'A1' then 'Urban major conurbation'
-        when rural_urban_classification_11 = 'A2' then 'Urban minor conurbation'
-        when rural_urban_classification_11 = 'B1' then 'Urban city and town'
-        when rural_urban_classification_11 = 'B2' then 'Urban city and town'
-        when rural_urban_classification_11 = 'C1' then 'Urban city and town'
-        when rural_urban_classification_11 = 'C2' then 'Urban city and town'
-        when rural_urban_classification_11 = 'D1' then 'Rural town and fringe'
-        when rural_urban_classification_11 = 'D2' then 'Rural town and fringe'
-    end as "Rural urban classification description"
+        when p.rural_urban_classification_11 = 'A1' then 'Urban Major Conurbation'
+        when p.rural_urban_classification_11 = 'B1' then 'Urban Minor Conurbation'
+        when p.rural_urban_classification_11 = 'C1' then 'Urban City and Town'
+        when p.rural_urban_classification_11 = 'C2' then 'Urban City and Town in a Sparse Setting'
+        when p.rural_urban_classification_11 = 'D1' then 'Rural Town and Fringe'
+        when p.rural_urban_classification_11 = 'D2' then 'Rural Town and Fringe in a Sparse Setting'
+        when p.rural_urban_classification_11 = 'E1' then 'Rural Village'
+        when p.rural_urban_classification_11 = 'E2' then 'Rural Village in a Sparse Setting'
+        when p.rural_urban_classification_11 = 'F1' then 'Rural Hamlets and Isolated Dwellings'
+        when p.rural_urban_classification_11 = 'F2' then 'Rural Hamlets and Isolated Dwellings in a Sparse Setting'
+    end as "Rural urban classification description",
+    p.imd as "Index of multiple deprivation rank",
+    case 
+        when p.imd between 1 and 3284 then 1
+        when p.imd between 3285 and 6568 then 2
+        when p.imd between 6569 and 9852 then 3
+        when p.imd between 9853 and 13136 then 4
+        when p.imd between 13137 and 16420 then 5
+        when p.imd between 16421 and 19704 then 6
+        when p.imd between 19705 and 22988 then 7
+        when p.imd between 22989 and 26272 then 8
+        when p.imd between 26273 and 29556 then 9
+        when p.imd between 29557 and 32844 then 10
+    end as "Index of multiple deprivation decile"
 from basic b
+join schemas_local_authority a
+on a.nice_name = b.authority
+left join geo_uprn u
+on u.uprn = cast(b.uprn as numeric)
 left join geo_postcode_lookup p
 on p.postcode = b.postcode
-order by reporting, type, name;
+order by a.name, b.type, b.name;
 
 
 -- Now process updates to the libraries table
@@ -831,34 +857,6 @@ where l.postcode = b.postcode
 and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
 and b.closed ~ '^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$'
 and l.year_closed is null;
-
--- colocated
-update basic set co_located = 'Yes' where co_located = 'yes';
-update basic set co_located = 'No' where co_located = 'N/A';
-
-
-update basic set co_located_archives = 'X' where co_located_archives = 'x';
-update basic set co_located_artscentre = 'X' where co_located_artscentre = 'x';
-update basic set co_located_carehome_hostel = 'X' where co_located_carehome_hostel = 'x';
-update basic set co_located_catering_bars_pub = 'X' where co_located_catering_bars_pub = 'x';
-update basic set co_located_civic = 'X' where co_located_civic = 'x';
-update basic set co_located_community = 'X' where co_located_community = 'x';
-update basic set co_located_faithbuildings = 'X' where co_located_faithbuildings = 'x';
-update basic set co_located_health = 'X' where co_located_health = 'x';
-update basic set co_located_hotel = 'X' where co_located_hotel = 'x';
-update basic set co_located_industrial_business = 'X' where co_located_industrial_business = 'x';
-update basic set co_located_library = 'X' where co_located_library = 'x';
-update basic set co_located_museum = 'X' where co_located_museum = 'x';
-update basic set co_located_retail = 'X' where co_located_retail = 'x';
-update basic set co_located_schools_colleges = 'X' where co_located_schools_colleges = 'x';
-update basic set co_located_universities_highereducation = 'X' where co_located_universities_highereducation = 'x';
-update basic set co_located_other = 'X' where co_located_other = 'x';
-
-
-update basic set co_located_other_text = null where co_located_other_text = '[Detail not provided]';
-
-
-
 
 update  
     schemas_libraries l
