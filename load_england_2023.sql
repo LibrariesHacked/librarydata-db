@@ -406,7 +406,7 @@ update basic set type = 'Archive' where type = 'static archive';
 -- Non libraries - 12
 delete from basic where name = 'Gorse Hill Community Book Collection'; -- Closed in 2009
 delete from basic where name = 'Library Support Unit'; -- not a public library
--- These micros have operation status as unkownn - will delete
+-- These micros have operation status as unknown - will delete
 delete from basic where name = 'Millbrook Micro';
 delete from basic where name = 'Mullion Micro';
 delete from basic where name = 'Polbathic Micro';
