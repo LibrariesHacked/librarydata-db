@@ -879,5 +879,3 @@ where l.postcode = b.postcode
 and b.postcode not in (select postcode from basic where type = 'Static Library' group by postcode having count(*) > 1)
 and b.email is not null
 and l.year_closed is null;
-
--- psql --set=sslmode=require -f load_england_2022.sql -h librarieshacked-db.postgres.database.azure.com -p 5432 -U librarieshacked postgres
