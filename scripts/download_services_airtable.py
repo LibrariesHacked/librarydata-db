@@ -28,7 +28,7 @@ def download_services():
         records.extend(data["records"])
 
     with open("data/services/services.json", "w") as f:
-        json.dump(data, f, indent=4)
+        json.dump(records, f, indent=4)
 
 
 download_services()
