@@ -1,7 +1,8 @@
 name: Download services from airtable
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs every day at midnight UTC
+    # Run every 4 hours
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 jobs:
