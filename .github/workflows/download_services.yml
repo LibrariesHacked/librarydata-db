@@ -28,6 +28,9 @@ jobs:
       # Run the Python script
       - name: Run download_services_airtable.py
         run: python scripts/download_services_airtable.py
+        # Use the AIRTABLE_API_KEY secret to authenticate with the Airtable API
+        env:
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
 
       # Configure Git
       - name: Configure Git
