@@ -14,6 +14,14 @@ def download_services():
     }
     response = requests.get(AIRTABLE_API_URL, headers=headers)
     data = response.json()
+
+    # The response may contain multiple pages of data, so we need to handle pagination
+    while "offset" in data:
+        offset = data["offset"]
+        response = requests.get(
+            f"{AIRTABLE_API_URL}&offset={offset}", headers=headers)
+        data["records"].extend(response.json()["records"])
+
     with open("data/services/services.json", "w") as f:
         json.dump(data, f, indent=4)
 
