@@ -39,11 +39,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: check for changes
+        run: git status
+
       # Commit and push changes
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Update data from Airtable"
+          git diff-index --quiet HEAD || git commit -m "Update data from Airtable"
           git push
         env:
           # Ensure the GitHub token is available for authentication
