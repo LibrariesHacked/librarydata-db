@@ -118,7 +118,7 @@
             "Child fine": 0.2,
             "Adult fine": 0.2,
             "Fine interval": "Day",
-            "Fine notes": "Overdue charges suspended",
+            "Fine notes": "Resumed (from suspended) overdue charges in 2025",
             "Green library": true
         }
     },
@@ -436,9 +436,10 @@
                 "recvssssiZPBlYzub"
             ],
             "Library notification": "\n",
-            "Child fine": 0.21,
-            "Adult fine": 0.21,
+            "Child fine": 0.22,
+            "Adult fine": 0.22,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.21 to 0.22",
             "Green library": true
         }
     },
@@ -958,9 +959,9 @@
             "Library management system": "OpenGalaxy",
             "Online catalogue system": "Arena",
             "Library notification": "\n",
-            "Child fine": 0.25,
-            "Adult fine": 0.25,
-            "Fine interval": "Day",
+            "Child fine": 0,
+            "Adult fine": 0,
+            "Fine notes": "Removed fined in 2025",
             "Green library": true
         }
     },
@@ -1032,9 +1033,10 @@
             "Library management system": "OpenGalaxy",
             "Online catalogue system": "Arena",
             "Library notification": "\n",
-            "Child fine": 0.32,
-            "Adult fine": 0.32,
+            "Child fine": 0.33,
+            "Adult fine": 0.33,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.32 to 0.33",
             "Green library": true
         }
     },
@@ -1110,8 +1112,9 @@
             "Online catalogue system": "Prism",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.2,
-            "Fine interval": "Day"
+            "Adult fine": 0.23,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.20 to 0.23"
         }
     },
     {
@@ -1671,8 +1674,9 @@
             "Time to read library": true,
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.3,
+            "Adult fine": 0.35,
             "Fine interval": "Day",
+            "Fine notes": "Increase in 2025 from 0.30 to 0.35",
             "Green library": true
         }
     },
@@ -2310,9 +2314,10 @@
             "Podcast RSS feed": "http://www.loveyourlibrary.co.uk/feed/",
             "Podcast name": "Love Your Library",
             "Library notification": "\n",
-            "Child fine": 0.05,
-            "Adult fine": 0.3,
+            "Child fine": 0.1,
+            "Adult fine": 0.35,
             "Fine interval": "Day",
+            "Fine notes": "In 2025 child fine from 0.05 to 0.10 and adult from 0.30 to 0.35",
             "Green library": true
         }
     },
@@ -2440,9 +2445,10 @@
             "Library management system": "Spydus",
             "Online catalogue system": "Spydus",
             "Library notification": "\n",
-            "Child fine": 0.25,
-            "Adult fine": 0.25,
-            "Fine interval": "Day"
+            "Child fine": 0.3,
+            "Adult fine": 0.3,
+            "Fine interval": "Day",
+            "Fine notes": "Increase in 2025 from 0.25 to 0.30"
         }
     },
     {
@@ -2627,7 +2633,8 @@
             "Library notification": "\n",
             "Child fine": 0.2,
             "Adult fine": 0.2,
-            "Fine interval": "Day"
+            "Fine interval": "Day",
+            "Fine notes": "Fines still suspended"
         }
     },
     {
@@ -2662,9 +2669,10 @@
             "Online catalogue system": "Spydus",
             "News signup URL": "https://www3.rbwm.gov.uk/info/200197/libraries/391/library_newsletter",
             "Library notification": "\n",
-            "Child fine": 0.35,
-            "Adult fine": 0.35,
-            "Fine interval": "Day"
+            "Child fine": 0.37,
+            "Adult fine": 0.37,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.35 to 0.37"
         }
     },
     {
@@ -2861,9 +2869,10 @@
             "Online catalogue system": "Spydus",
             "News URL": "https://www.milton-keynes.gov.uk/libraries/library-news-and-events/mkl-news",
             "Library notification": "\n",
-            "Child fine": 0.5,
-            "Adult fine": 0.5,
-            "Fine interval": "Day"
+            "Child fine": 0.55,
+            "Adult fine": 0.55,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.50 to 0.55"
         }
     },
     {
@@ -2931,9 +2940,10 @@
                 "recoAGVUsgbWbdelD"
             ],
             "Library notification": "\n",
-            "Child fine": 0.2,
-            "Adult fine": 0.2,
+            "Child fine": 0.25,
+            "Adult fine": 0.25,
             "Fine interval": "Day",
+            "Fine notes": "Increase in 2025 from 0.20 to 0.25",
             "Green library": true
         }
     },
@@ -3146,9 +3156,10 @@
                 "recybeSwP2UWc73gq"
             ],
             "Library notification": "\n",
-            "Child fine": 0.38,
-            "Adult fine": 0.38,
+            "Child fine": 0.42,
+            "Adult fine": 0.42,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.38 to 0.42",
             "Green library": true
         }
     },
@@ -3470,9 +3481,10 @@
             ],
             "Podcast name": "Around the World in 80 Books",
             "Library notification": "\n",
-            "Child fine": 0.1,
-            "Adult fine": 0.1,
+            "Child fine": 0.2,
+            "Adult fine": 0.2,
             "Fine interval": "Day",
+            "Fine notes": "In 2025 from 0.10 to 0.20",
             "Green library": true
         }
     },
@@ -3653,7 +3665,7 @@
             "Podcast name": "Overdue Finds",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 1.05,
+            "Adult fine": 1.1,
             "Fine interval": "Week",
             "Green library": true,
             "Authority URL": "https://www.aberdeenshire.gov.uk/live-life-aberdeenshire/",
@@ -3691,8 +3703,9 @@
             "Time to read library": true,
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.23,
+            "Adult fine": 0.24,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.23 to 0.24",
             "Green library": true
         }
     },
@@ -3726,8 +3739,8 @@
             "Library management system": "Spydus",
             "Online catalogue system": "Spydus",
             "Library notification": "\n",
-            "Child fine": 0,
-            "Adult fine": 0.25,
+            "Child fine": 0.15,
+            "Adult fine": 0.3,
             "Fine interval": "Day"
         }
     },
@@ -3861,9 +3874,8 @@
             ],
             "Emagazines info URL": "https://www.aberdeencity.gov.uk/services/libraries-and-archives/online-resources/ebooks-emagazines-and-newspapers",
             "Library notification": "\n",
-            "Child fine": 0.5,
-            "Adult fine": 0.5,
-            "Fine interval": "Week",
+            "Child fine": 0,
+            "Adult fine": 0,
             "Authority URL": "https://www.aberdeencity.gov.uk/services/libraries-and-archives",
             "Service name": "Aberdeen City Libraries"
         }
@@ -3986,9 +3998,10 @@
             "Online catalogue system": "Spydus",
             "News signup URL": "https://public.govdelivery.com/accounts/UKGLOUCESTERSHIRE/subscriber/new?topic_id=UKGLOUCESTERSHIRE_12",
             "Library notification": "\n",
-            "Child fine": 0.15,
-            "Adult fine": 1.4,
-            "Fine interval": "Week",
+            "Child fine": 0,
+            "Adult fine": 0.25,
+            "Fine interval": "Day",
+            "Fine notes": "Removed library fines for children in 2024",
             "Green library": true
         }
     },
@@ -4021,7 +4034,7 @@
             "Online catalogue system": "Spydus",
             "Library notification": "\n",
             "Child fine": 0.08,
-            "Adult fine": 0.25,
+            "Adult fine": 0.28,
             "Fine interval": "Day",
             "Green library": true
         }
@@ -4091,8 +4104,9 @@
             "Online catalogue system": "Spydus",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.2,
+            "Adult fine": 0.25,
             "Fine interval": "Day",
+            "Fine notes": "In 2025 increase from 0.20 to 0.25",
             "Green library": true
         }
     },
@@ -4322,8 +4336,9 @@
             ],
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.15,
-            "Fine interval": "Day"
+            "Adult fine": 0.2,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.15 to 0.20"
         }
     },
     {
@@ -4487,7 +4502,7 @@
             "Home service URL": "https://www.coventry.gov.uk/homelibraryservice",
             "Computer access URL": "https://www.coventry.gov.uk/covlibrariescomputeraccess",
             "Wifi access URL": "https://www.coventry.gov.uk/info/126/libraries/3217/computer_and_wifi_access_in_libraries/3",
-            "Fees and charges URL": "https://www.coventry.gov.uk/libraries-1/join-find-use/13",
+            "Fees and charges URL": "https://www.coventry.gov.uk/libraries-1/join-find-use/12",
             "Childrens service URL": "https://www.coventry.gov.uk/info/126/libraries/3218/libraries_-_core_services/2",
             "Instagram name": "coventrylibraries",
             "Facebook page name": "Coventry Library and Information Service",
@@ -4693,9 +4708,10 @@
             "Online catalogue system": "Koha",
             "Time to read library": true,
             "Library notification": "\n",
-            "Child fine": 0.14,
-            "Adult fine": 0.14,
-            "Fine interval": "Day"
+            "Child fine": 0.2,
+            "Adult fine": 0.2,
+            "Fine interval": "Day",
+            "Fine notes": "Increase in 2025 from 0.14 to 0.20"
         }
     },
     {
@@ -5079,7 +5095,7 @@
             "Home service URL": "https://www.bury.gov.uk/index.aspx?articleid=10984",
             "Computer access URL": "https://www.bury.gov.uk/index.aspx?articleid=10950",
             "Wifi access URL": "https://www.bury.gov.uk/index.aspx?articleid=10950",
-            "Fees and charges URL": "https://www.bury.gov.uk/libraries-and-archives/library-fees-and-charges-1",
+            "Fees and charges URL": "https://www.bury.gov.uk/libraries-and-archives/library-fees-and-charges",
             "Childrens service URL": "https://www.bury.gov.uk/index.aspx?articleid=10862",
             "Facebook page name": "BuryLibraries",
             "Twitter handle": "BuryLibraries",
@@ -5145,9 +5161,10 @@
             "Online catalogue system": "Enterprise",
             "News signup URL": "https://public.govdelivery.com/accounts/UKESSEX/subscriber/new",
             "Library notification": "\n",
-            "Child fine": 0.26,
-            "Adult fine": 0.26,
-            "Fine interval": "Day"
+            "Child fine": 0.27,
+            "Adult fine": 0.27,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.26 to 0.27"
         }
     },
     {
@@ -5310,8 +5327,9 @@
             "News URL": "https://www.thurrock.gov.uk/news/1727/what's-on-at-your-library",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.3,
-            "Fine interval": "Day"
+            "Adult fine": 0.35,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.30 to 0.35"
         }
     },
     {
@@ -5384,8 +5402,9 @@
             "Online catalogue system": "Enterprise",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.17,
+            "Adult fine": 0.2,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.17 to 0.20",
             "Green library": true
         }
     },
@@ -5459,7 +5478,7 @@
             "News URL": "https://www.inspireculture.org.uk/whats-on/news/category/reading-information/",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.2,
+            "Adult fine": 0.21,
             "Fine interval": "Day"
         }
     },
@@ -5660,9 +5679,10 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Portfolio",
             "Library notification": "\n",
-            "Child fine": 0.2,
-            "Adult fine": 0.2,
+            "Child fine": 0,
+            "Adult fine": 0,
             "Fine interval": "Day",
+            "Fine notes": "In 2025 went fine free",
             "Green library": true
         }
     },
@@ -6037,8 +6057,9 @@
             "Online catalogue system": "Enterprise",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.25,
-            "Fine interval": "Day"
+            "Adult fine": 0.3,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.25 to 0.30"
         }
     },
     {
@@ -6097,7 +6118,7 @@
             "Podcast name": "Shelf Life",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.15,
+            "Adult fine": 0.2,
             "Fine interval": "Day"
         }
     },
@@ -6309,8 +6330,9 @@
             "News URL": "https://new.enfield.gov.uk/services/libraries/announcements/",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.3,
+            "Adult fine": 0.45,
             "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.30 to 0.45",
             "Green library": true
         }
     },
@@ -6342,9 +6364,10 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Enterprise",
             "Library notification": "\n",
-            "Child fine": 0.46,
-            "Adult fine": 0.46,
-            "Fine interval": "Day"
+            "Child fine": 0.51,
+            "Adult fine": 0.51,
+            "Fine interval": "Day",
+            "Fine notes": "Increased in 2025 from 0.46 to 0.51"
         }
     },
     {
@@ -6434,7 +6457,7 @@
             "News signup URL": "https://hackney.gov.uk/libraries#sign",
             "Library notification": "\n",
             "Child fine": 0,
-            "Adult fine": 0.2,
+            "Adult fine": 0.22,
             "Fine interval": "Day"
         }
     },
@@ -6473,10 +6496,8 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Enterprise",
             "Library notification": "\n",
-            "Child fine": 0.2,
-            "Adult fine": 0.2,
-            "Fine interval": "Day",
-            "Fine notes": "May have gone fine free",
+            "Child fine": 0,
+            "Adult fine": 0,
             "Green library": true
         }
     },
@@ -6706,9 +6727,10 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Enterprise",
             "Library notification": "\n",
-            "Child fine": 0.21,
-            "Adult fine": 0.32,
-            "Fine interval": "Day"
+            "Child fine": 0.22,
+            "Adult fine": 0.34,
+            "Fine interval": "Day",
+            "Fine notes": "In 2025 up by 0.01 and 0.02"
         }
     },
     {
@@ -6865,8 +6887,8 @@
             "Online catalogue system": "Enterprise",
             "News URL": "https://libraries.merton.gov.uk/client/en_GB/merton/?rm=NEWS+AND+UPDAT0%7C%7C%7C1%7C%7C%7C0%7C%7C%7Ctrue",
             "Library notification": "\n",
-            "Child fine": 0.27,
-            "Adult fine": 0.27,
+            "Child fine": 0.28,
+            "Adult fine": 0.28,
             "Fine interval": "Day",
             "Green library": true
         }
@@ -6949,7 +6971,7 @@
             "Home service URL": "http://www.newport.gov.uk/en/Leisure-Tourism/Libraries/Join-Newport-Libraries/Library-Housebound-service.aspx",
             "Computer access URL": "https://www.newport.gov.uk/en/Leisure-Tourism/Libraries/Computers/Computers.aspx",
             "Wifi access URL": "https://www.newport.gov.uk/en/Leisure-Tourism/Libraries/Internet-Access.aspx",
-            "Fees and charges URL": "http://www.newport.gov.uk/en/Leisure-Tourism/Libraries/Join-Newport-Libraries/Fees-and-Charges.aspx",
+            "Fees and charges URL": "https://live.newport.gov.uk/our-city/see-and-do/libraries/libraries-fees-and-charges",
             "Childrens service URL": "http://www.newport.gov.uk/en/Leisure-Tourism/Libraries/Children-and-young-people.aspx",
             "Facebook page name": "LibrariesInNewport",
             "Twitter handle": "Newport_Library",
@@ -7208,8 +7230,8 @@
             ],
             "Emagazines info URL": "https://www.cardiff.gov.uk/ENG/resident/Libraries-and-archives/eBooks/Pages/default.aspx",
             "Library notification": "\n",
-            "Child fine": 0.2,
-            "Adult fine": 0.2,
+            "Child fine": 0.25,
+            "Adult fine": 0.25,
             "Fine interval": "Day"
         }
     },
@@ -7371,8 +7393,8 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Portfolio",
             "Library notification": "\n",
-            "Child fine": 0.39,
-            "Adult fine": 0.39,
+            "Child fine": 0.41,
+            "Adult fine": 0.41,
             "Fine interval": "Week"
         }
     },
@@ -7467,9 +7489,10 @@
             "Library management system": "Symphony",
             "Online catalogue system": "Portfolio",
             "Library notification": "\n",
-            "Child fine": 0.6,
-            "Adult fine": 0.6,
-            "Fine interval": "Week"
+            "Child fine": 0.65,
+            "Adult fine": 0.65,
+            "Fine interval": "Week",
+            "Fine notes": "Increased in 2025 from 0.60 to 0.65"
         }
     },
     {
