@@ -56,6 +56,15 @@ select
   "nation",
   "region" from schemas_staging_local_authority where "gss-code" is not null;
 
+-- Insert LibrariesNI (Northern Ireland) into the local authority table
+insert into schemas_local_authority (code, name, nice_name, nation, region)
+select
+  'N92000002' as code,
+  'Northern Ireland' as name,
+  'LibrariesNI' as nice_name,
+  'Northern Ireland' as nation,
+  'Northern Ireland' as region;
+
 drop table schemas_staging_local_authority;
 
 -- Authentication
